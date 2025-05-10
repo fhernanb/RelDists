@@ -77,7 +77,14 @@ Ex-WALD distribution in the <code><a href="https://rdrr.io/pkg/gamlss/man/gamlss
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The Ex-Wald distribution with parameters \(\mu\), \(\sigma\)
 and \(\nu\) has density given by</p>
-<p>\(f(x |\mu, \sigma) = x + 1 \)</p>
+<p>\(f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp(\frac{-x}{\nu} + \sigma(\mu-k)) F_W(x|k, \sigma) \, \text{for} \, k \geq 0\)</p>
+<p>\(f(x |\mu, \sigma, \nu) = \frac{1}{\nu} \exp\left( \frac{-(\sigma-\mu)^2}{2x} \right) Re \left( w(k^\prime \sqrt{x/2} + \frac{\sigma i}{\sqrt{2x}}) \right)  \, \text{for} \, k &lt; 0\)</p>
+<p>where \(k=\sqrt{\mu^2-\frac{2}{\nu}}\),
+\(k^\prime=\sqrt{\frac{2}{\nu}-\mu^2}\) and
+\(F_W\) corresponds to the cumulative function of
+the Wald distribution.</p>
+<p>More details about those expressions
+can be found on page 680 from Heathcote (2004).</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
