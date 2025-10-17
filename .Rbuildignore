@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^auxiliar$
+^\.travis\.yml$
+^docs$
+^README\.Rmd$
+^appveyor\.yml$
+^examples$
+^\.github$
+^cran-comments\.md$
+^_pkgdown\.yml$
+^pkgdown$
+^CRAN-SUBMISSION$
