@@ -29,7 +29,7 @@ Description: Parameters estimation and linear regression models for Reliability
     (2005) <doi:10.1111/j.1467-9876.2005.00510.x>.
 Depends: R (>= 3.5.0), survival, EstimationTools (>= 4.0.0)
 License: GPL-3
-URL: http://fhernanb.github.io/RelDists/
+URL: https://fhernanb.github.io/RelDists/
 BugReports: https://github.com/fhernanb/RelDists/issues
 Encoding: UTF-8
 RdMacros: Rdpack
