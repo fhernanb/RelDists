@@ -22,7 +22,7 @@
 #' 
 #' \eqn{f(x) = (\mu + \sigma/x^2) \exp(\mu x - \sigma/x) \exp(-\exp(\mu x-\sigma/x))}
 #' 
-#' for x>0.
+#' for \eqn{x>0}.
 #' 
 #' @return 
 #' \code{dFWE} gives the density, \code{pFWE} gives the distribution 

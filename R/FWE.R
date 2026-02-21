@@ -14,7 +14,7 @@
 #' 
 #' \eqn{f(x) = (\mu + \sigma/x^2) exp(\mu x - \sigma/x) exp(-exp(\mu x-\sigma/x))}
 #' 
-#' for x>0.
+#' for \eqn{x>0}.
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a FWE distribution in the \code{gamlss()} function.
 #' 

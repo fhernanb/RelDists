@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">RelDists</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ousuga/RelDists/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/fhernanb/RelDists/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -66,45 +66,20 @@
                         <h4 data-toc-skip class="author">Freddy
 Hernandez</h4>
             
-            <h4 data-toc-skip class="date">2025-10-16</h4>
+            <h4 data-toc-skip class="date">2026-02-21</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/ousuga/RelDists/blob/HEAD/vignettes/FWE_distribution.Rmd" class="external-link"><code>vignettes/FWE_distribution.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fhernanb/RelDists/blob/HEAD/vignettes/FWE_distribution.Rmd" class="external-link"><code>vignettes/FWE_distribution.Rmd</code></a></small>
       <div class="d-none name"><code>FWE_distribution.Rmd</code></div>
     </div>
 
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://ousuga.github.io/RelDists/">RelDists</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fhernanb.github.io/RelDists/" class="external-link">RelDists</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: survival</span></span>
 <span><span class="co">#&gt; Loading required package: EstimationTools</span></span>
-<span><span class="co">#&gt; Loading required package: DEoptim</span></span>
-<span><span class="co">#&gt; Loading required package: parallel</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; DEoptim package</span></span>
-<span><span class="co">#&gt; Differential Evolution algorithm in R</span></span>
-<span><span class="co">#&gt; Authors: D. Ardia, K. Mullen, B. Peterson and J. Ulrich</span></span>
-<span><span class="co">#&gt; Loading required package: BBmisc</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'BBmisc'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     isFALSE</span></span>
-<span><span class="co">#&gt; Loading required package: GA</span></span>
-<span><span class="co">#&gt; Loading required package: foreach</span></span>
-<span><span class="co">#&gt; Loading required package: iterators</span></span>
-<span><span class="co">#&gt; Package 'GA' version 3.2.4</span></span>
-<span><span class="co">#&gt; Type 'citation("GA")' for citing this R package in publications.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'GA'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     de</span></span>
-<span><span class="co">#&gt; Loading required package: gaussquad</span></span>
-<span><span class="co">#&gt; Loading required package: orthopolynom</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; &gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   EstimationTools Version 4.0.0   &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;</span></span>
+<span><span class="co">#&gt; &gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   EstimationTools Version 4.3.1   &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;</span></span>
 <span><span class="co">#&gt;   Feel free to report bugs in https://github.com/Jaimemosg/EstimationTools/issues</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="flexible-weibull-extension-distribution">Flexible Weibull extension distribution<a class="anchor" aria-label="anchor" href="#flexible-weibull-extension-distribution"></a>
@@ -121,7 +96,7 @@ x}], \quad x &gt; 0.\]</span></p>
 <span class="math inline">\(\sigma &gt; 0\)</span> and <span class="math inline">\(x &gt; 0\)</span>.</p>
 <p>Next figure shows possible shapes of the <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(F(x)\)</span> for several values of the
 parameters.</p>
-<p><img src="FWE_distribution_files/figure-html/unnamed-chunk-2-1.png" alt="Pdf and cdf for the FWE distribution. " width="768"></p>
+<p><img src="FWE_distribution_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="Pdf and cdf for the FWE distribution. " width="768"></p>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Bebbington2007" class="csl-entry">
 Bebbington, M., C. D. Lai, and R. Zitikis. 2007. <span>“A Flexible
@@ -137,11 +112,11 @@ Bebbington, M., C. D. Lai, and R. Zitikis. 2007. <span>“A Flexible
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Freddy Hernandez-Barajas, Olga Usuga, Carmen Patino, Jaime Mosquera, Amylkar Urrea.</p>
+  <p>Developed by Freddy Hernandez-Barajas, Olga Usuga, Carmen Patino, Jaime Mosquera.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

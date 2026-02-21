@@ -1,0 +1,123 @@
+# The Power Lindley distribution
+
+Density, distribution function, quantile function, random generation and
+hazard function for the Power Lindley distribution with parameters `mu`
+and `sigma`.
+
+## Usage
+
+``` r
+dPL(x, mu, sigma, log = FALSE)
+
+pPL(q, mu, sigma, lower.tail = TRUE, log.p = FALSE)
+
+qPL(p, mu, sigma, lower.tail = TRUE, log.p = FALSE)
+
+rPL(n, mu, sigma)
+
+hPL(x, mu, sigma)
+```
+
+## Arguments
+
+- x, q:
+
+  vector of quantiles.
+
+- mu:
+
+  parameter.
+
+- sigma:
+
+  parameter.
+
+- log, log.p:
+
+  logical; if TRUE, probabilities p are given as log(p).
+
+- lower.tail:
+
+  logical; if TRUE (default), probabilities are P\[X \<= x\], otherwise,
+  P\[X \> x\].
+
+- p:
+
+  vector of probabilities.
+
+- n:
+
+  number of observations.
+
+## Value
+
+`dPL` gives the density, `pPL` gives the distribution function, `qPL`
+gives the quantile function, `rPL` generates random deviates and `hPL`
+gives the hazard function.
+
+## Details
+
+The Power Lindley Distribution with parameters `mu` and `sigma` has
+density given by
+
+\\f(x) = \frac{\mu \sigma^2}{\sigma + 1} (1 + x^\mu) x ^ {\mu - 1}
+\exp({-\sigma x ^\mu}),\\
+
+for \\x \> 0\\.
+
+## References
+
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the Weibull
+distribution: A review. Reliability Engineering & System Safety, 124,
+32-55.
+
+Ghitany, M. E., Al-Mutairi, D. K., Balakrishnan, N., & Al-Enezi, L. J.
+(2013). Power Lindley distribution and associated inference.
+Computational Statistics & Data Analysis, 64, 20-33.
+
+## See also
+
+[PL](http://fhernanb.github.io/RelDists/reference/PL.md)
+
+## Author
+
+Amylkar Urrea Montoya, <amylkar.urrea@udea.edu.co>
+
+## Examples
+
+``` r
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
+## The probability density function
+curve(dPL(x, mu=1.5, sigma=0.2), from=0.1, to=10,
+      col="red", las=1, ylab="f(x)")
+
+
+## The cumulative distribution and the Reliability function
+par(mfrow=c(1, 2))
+curve(pPL(x, mu=1.5, sigma=0.2),
+      from=0.1, to=10, col="red", las=1, ylab="F(x)")
+curve(pPL(x, mu=1.5, sigma=0.2, lower.tail=FALSE),
+      from=0.1, to=10, col="red", las=1, ylab="R(x)")
+
+
+## The quantile function
+p <- seq(from=0, to=0.99999, length.out=100)
+plot(x=qPL(p, mu=1.5, sigma=0.2), y=p, xlab="Quantile",
+     las=1, ylab="Probability")
+curve(pPL(x, mu=1.5, sigma=0.2), from=0.1, add=TRUE, col="red")
+
+## The random function
+hist(rPL(n=1000, mu=1.5, sigma=0.2), freq=FALSE,
+     xlab="x", las=1, main="")
+curve(dPL(x, mu=1.5, sigma=0.2), from=0.1, to=15, add=TRUE, col="red")
+
+
+## The Hazard function
+par(mfrow=c(1,1))
+curve(hPL(x, mu=1.5, sigma=0.2), from=0.1, to=15,
+      col="red", ylab="Hazard function", las=1)
+
+
+par(old_par) # restore previous graphical parameters
+```

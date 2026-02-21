@@ -14,8 +14,7 @@ for the mu parameter.}
 for the sigma.}
 }
 \value{
-Returns a gamlss.family object which can be used to fit a 
-BS distribution in the \code{gamlss()} function.
+Returns a gamlss.family object which can be used to fit a BS distribution in the \code{gamlss()} function.
 }
 \description{
 The function \code{BS()} defines The Birnbaum-Saunders, 
@@ -56,7 +55,7 @@ exp(coef(mod1, what="sigma"))
 # Example 2
 # Generating random values for a regression model
 
-# A function to simulate a data set with Y ~ BS
+# A function to simulate a data set with Y as BS
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
@@ -75,7 +74,7 @@ mod2 <- gamlss(y~x1, sigma.fo=~x2,
 summary(mod2)
 
 # Example 3
-# Fatigue life (T) measures in cycles (×10−3) of n 101
+# Fatigue life (T) measures in cycles (×10-3) of n 101
 # aluminum coupons (specimens) of type 6061-T6.
 # Taken from Leiva et al. (2006) page 37.
 # https://journal.r-project.org/articles/RN-2006-033/RN-2006-033.pdf
@@ -126,14 +125,14 @@ exp(coef(mod4, what="sigma"))
 }
 \references{
 Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life 
-distributions. J. Appl. Prob., 6, 319-327.
+distributions. J. Appl. Prob., 6, 319--327.
 
 Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J., 
 Lima, R. R., & Gomes, R. A. (2021). Building flexible regression 
 models: including the Birnbaum-Saunders distribution in the 
-gamlss package. Semina: Ciências Exatas e Tecnológicas, 
+gamlss package. Semina: Ciencias Exatas e Tecnologicas, 
 42(2), 163-168.
 }
 \seealso{
-\link{dBS}.
+\link{dBS}
 }

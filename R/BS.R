@@ -11,17 +11,7 @@
 #' @param sigma.link defines the sigma.link, with "log" link as the default 
 #' for the sigma.
 #' 
-#' @references
-#' Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life 
-#' distributions. J. Appl. Prob., 6, 319-327.
-#' 
-#' Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J., 
-#' Lima, R. R., & Gomes, R. A. (2021). Building flexible regression 
-#' models: including the Birnbaum-Saunders distribution in the 
-#' gamlss package. Semina: Ciências Exatas e Tecnológicas, 
-#' 42(2), 163-168.
-#' 
-#' @seealso \link{dBS}.
+#' @seealso \link{dBS}
 #' 
 #' @details 
 #' The Birnbaum-Saunders with parameters \code{mu} and \code{sigma}
@@ -38,10 +28,19 @@
 #' with minor modifications to obtain correct log-likelihoods
 #' and random samples.
 #' 
-#' @returns Returns a gamlss.family object which can be used to fit a 
-#' BS distribution in the \code{gamlss()} function.
+#' @returns Returns a gamlss.family object which can be used to fit a BS distribution in the \code{gamlss()} function.
 #' 
-#' @example examples/examples_BS.R
+#' @example examples/examples_BS.R 
+#'
+#' @references
+#' Birnbaum, Z.W. and Saunders, S.C. (1969a). A new family of life 
+#' distributions. J. Appl. Prob., 6, 319--327.
+#' 
+#' Roquim, F. V., Ramires, T. G., Nakamura, L. R., Righetto, A. J., 
+#' Lima, R. R., & Gomes, R. A. (2021). Building flexible regression 
+#' models: including the Birnbaum-Saunders distribution in the 
+#' gamlss package. Semina: Ciencias Exatas e Tecnologicas, 
+#' 42(2), 163-168.
 #' 
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot

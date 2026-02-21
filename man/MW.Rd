@@ -23,7 +23,7 @@ Returns a gamlss.family object which can be used to fit a MW distribution in the
 The Modified Weibull distribution with parameters \code{mu}, 
 \code{sigma} and \code{nu} has density given by
 
-\eqn{f(x) = \mu (\sigma + \nu x) x^(\sigma - 1) \exp(\nu x) \exp(-\mu x^(\sigma) \exp(\nu x)),}
+\eqn{f(x) = \mu (\sigma + \nu x) x^{\sigma - 1} \exp(\nu x) \exp(-\mu x^{\sigma} \exp(\nu x)),}
 
 for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu \geq 0}.
 }

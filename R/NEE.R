@@ -142,17 +142,13 @@ NEE <- function(mu.link="log", sigma.link="log") {
   ),
   class=c("gamlss.family", "family"))
 }
-#'
-#' estim_mu_sigma_NEE
-#'
-#' This function generates initial values for NEE distribution.
-#'
-#' @param y vector with the random sample
-#' @examples
-#' y <- rNEE(n=100, mu=4.6, sigma=0.35)
-#' estim_mu_sigma_NEE(y=y)
-#' @importFrom stats optim
+#' Initial values for NEE distribution
+#' @description This function generates initial values for the parameters.
+#' @param y vector with the response variable.
+#' @return returns a vector with the MLE estimations.
+#' @keywords internal
 #' @export
+#' @importFrom stats optim
 estim_mu_sigma_NEE <- function(y) {
   mod <- optim(par=c(0, 0),
                fn=logLik_NEE,
@@ -164,21 +160,16 @@ estim_mu_sigma_NEE <- function(y) {
   names(res) <- c("mu_hat", "sigma_hat")
   return(res)
 }
-#'
-#' logLik_NEE
-#'
-#' This is an auxiliar function to obtain the logLik for NEE.
-#'
-#' @param param vector with the values for mu and sigma
-#' @param x vector with the data
-#' @examples
-#' y <- rNEE(n=100, mu=1, sigma=1)
-#' logLik_NEE(param=c(0, 0), x=y)
-#' @importFrom stats optim
+#' logLik function for NEE
+#' @description Calculates logLik for NEE distribution.
+#' @param logparam vector with parameters in log scale.
+#' @param x vector with the response variable.
+#' @return returns the loglikelihood given the parameters and random sample.
+#' @keywords internal
 #' @export
-logLik_NEE <- function(param=c(0, 0), x){
+logLik_NEE <- function(logparam=c(0, 0), x){
   return(sum(dNEE(x,
-                  mu    = exp(param[1]),
-                  sigma = exp(param[2]),
+                  mu    = exp(logparam[1]),
+                  sigma = exp(logparam[2]),
                   log=TRUE)))
 }

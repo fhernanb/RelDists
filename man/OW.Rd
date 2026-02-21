@@ -29,7 +29,7 @@ has density given by
      e^{(\mu t)^\sigma} \left(e^{(\mu t)^{\sigma}}-1\right)^{\nu-1}
      \left[ 1 + \left(e^{(\mu t)^{\sigma}}-1\right)^\nu \right]^{-2}}
 
-for x > 0.
+for \eqn{x>0}.
 }
 \examples{
 # Example 1

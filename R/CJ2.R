@@ -132,7 +132,6 @@ CJ2 <- function (mu.link="log", sigma.link="log") {
 #' @param x vector with the response variable.
 #' @return returns the loglikelihood given the parameters and random sample.
 #' @keywords internal
-#' @export
 logLik_CJ2 <- function(logparam=c(0, 0), x){
   return(sum(dCJ2(x     = x,
                   mu    = exp(logparam[1]),
@@ -151,7 +150,6 @@ logLik_CJ2 <- function(logparam=c(0, 0), x){
 #' A two-length numeric vector with initial estimates for \eqn{mu} and \eqn{sigma} 
 #' parameters from CJ2 distribution (see \code{\link{dCJ2}}).
 #' 
-#' @export
 #' @importFrom stats optim
 estim_mu_sigma_CJ2 <- function(y) {
   mod <- optim(par=c(0, 0),

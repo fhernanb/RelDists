@@ -1,0 +1,123 @@
+# The Exponentiated Modifien Weibull Extension family
+
+The Exponentiated Modifien Weibull Extension family
+
+## Usage
+
+``` r
+EMWEx(mu.link = "log", sigma.link = "log", nu.link = "log", tau.link = "log")
+```
+
+## Arguments
+
+- mu.link:
+
+  defines the mu.link, with "log" link as the default for the mu
+  parameter.
+
+- sigma.link:
+
+  defines the sigma.link, with "log" link as the default for the sigma.
+
+- nu.link:
+
+  defines the nu.link, with "log" link as the default for the nu
+  parameter.
+
+- tau.link:
+
+  defines the tau.link, with "log" link as the default for the tau
+  parameter.
+
+## Value
+
+Returns a gamlss.family object which can be used to fit a EMWEx
+distribution in the
+[`gamlss()`](https://rdrr.io/pkg/gamlss/man/gamlss.html) function.
+
+## Details
+
+The Beta-Weibull distribution with parameters `mu`, `sigma`, `nu` and
+`tau` has density given by
+
+\\f(x)= \nu \sigma \tau (\frac{x}{\mu})^{\sigma-1}
+\exp((\frac{x}{\mu})^\sigma + \nu \mu (1- \exp((\frac{x}{\mu})^\sigma)))
+(1 - \exp (\nu\mu (1- \exp((\frac{x}{\mu})^\sigma))))^{\tau-1} ,\\
+
+for \\x \> 0\\, \\\nu\> 0\\, \\\mu \> 0\\, \\\sigma\> 0\\ and \\\tau \>
+0\\.
+
+## References
+
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the Weibull
+distribution: A review. Reliability Engineering & System Safety, 124,
+32-55.
+
+Sarhan, A. M., & Apaloo, J. (2013). Exponentiated modified Weibull
+extension distribution. Reliability Engineering & System Safety, 112,
+137-144.
+
+## See also
+
+[dEMWEx](http://fhernanb.github.io/RelDists/reference/dEMWEx.md)
+
+## Author
+
+Johan David Marin Benjumea, <johand.marin@udea.edu.co>
+
+## Examples
+
+``` r
+# Example 1
+# Generating some random values with
+# known mu, sigma, nu and tau
+y <- rEMWEx(n=100, mu = 1, sigma =1.21, nu=1, tau=2)
+
+# Fitting the model
+require(gamlss)
+
+mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, tau.fo=~1, family=EMWEx,
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+
+# Extracting the fitted values for mu, sigma, nu and tau
+# using the inverse link function
+exp(coef(mod, what='mu'))
+#> (Intercept) 
+#>    1.348654 
+exp(coef(mod, what='sigma'))
+#> (Intercept) 
+#>    1.963854 
+exp(coef(mod, what='nu'))
+#> (Intercept) 
+#>    1.001418 
+exp(coef(mod, what='tau'))
+#> (Intercept) 
+#>    1.110825 
+
+# Example 2
+# Generating random values under some model
+n <- 200
+x1 <- runif(n, min=0.4, max=0.6)
+x2 <- runif(n, min=0.4, max=0.6)
+mu <- exp(0.75 - x1)
+sigma <- exp(0.5 - x2)
+nu <- 1
+tau <- 2
+x <- rEMWEx(n=n, mu, sigma, nu, tau)
+
+mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, tau.fo=~1, family=EMWEx,
+              control=gamlss.control(n.cyc=5000, trace=FALSE))
+
+coef(mod, what="mu")
+#> (Intercept)          x1 
+#>   0.5104984  -1.2027735 
+coef(mod, what="sigma")
+#> (Intercept)          x2 
+#>    1.015221   -2.220921 
+exp(coef(mod, what="nu"))
+#> (Intercept) 
+#>   0.9072657 
+exp(coef(mod, what="tau"))
+#> (Intercept) 
+#>     2.45397 
+```

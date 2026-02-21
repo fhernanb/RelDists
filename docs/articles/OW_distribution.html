@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">RelDists</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ousuga/RelDists/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/fhernanb/RelDists/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -66,45 +66,20 @@
                         <h4 data-toc-skip class="author">Jaime
 Mosquera</h4>
             
-            <h4 data-toc-skip class="date">2025-10-16</h4>
+            <h4 data-toc-skip class="date">2026-02-21</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/ousuga/RelDists/blob/HEAD/vignettes/OW_distribution.Rmd" class="external-link"><code>vignettes/OW_distribution.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fhernanb/RelDists/blob/HEAD/vignettes/OW_distribution.Rmd" class="external-link"><code>vignettes/OW_distribution.Rmd</code></a></small>
       <div class="d-none name"><code>OW_distribution.Rmd</code></div>
     </div>
 
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://ousuga.github.io/RelDists/">RelDists</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fhernanb.github.io/RelDists/" class="external-link">RelDists</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: survival</span></span>
 <span><span class="co">#&gt; Loading required package: EstimationTools</span></span>
-<span><span class="co">#&gt; Loading required package: DEoptim</span></span>
-<span><span class="co">#&gt; Loading required package: parallel</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; DEoptim package</span></span>
-<span><span class="co">#&gt; Differential Evolution algorithm in R</span></span>
-<span><span class="co">#&gt; Authors: D. Ardia, K. Mullen, B. Peterson and J. Ulrich</span></span>
-<span><span class="co">#&gt; Loading required package: BBmisc</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'BBmisc'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:base':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     isFALSE</span></span>
-<span><span class="co">#&gt; Loading required package: GA</span></span>
-<span><span class="co">#&gt; Loading required package: foreach</span></span>
-<span><span class="co">#&gt; Loading required package: iterators</span></span>
-<span><span class="co">#&gt; Package 'GA' version 3.2.4</span></span>
-<span><span class="co">#&gt; Type 'citation("GA")' for citing this R package in publications.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'GA'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     de</span></span>
-<span><span class="co">#&gt; Loading required package: gaussquad</span></span>
-<span><span class="co">#&gt; Loading required package: orthopolynom</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; &gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   EstimationTools Version 4.0.0   &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;</span></span>
+<span><span class="co">#&gt; &gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;   EstimationTools Version 4.3.1   &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;</span></span>
 <span><span class="co">#&gt;   Feel free to report bugs in https://github.com/Jaimemosg/EstimationTools/issues</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jaimemosg.github.io/EstimationTools/" class="external-link">EstimationTools</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span>
@@ -117,12 +92,8 @@ Mosquera</h4>
 <span><span class="co">#&gt;     sleep</span></span>
 <span><span class="co">#&gt; Loading required package: gamlss.dist</span></span>
 <span><span class="co">#&gt; Loading required package: nlme</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'nlme'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:BBmisc':</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     collapse</span></span>
-<span><span class="co">#&gt;  **********   GAMLSS Version 5.4-22  **********</span></span>
+<span><span class="co">#&gt; Loading required package: parallel</span></span>
+<span><span class="co">#&gt;  **********   GAMLSS Version 5.5-0  **********</span></span>
 <span><span class="co">#&gt; For more on GAMLSS look at https://www.gamlss.com/</span></span>
 <span><span class="co">#&gt; Type gamlssNews() to see new features/changes/bug fixes.</span></span></code></pre></div>
 <div class="section level2">
@@ -143,7 +114,7 @@ scale parameter, <span class="math inline">\(\sigma\)</span> and <span class="ma
 shows possible shapes of the <span class="math inline">\(f(x)\)</span>
 and <span class="math inline">\(F(x)\)</span> for several values of the
 parameters.</p>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-2-1.png" width="700"><img src="OW_distribution_files/figure-html/unnamed-chunk-2-2.png" width="700"></p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="700"><img src="OW_distribution_files/figure-html/unnamed-chunk-2-2.png" class="r-plt" alt="" width="700"></p>
 <p>The hazard function (hf) of the OW distribution is:</p>
 <p><span class="math display">\[h(x) = \left( \frac{\sigma\nu}{x}
 \right) (\mu x)^\sigma e^{(\mu x)^\sigma} \left(e^{(\mu
@@ -159,10 +130,10 @@ and <span class="math inline">\(\sigma\nu&lt;1\)</span>.</p></li>
 <li><p>Bathtub shaped if <span class="math inline">\(\sigma&gt;1\)</span> and <span class="math inline">\(\sigma\nu\geq 1\)</span>.</p></li>
 </ul>
 <p>The figure shows possible shapes of the hf mentioned above:</p>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="700"></p>
 <p>The following figure illustrate the regions corresponding to the
 different hazard shapes:</p>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 <div class="section level2">
 <h2 id="application-examples">Application examples<a class="anchor" aria-label="anchor" href="#application-examples"></a>
@@ -211,7 +182,7 @@ test (TTT) plot</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.7</span>, <span class="fl">3.7</span>, <span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span>, mgp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">my_initial_guess</span>, las <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://jaimemosg.github.io/EstimationTools/reference/legend.HazardShape.html" class="external-link">legend.HazardShape</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1.07</span>, y <span class="op">=</span> <span class="fl">1.04</span>, xpd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="700"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">old_par</span><span class="op">)</span> <span class="co"># restore previous graphical parameters</span></span></code></pre></div>
@@ -373,7 +344,7 @@ hazard shape, as well as was stated by Cooray <span class="citation">(2006)</spa
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3.7</span>, <span class="fl">3.7</span>, <span class="fl">1</span>, <span class="fl">10</span><span class="op">)</span>, mgp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">init_vals</span>, las <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://jaimemosg.github.io/EstimationTools/reference/legend.HazardShape.html" class="external-link">legend.HazardShape</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1.07</span>, y <span class="op">=</span> <span class="fl">1.04</span>, xpd <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="OW_distribution_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<p><img src="OW_distribution_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" alt="" width="700"></p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">old_par</span><span class="op">)</span> <span class="co"># restore previous graphical parameters</span></span></code></pre></div>
@@ -587,11 +558,11 @@ Safety</em> 70 (3): 305–12. <a href="https://doi.org/10.1016/S0951-8320(00)000
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Freddy Hernandez-Barajas, Olga Usuga, Carmen Patino, Jaime Mosquera, Amylkar Urrea.</p>
+  <p>Developed by Freddy Hernandez-Barajas, Olga Usuga, Carmen Patino, Jaime Mosquera.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

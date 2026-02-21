@@ -2,19 +2,19 @@
 % Please edit documentation in R/NEE.R
 \name{logLik_NEE}
 \alias{logLik_NEE}
-\title{logLik_NEE}
+\title{logLik function for NEE}
 \usage{
-logLik_NEE(param = c(0, 0), x)
+logLik_NEE(logparam = c(0, 0), x)
 }
 \arguments{
-\item{param}{vector with the values for mu and sigma}
+\item{logparam}{vector with parameters in log scale.}
 
-\item{x}{vector with the data}
+\item{x}{vector with the response variable.}
+}
+\value{
+returns the loglikelihood given the parameters and random sample.
 }
 \description{
-This is an auxiliar function to obtain the logLik for NEE.
+Calculates logLik for NEE distribution.
 }
-\examples{
-y <- rNEE(n=100, mu=1, sigma=1)
-logLik_NEE(param=c(0, 0), x=y)
-}
+\keyword{internal}

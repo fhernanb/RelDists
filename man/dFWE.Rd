@@ -50,7 +50,7 @@ has density given by
 
 \eqn{f(x) = (\mu + \sigma/x^2) \exp(\mu x - \sigma/x) \exp(-\exp(\mu x-\sigma/x))}
 
-for x>0.
+for \eqn{x>0}.
 }
 \examples{
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters

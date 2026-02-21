@@ -103,13 +103,13 @@ ExWALD <- function(mu.link="log",
                    dldv <- as.vector(attr(dv, "gradient"))
                    dldv
                  },
-
+                 
                  # Second derivates
                  
                  d2ldm2 = function(y, mu, sigma, nu) {
                    dm <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
-                                                 theta="mu",
-                                                 delta=0.001)
+                                               theta="mu",
+                                               delta=0.001)
                    dldm   <- as.vector(attr(dm, "gradient"))
                    d2ldm2 <- - dldm*dldm
                    d2ldm2 <- ifelse(d2ldm2 < -1e-15, d2ldm2, -1e-15)
@@ -118,8 +118,8 @@ ExWALD <- function(mu.link="log",
                  
                  d2ldmdd = function(y, mu, sigma, nu) {
                    dm <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
-                                                 theta="mu",
-                                                 delta=0.001)
+                                               theta="mu",
+                                               delta=0.001)
                    dldm <- as.vector(attr(dm, "gradient"))
                    dd   <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
                                                  theta="sigma",
@@ -132,8 +132,8 @@ ExWALD <- function(mu.link="log",
                  
                  d2ldmdv = function(y, mu, sigma, nu) {
                    dm <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
-                                                 theta="mu",
-                                                 delta=0.001)
+                                               theta="mu",
+                                               delta=0.001)
                    dldm <- as.vector(attr(dm, "gradient"))
                    dv   <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
                                                  theta="nu",
@@ -146,8 +146,8 @@ ExWALD <- function(mu.link="log",
                  
                  d2ldd2  = function(y, mu, sigma, nu) {
                    dd  <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
-                                                 theta="sigma",
-                                                 delta=0.001)
+                                                theta="sigma",
+                                                delta=0.001)
                    dldd   <- as.vector(attr(dd, "gradient"))
                    d2ldd2 <- - dldd*dldd
                    d2ldd2 <- ifelse(d2ldd2 < -1e-15, d2ldd2, -1e-15)
@@ -156,8 +156,8 @@ ExWALD <- function(mu.link="log",
                  
                  d2ldddv = function(y, mu, sigma, nu) {
                    dd <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
-                                                 theta="sigma",
-                                                 delta=0.001)
+                                               theta="sigma",
+                                               delta=0.001)
                    dldd <- as.vector(attr(dd, "gradient"))
                    dv   <- gamlss::numeric.deriv(dExWALD(y, mu, sigma, nu, log=TRUE),
                                                  theta="nu",
@@ -300,8 +300,6 @@ fitexw <- function(rt, p=0.5,
                   x=rt,
                   control=list(eval.max=400, iter.max=300, 
                                scale.tol=1e-8))
-
+  
   return(fit$par)
 }
-
-

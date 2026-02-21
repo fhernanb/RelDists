@@ -1,0 +1,127 @@
+# The Extended Weibull distribution
+
+Density, distribution function, quantile function, random generation and
+hazard function for the Extended Weibull distribution with parameters
+`mu`, `sigma` and `nu`.
+
+## Usage
+
+``` r
+dExW(x, mu, sigma, nu, log = FALSE)
+
+pExW(q, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
+
+qExW(p, mu, sigma, nu, lower.tail = TRUE, log.p = FALSE)
+
+rExW(n, mu, sigma, nu)
+
+hExW(x, mu, sigma, nu)
+```
+
+## Arguments
+
+- x, q:
+
+  vector of quantiles.
+
+- mu:
+
+  parameter.
+
+- sigma:
+
+  parameter.
+
+- nu:
+
+  parameter.
+
+- log, log.p:
+
+  logical; if TRUE, probabilities p are given as log(p).
+
+- lower.tail:
+
+  logical; if TRUE (default), probabilities are P\[X \<= x\], otherwise,
+  P\[X \> x\].
+
+- p:
+
+  vector of probabilities.
+
+- n:
+
+  number of observations.
+
+## Value
+
+`dExW` gives the density, `pExW` gives the distribution function, `qExW`
+gives the quantile function, `rExW` generates random deviates and `hExW`
+gives the hazard function.
+
+## Details
+
+The Extended Weibull distribution with parameters `mu`, `sigma` and `nu`
+has density given by
+
+\\f(x) = \frac{\mu \sigma \nu x^{\sigma -1} exp({-\mu x^{\sigma}})} {\[1
+-(1-\nu) exp({-\mu x^{\sigma}})\]^2},\\
+
+for \\x \> 0\\.
+
+## References
+
+Almalki, S. J., & Nadarajah, S. (2014). Modifications of the Weibull
+distribution: A review. Reliability Engineering & System Safety, 124,
+32-55.
+
+Zhang, T., & Xie, M. (2007). Failure data analysis with extended Weibull
+distribution. Communications in Statistics—Simulation and Computation,
+36(3), 579-592.
+
+## See also
+
+[ExW](http://fhernanb.github.io/RelDists/reference/ExW.md)
+
+## Author
+
+Amylkar Urrea Montoya, <amylkar.urrea@udea.edu.co>
+
+## Examples
+
+``` r
+old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+
+## The probability density function
+curve(dExW(x, mu=0.3, sigma=2, nu=0.05), from=0.0001, to=2,
+      col="red", las=1, ylab="f(x)")
+
+
+## The cumulative distribution and the Reliability function
+par(mfrow=c(1, 2))
+curve(pExW(x, mu=0.3, sigma=2, nu=0.05),
+      from=0.0001, to=2, col="red", las=1, ylab="F(x)")
+curve(pExW(x, mu=0.3, sigma=2, nu=0.05, lower.tail=FALSE),
+      from=0.0001, to=2, col="red", las=1, ylab="R(x)")
+
+
+## The quantile function
+p <- seq(from=0, to=0.99999, length.out=100)
+plot(x=qExW(p, mu=0.3, sigma=2, nu=0.05), y=p, xlab="Quantile",
+     las=1, ylab="Probability")
+curve(pExW(x, mu=0.3, sigma=2, nu=0.05), 
+      from=0, add=TRUE, col="red")
+
+## The random function
+hist(rExW(n=10000, mu=0.3, sigma=2, nu=0.05), freq=FALSE,
+     xlab="x", ylim=c(0, 2), las=1, main="")
+curve(dExW(x, mu=0.3, sigma=2, nu=0.05),
+      from=0.001, to=4, add=TRUE, col="red")
+
+
+## The Hazard function
+curve(hExW(x, mu=0.3, sigma=2, nu=0.05), from=0.001, to=4,
+      col="red", ylab="Hazard function", las=1)
+
+par(old_par) # restore previous graphical parameters
+```

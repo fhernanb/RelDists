@@ -2,7 +2,7 @@ Package: RelDists
 Title: Estimation for some Reliability Distributions
 Version: 1.0.1
 Authors@R: c(
-    person(given="Freddyyyy", 
+    person(given="Freddy", 
            family="Hernandez-Barajas",
            email="fhernanb@unal.edu.co",
            role = c("aut", "cre"), 
@@ -50,5 +50,5 @@ Suggests:
     gamlss.cens, 
     V8,
     alr4
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr

@@ -89,7 +89,7 @@ exp(coef(mod3, what="mu"))
 exp(coef(mod3, what="sigma"))
 
 # Example 4
-# lifetimes of 6061-T6 aluminum coupons expressed in cycles (×10−3)
+# lifetimes of 6061-T6 aluminum coupons expressed in cycles (×10-3)
 # at a maximum stress level of 3.1 psi (×104), until the failure to occur.
 # Santos-Neto et al. (2014) page 267.
 

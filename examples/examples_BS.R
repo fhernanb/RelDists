@@ -15,7 +15,7 @@ exp(coef(mod1, what="sigma"))
 # Example 2
 # Generating random values for a regression model
 
-# A function to simulate a data set with Y ~ BS
+# A function to simulate a data set with Y as BS
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
@@ -34,7 +34,7 @@ mod2 <- gamlss(y~x1, sigma.fo=~x2,
 summary(mod2)
 
 # Example 3
-# Fatigue life (T) measures in cycles (×10−3) of n 101
+# Fatigue life (T) measures in cycles (×10-3) of n 101
 # aluminum coupons (specimens) of type 6061-T6.
 # Taken from Leiva et al. (2006) page 37.
 # https://journal.r-project.org/articles/RN-2006-033/RN-2006-033.pdf

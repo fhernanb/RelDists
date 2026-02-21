@@ -2,17 +2,17 @@
 % Please edit documentation in R/NEE.R
 \name{estim_mu_sigma_NEE}
 \alias{estim_mu_sigma_NEE}
-\title{estim_mu_sigma_NEE}
+\title{Initial values for NEE distribution}
 \usage{
 estim_mu_sigma_NEE(y)
 }
 \arguments{
-\item{y}{vector with the random sample}
+\item{y}{vector with the response variable.}
+}
+\value{
+returns a vector with the MLE estimations.
 }
 \description{
-This function generates initial values for NEE distribution.
+This function generates initial values for the parameters.
 }
-\examples{
-y <- rNEE(n=100, mu=4.6, sigma=0.35)
-estim_mu_sigma_NEE(y=y)
-}
+\keyword{internal}

@@ -32,7 +32,7 @@
 #' The beta generalized exponential distribution. Journal of 
 #' statistical Computation and Simulation, 80(2), 159-172.
 #' 
-#'@importFrom gamlss.dist checklink
+#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 BGE <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log"){
