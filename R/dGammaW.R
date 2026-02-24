@@ -25,7 +25,7 @@
 #' 
 #' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma(\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 #' 
-#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
 #' 
 #' @return 
 #' \code{dGammaW} gives the density, \code{pGammaW} gives the distribution 
@@ -63,7 +63,7 @@ dGammaW <- function(x, mu, sigma, nu, log=FALSE){
 }
 #' @export
 #' @rdname dGammaW
-pGammaW <- function(q, mu, sigma, nu,lower.tail=TRUE, log.p=FALSE){
+pGammaW <- function(q, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   if (any(q < 0)) 
     stop(paste("q must be positive", "\n", ""))
   if (any(mu <= 0 )) 
@@ -72,8 +72,8 @@ pGammaW <- function(q, mu, sigma, nu,lower.tail=TRUE, log.p=FALSE){
     stop(paste("sigma must be positive", "\n", ""))
   if (any(nu <= 0)) 
     stop(paste("nu must be positive", "\n", ""))
-  
-  cdf <- stats::pgamma(nu, mu*q^sigma, lower.tail=FALSE)
+
+  cdf <- stats::pgamma(mu*q^sigma, nu, lower.tail=TRUE)
   
   if (lower.tail == TRUE) cdf <- cdf
   else cdf <- 1 - cdf 
@@ -83,8 +83,7 @@ pGammaW <- function(q, mu, sigma, nu,lower.tail=TRUE, log.p=FALSE){
 }
 #' @export
 #' @rdname dGammaW
-qGammaW <- function(p, mu, sigma, nu,
-                    lower.tail=TRUE, log.p=FALSE){
+qGammaW <- function(p, mu, sigma, nu, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0 )) 
     stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -100,7 +99,7 @@ qGammaW <- function(p, mu, sigma, nu,
     stop(paste("p must be between 0 and 1", "\n", ""))
   
   F.inv <- function(y, mu, sigma, nu) {
-    uniroot(function(x) {pGammaW(x,mu,sigma,nu) - y},
+    uniroot(function(x) {pGammaW(x, mu, sigma, nu) - y},
             interval=c(0, 99999))$root
   }
   F.inv <- Vectorize(F.inv)

@@ -20,14 +20,14 @@ exp(coef(mod, what='nu'))
 n     <- 200
 x1    <- runif(n)
 x2    <- runif(n)
-mu    <- exp(-1.6 * x1)
+mu    <- exp(1.2 -1.6 * x1)
 sigma <- exp(1.1 - 1 * x2)
 nu    <- 1
-x     <- rGammaW(n=n, mu, sigma, nu)
+y     <- rGammaW(n=n, mu, sigma, nu)
 
-mod <- gamlss(x~x1, mu.fo=~x1, sigma.fo=~x2, nu.fo=~1, family=GammaW,
+mod <- gamlss(y~x1, mu.fo=~x1, sigma.fo=~x2, nu.fo=~1, family=GammaW,
               control=gamlss.control(n.cyc=50000, trace=FALSE))
 
 coef(mod, what="mu")
 coef(mod, what="sigma")
-coef(mod, what='nu')
+exp(coef(mod, what="nu"))

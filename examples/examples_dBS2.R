@@ -47,7 +47,7 @@ curve(pBS2(x, mu=0.5, sigma=0.5),
       ylim=c(0, 1), 
       col="royalblue1", lwd=2, 
       main="Cumulative Distribution Function",
-      xlab="x", ylab="f(x)")
+      xlab="x", ylab="F(x)")
 curve(pBS2(x, mu=1, sigma=0.5),
       col="tomato", 
       lwd=2,

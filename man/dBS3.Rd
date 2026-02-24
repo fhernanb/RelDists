@@ -83,7 +83,7 @@ curve(pBS3(x, mu=2, sigma=0.2),
       ylim=c(0, 1), 
       col="royalblue1", lwd=2, 
       main="Cumulative Distribution Function",
-      xlab="x", ylab="f(x)")
+      xlab="x", ylab="F(x)")
 curve(pBS3(x, mu=2, sigma=0.4),
       col="tomato", 
       lwd=2,

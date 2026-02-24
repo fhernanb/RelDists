@@ -53,13 +53,13 @@ y <- rLIN(n=200, mu=2)
 # Fitting the model
 require(gamlss)
 mod <- gamlss(y ~ 1, family="LIN")
-#> GAMLSS-RS iteration 1: Global Deviance = 283.9037 
+#> GAMLSS-RS iteration 1: Global Deviance = 223.7823 
 
 # Extracting the fitted values for mu
 # using the inverse link function
 exp(coef(mod, what='mu'))
 #> (Intercept) 
-#>    1.797977 
+#>    2.056429 
 
 # Example 2
 # Generating random values under some model
@@ -71,10 +71,10 @@ mu <- exp(eta)
 y <- rLIN(n=n, mu=mu)
 
 mod <- gamlss(y ~ x1 + x2, family=LIN)
-#> GAMLSS-RS iteration 1: Global Deviance = -34.6536 
-#> GAMLSS-RS iteration 2: Global Deviance = -34.6536 
+#> GAMLSS-RS iteration 1: Global Deviance = -50.1811 
+#> GAMLSS-RS iteration 2: Global Deviance = -50.1811 
 
 coef(mod, what='mu')
 #> (Intercept)          x1          x2 
-#>   0.8284825   3.0082614  -1.6567868 
+#>    0.599290    3.854668   -1.955521 
 ```

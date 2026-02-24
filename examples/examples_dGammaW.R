@@ -1,32 +1,49 @@
-old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
+# Example 1
+# Plotting the mass function for different parameter values
 
 ## The probability density function 
-curve(dGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 6, 
-      col = "red", las = 1, ylab = "f(x)")
+curve(dGammaW(x, mu=2, sigma=1.5, nu=0.5), 
+      from=0, to=2, 
+      col="red", lwd=2, 
+      main="Density function",
+      xlab="x", ylab="f(x)")
+curve(dGammaW(x, mu=2.4, sigma=1.5, nu=1.3), 
+      col="blue", 
+      lwd=2,
+      add=TRUE)
+legend("topright", legend=c("mu=2.0, sigma=1.5, nu=0.5",
+                            "mu=2.4, sigma=1.5, nu=1.3"),
+       col=c("red", "blue"), lwd=2, cex=0.6)
 
-## The cumulative distribution and the Reliability function
-par(mfrow = c(1, 2))
-curve(pGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 3, 
-ylim = c(0, 1), col = "red", las = 1, ylab = "F(x)")
-curve(pGammaW(x, mu = 0.5, sigma = 2, nu=1, lower.tail = FALSE), 
-from = 0, to = 3, ylim = c(0, 1), col = "red", las = 1, ylab = "R(x)")
+# Example 2
+# Checking if the cumulative curves converge to 1
 
-## The quantile function
-p <- seq(from = 0, to = 0.99999, length.out = 100)
-plot(x = qGammaW(p = p, mu = 0.5, sigma = 2, nu=1), y = p, 
-xlab = "Quantile", las = 1, ylab = "Probability")
-curve(pGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, add = TRUE, 
-col = "red")
+curve(pGammaW(x, mu=0.5, sigma=2, nu=1), 
+      from=0, to=3, 
+      col="red", lwd=2, ylab="F(x)")
+curve(pGammaW(x, mu=2.4, sigma=1.5, nu=1.3), 
+      col="blue",
+      lwd=2,
+      add=TRUE)
+legend("bottomright", legend=c("mu=2.0, sigma=1.5, nu=0.5",
+                               "mu=2.4, sigma=1.5, nu=1.3"),
+       col=c("red", "blue"), lwd=2, cex=0.6)
 
-## The random function
-hist(rGammaW(1000, mu = 0.5, sigma = 2, nu=1), freq = FALSE, xlab = "x", 
-ylim = c(0, 1), las = 1, main = "")
-curve(dGammaW(x, mu = 0.5, sigma = 2, nu=1),  from = 0, add = TRUE, 
-col = "red", ylim = c(0, 1))
+# Example 3
+# The quantile function
+p <- seq(from=0, to=0.999, length.out=100)
+plot(x=qGammaW(p, mu=2.3, sigma=1.7, nu=1.2), y=p, xlab="Quantile",
+     las=1, ylab="Probability", main="Quantile function ")
+curve(pGammaW(x, mu=2.3, sigma=1.7, nu=1.2), 
+      from=0, add=TRUE, col="tomato", lwd=2.5)
 
-## The Hazard function
-par(mfrow=c(1,1))
-curve(hGammaW(x, mu = 0.5, sigma = 2, nu=1), from = 0, to = 2, 
-ylim = c(0, 1), col = "red", ylab = "Hazard function", las = 1)
+# Example 4
+# The random function
+x <- rGammaW(n=10000, mu=2.4, sigma=1.5, nu=1.3)
+hist(x, freq=FALSE)
+curve(dGammaW(x, mu=2.4, sigma=1.5, nu=1.3),
+      add=TRUE, col="tomato", lwd=2)
 
-par(old_par) # restore previous graphical parameters
+# The Hazard function
+curve(hGammaW(x, mu=2.4, sigma=1.5, nu=1.3), from=0, to=5, 
+      col="red", ylab="Hazard function", las=1)

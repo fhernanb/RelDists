@@ -17,7 +17,7 @@
 #' 
 #' \eqn{f(x)= \frac{\sigma \mu^{\nu}}{\Gamma (\nu)} x^{\nu \sigma - 1} \exp(-\mu x^\sigma),}
 #' 
-#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma \geq 0} and \eqn{\nu > 0}. 
+#' for \eqn{x > 0}, \eqn{\mu > 0}, \eqn{\sigma > 0} and \eqn{\nu > 0}. 
 #' 
 #' @returns Returns a gamlss.family object which can be used to fit a GammaW distribution in the \code{gamlss()} function.
 #' 

@@ -65,23 +65,23 @@ y <- rWALD(10000, mu, sigma)
 
 mod1 <- gamlss(y~1, sigma.fo=~1,  family="WALD",
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> GAMLSS-RS iteration 1: Global Deviance = 27596.35 
-#> GAMLSS-RS iteration 2: Global Deviance = 27596.29 
-#> GAMLSS-RS iteration 3: Global Deviance = 27596.26 
-#> GAMLSS-RS iteration 4: Global Deviance = 27596.24 
-#> GAMLSS-RS iteration 5: Global Deviance = 27596.23 
-#> GAMLSS-RS iteration 6: Global Deviance = 27596.23 
-#> GAMLSS-RS iteration 7: Global Deviance = 27596.22 
-#> GAMLSS-RS iteration 8: Global Deviance = 27596.22 
-#> GAMLSS-RS iteration 9: Global Deviance = 27596.22 
-#> GAMLSS-RS iteration 10: Global Deviance = 27596.22 
+#> GAMLSS-RS iteration 1: Global Deviance = 27598.99 
+#> GAMLSS-RS iteration 2: Global Deviance = 27598.92 
+#> GAMLSS-RS iteration 3: Global Deviance = 27598.88 
+#> GAMLSS-RS iteration 4: Global Deviance = 27598.85 
+#> GAMLSS-RS iteration 5: Global Deviance = 27598.84 
+#> GAMLSS-RS iteration 6: Global Deviance = 27598.83 
+#> GAMLSS-RS iteration 7: Global Deviance = 27598.83 
+#> GAMLSS-RS iteration 8: Global Deviance = 27598.83 
+#> GAMLSS-RS iteration 9: Global Deviance = 27598.82 
+#> GAMLSS-RS iteration 10: Global Deviance = 27598.82 
 
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    1.515985 
+#>    1.517207 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    4.046052 
+#>    4.049047 
 
 # Example 2
 # Generating random values under some model
@@ -100,14 +100,14 @@ dat <- gendat(n=200)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, family=WALD, data=dat, 
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> GAMLSS-RS iteration 1: Global Deviance = 248.8872 
-#> GAMLSS-RS iteration 2: Global Deviance = 245.161 
-#> GAMLSS-RS iteration 3: Global Deviance = 244.4112 
-#> GAMLSS-RS iteration 4: Global Deviance = 244.254 
-#> GAMLSS-RS iteration 5: Global Deviance = 244.2221 
-#> GAMLSS-RS iteration 6: Global Deviance = 244.2156 
-#> GAMLSS-RS iteration 7: Global Deviance = 244.2138 
-#> GAMLSS-RS iteration 8: Global Deviance = 244.2134 
+#> GAMLSS-RS iteration 1: Global Deviance = 208.6797 
+#> GAMLSS-RS iteration 2: Global Deviance = 205.7482 
+#> GAMLSS-RS iteration 3: Global Deviance = 205.0742 
+#> GAMLSS-RS iteration 4: Global Deviance = 204.9118 
+#> GAMLSS-RS iteration 5: Global Deviance = 204.8731 
+#> GAMLSS-RS iteration 6: Global Deviance = 204.8633 
+#> GAMLSS-RS iteration 7: Global Deviance = 204.8608 
+#> GAMLSS-RS iteration 8: Global Deviance = 204.8602 
 
 summary(mod2)
 #> Warning: summary: vcov has failed, option qr is used instead
@@ -123,19 +123,19 @@ summary(mod2)
 #> Mu link function:  log
 #> Mu Coefficients:
 #>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)   0.7449     0.1251   5.952 1.19e-08 ***
-#> x1           -0.8022     0.2279  -3.520 0.000536 ***
+#> (Intercept)   0.7724     0.1010   7.648 8.68e-13 ***
+#> x1           -0.7255     0.2096  -3.461 0.000659 ***
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> Sigma link function:  log
 #> Sigma Coefficients:
 #>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)  0.45410    0.06164   7.367 4.61e-12 ***
-#> x2          -0.55381    0.10335  -5.359 2.32e-07 ***
+#> (Intercept)  0.58970    0.06877   8.575 2.84e-15 ***
+#> x2          -0.87010    0.12803  -6.796 1.23e-10 ***
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> No. of observations in the fit:  200 
@@ -143,8 +143,8 @@ summary(mod2)
 #>       Residual Deg. of Freedom:  196 
 #>                       at cycle:  8 
 #>  
-#> Global Deviance:     244.2134 
-#>             AIC:     252.2134 
-#>             SBC:     265.4067 
+#> Global Deviance:     204.8602 
+#>             AIC:     212.8602 
+#>             SBC:     226.0535 
 #> ******************************************************************
 ```

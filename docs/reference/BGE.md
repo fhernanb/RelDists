@@ -76,8 +76,8 @@ require(gamlss)
 #> Loading required package: splines
 #> Loading required package: gamlss.data
 #> 
-#> Attaching package: 'gamlss.data'
-#> The following object is masked from 'package:datasets':
+#> Attaching package: ‘gamlss.data’
+#> The following object is masked from ‘package:datasets’:
 #> 
 #>     sleep
 #> Loading required package: gamlss.dist

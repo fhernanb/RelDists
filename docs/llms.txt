@@ -46,6 +46,99 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
 - [`CS2e()`](http://fhernanb.github.io/RelDists/reference/CS2e.md) : The
   Cosine Sine Exponential family
 
+- [`EEG()`](http://fhernanb.github.io/RelDists/reference/EEG.md) : The
+  Extended Exponential Geometric family
+
+- [`EGG()`](http://fhernanb.github.io/RelDists/reference/EGG.md) : The
+  four parameter Exponentiated Generalized Gamma family
+
+- [`EMWEx()`](http://fhernanb.github.io/RelDists/reference/EMWEx.md) :
+  The Exponentiated Modifien Weibull Extension family
+
+- [`EOFNH()`](http://fhernanb.github.io/RelDists/reference/EOFNH.md) :
+  The Extended Odd Frechet-Nadarajah-Haghighi family
+
+- [`EW()`](http://fhernanb.github.io/RelDists/reference/EW.md) : The
+  Exponentiated Weibull family
+
+- [`EXL()`](http://fhernanb.github.io/RelDists/reference/EXL.md) : The
+  exponentiated XLindley family
+
+- [`ExW()`](http://fhernanb.github.io/RelDists/reference/ExW.md) : The
+  Extended Weibull family
+
+- [`ExWALD()`](http://fhernanb.github.io/RelDists/reference/ExWALD.md) :
+  The Ex-Wald family
+
+- [`FWE()`](http://fhernanb.github.io/RelDists/reference/FWE.md) : The
+  Flexible Weibull Extension family
+
+- [`GGD()`](http://fhernanb.github.io/RelDists/reference/GGD.md) : The
+  Generalized Gompertz family
+
+- [`GIW()`](http://fhernanb.github.io/RelDists/reference/GIW.md) : The
+  Generalized Inverse Weibull family
+
+- [`GMW()`](http://fhernanb.github.io/RelDists/reference/GMW.md) : The
+  Generalized Modified Weibull family
+
+- [`GammaW()`](http://fhernanb.github.io/RelDists/reference/GammaW.md) :
+  The Gamma Weibull family
+
+- [`IW()`](http://fhernanb.github.io/RelDists/reference/IW.md) : The
+  Inverse Weibull family
+
+- [`KumIW()`](http://fhernanb.github.io/RelDists/reference/KumIW.md) :
+  The Kumaraswamy Inverse Weibull family
+
+- [`LIN()`](http://fhernanb.github.io/RelDists/reference/LIN.md) : The
+  Lindley family
+
+- [`LW()`](http://fhernanb.github.io/RelDists/reference/LW.md) : The
+  Log-Weibull family
+
+- [`MOEIW()`](http://fhernanb.github.io/RelDists/reference/MOEIW.md) :
+  The Marshall-Olkin Extended Inverse Weibull family
+
+- [`MOEW()`](http://fhernanb.github.io/RelDists/reference/MOEW.md) : The
+  Marshall-Olkin Extended Weibull family
+
+- [`MOK()`](http://fhernanb.github.io/RelDists/reference/MOK.md) : The
+  Marshall-Olkin Kappa family
+
+- [`MW()`](http://fhernanb.github.io/RelDists/reference/MW.md) : The
+  Modified Weibull family
+
+- [`NEE()`](http://fhernanb.github.io/RelDists/reference/NEE.md) : New
+  Exponentiated Exponential family
+
+- [`OW()`](http://fhernanb.github.io/RelDists/reference/OW.md) : The Odd
+  Weibull family
+
+- [`PL()`](http://fhernanb.github.io/RelDists/reference/PL.md) : The
+  Power Lindley family
+
+- [`QXGP()`](http://fhernanb.github.io/RelDists/reference/QXGP.md) : The
+  Quasi XGamma Poisson family
+
+- [`RW()`](http://fhernanb.github.io/RelDists/reference/RW.md) : The
+  Reflected Weibull family
+
+- [`SZMW()`](http://fhernanb.github.io/RelDists/reference/SZMW.md) : The
+  Sarhan and Zaindin's Modified Weibull family
+
+- [`WALD()`](http://fhernanb.github.io/RelDists/reference/WALD.md) : The
+  Wald family
+
+- [`WG()`](http://fhernanb.github.io/RelDists/reference/WG.md) : The
+  Weibull Geometric family
+
+- [`WGEE()`](http://fhernanb.github.io/RelDists/reference/WGEE.md) : The
+  Weigted Generalized Exponential-Exponential family
+
+- [`WP()`](http://fhernanb.github.io/RelDists/reference/WP.md) : The
+  Weibull Poisson family
+
 - [`dAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
   [`pAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
   [`qAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
@@ -157,13 +250,6 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`hFWE()`](http://fhernanb.github.io/RelDists/reference/dFWE.md) : The
   Flexible Weibull Extension distribution
 
-- [`dGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
-  [`pGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
-  [`qGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
-  [`rGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
-  [`hGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
-  : The Gamma Weibull distribution
-
 - [`dGGD()`](http://fhernanb.github.io/RelDists/reference/dGGD.md)
   [`pGGD()`](http://fhernanb.github.io/RelDists/reference/dGGD.md)
   [`qGGD()`](http://fhernanb.github.io/RelDists/reference/dGGD.md)
@@ -191,6 +277,13 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`rGWF()`](http://fhernanb.github.io/RelDists/reference/dGWF.md)
   [`hGWF()`](http://fhernanb.github.io/RelDists/reference/dGWF.md) :
   Generalized Weibull distribution
+
+- [`dGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
+  [`pGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
+  [`qGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
+  [`rGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
+  [`hGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
+  : The Gamma Weibull distribution
 
 - [`dIW()`](http://fhernanb.github.io/RelDists/reference/dIW.md)
   [`pIW()`](http://fhernanb.github.io/RelDists/reference/dIW.md)
@@ -324,118 +417,25 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`hWP()`](http://fhernanb.github.io/RelDists/reference/dWP.md) : The
   Weibull Poisson distribution
 
-- [`EEG()`](http://fhernanb.github.io/RelDists/reference/EEG.md) : The
-  Extended Exponential Geometric family
-
-- [`EGG()`](http://fhernanb.github.io/RelDists/reference/EGG.md) : The
-  four parameter Exponentiated Generalized Gamma family
-
-- [`EMWEx()`](http://fhernanb.github.io/RelDists/reference/EMWEx.md) :
-  The Exponentiated Modifien Weibull Extension family
-
-- [`EOFNH()`](http://fhernanb.github.io/RelDists/reference/EOFNH.md) :
-  The Extended Odd Frechet-Nadarajah-Haghighi family
-
 - [`equipment`](http://fhernanb.github.io/RelDists/reference/equipment.md)
   : Electronic equipment data
-
-- [`EW()`](http://fhernanb.github.io/RelDists/reference/EW.md) : The
-  Exponentiated Weibull family
-
-- [`EXL()`](http://fhernanb.github.io/RelDists/reference/EXL.md) : The
-  exponentiated XLindley family
-
-- [`ExW()`](http://fhernanb.github.io/RelDists/reference/ExW.md) : The
-  Extended Weibull family
-
-- [`ExWALD()`](http://fhernanb.github.io/RelDists/reference/ExWALD.md) :
-  The Ex-Wald family
-
-- [`FWE()`](http://fhernanb.github.io/RelDists/reference/FWE.md) : The
-  Flexible Weibull Extension family
-
-- [`GammaW()`](http://fhernanb.github.io/RelDists/reference/GammaW.md) :
-  The Gamma Weibull family
-
-- [`GGD()`](http://fhernanb.github.io/RelDists/reference/GGD.md) : The
-  Generalized Gompertz family
-
-- [`GIW()`](http://fhernanb.github.io/RelDists/reference/GIW.md) : The
-  Generalized Inverse Weibull family
-
-- [`GMW()`](http://fhernanb.github.io/RelDists/reference/GMW.md) : The
-  Generalized Modified Weibull family
 
 - [`initValuesOW()`](http://fhernanb.github.io/RelDists/reference/initValuesOW.md)
   : Initial values and search region for Odd Weibull distribution
 
-- [`IW()`](http://fhernanb.github.io/RelDists/reference/IW.md) : The
-  Inverse Weibull family
-
-- [`KumIW()`](http://fhernanb.github.io/RelDists/reference/KumIW.md) :
-  The Kumaraswamy Inverse Weibull family
-
-- [`LIN()`](http://fhernanb.github.io/RelDists/reference/LIN.md) : The
-  Lindley family
-
-- [`LW()`](http://fhernanb.github.io/RelDists/reference/LW.md) : The
-  Log-Weibull family
-
 - [`mice`](http://fhernanb.github.io/RelDists/reference/mice.md) : Mice
   mortality data
-
-- [`MOEIW()`](http://fhernanb.github.io/RelDists/reference/MOEIW.md) :
-  The Marshall-Olkin Extended Inverse Weibull family
-
-- [`MOEW()`](http://fhernanb.github.io/RelDists/reference/MOEW.md) : The
-  Marshall-Olkin Extended Weibull family
-
-- [`MOK()`](http://fhernanb.github.io/RelDists/reference/MOK.md) : The
-  Marshall-Olkin Kappa family
-
-- [`MW()`](http://fhernanb.github.io/RelDists/reference/MW.md) : The
-  Modified Weibull family
 
 - [`myOW_region()`](http://fhernanb.github.io/RelDists/reference/myOW_region.md)
   : Custimized region search for odd Weibull distribution
 
-- [`NEE()`](http://fhernanb.github.io/RelDists/reference/NEE.md) : New
-  Exponentiated Exponential family
-
-- [`OW()`](http://fhernanb.github.io/RelDists/reference/OW.md) : The Odd
-  Weibull family
-
 - [`param.startOW()`](http://fhernanb.github.io/RelDists/reference/param.startOW.md)
   : Initial values extraction for Odd Weibull distribution
-
-- [`PL()`](http://fhernanb.github.io/RelDists/reference/PL.md) : The
-  Power Lindley family
-
-- [`QXGP()`](http://fhernanb.github.io/RelDists/reference/QXGP.md) : The
-  Quasi XGamma Poisson family
-
-- [`RW()`](http://fhernanb.github.io/RelDists/reference/RW.md) : The
-  Reflected Weibull family
 
 - [`summary(`*`<initValOW>`*`)`](http://fhernanb.github.io/RelDists/reference/summary.initValOW.md)
   :
 
   Summary of `initValOW` objects
-
-- [`SZMW()`](http://fhernanb.github.io/RelDists/reference/SZMW.md) : The
-  Sarhan and Zaindin's Modified Weibull family
-
-- [`WALD()`](http://fhernanb.github.io/RelDists/reference/WALD.md) : The
-  Wald family
-
-- [`WG()`](http://fhernanb.github.io/RelDists/reference/WG.md) : The
-  Weibull Geometric family
-
-- [`WGEE()`](http://fhernanb.github.io/RelDists/reference/WGEE.md) : The
-  Weigted Generalized Exponential-Exponential family
-
-- [`WP()`](http://fhernanb.github.io/RelDists/reference/WP.md) : The
-  Weibull Poisson family
 
 # Articles
 

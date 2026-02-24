@@ -38,7 +38,7 @@ has density given by
 \\f(x)= \frac{\sigma \mu^{\nu}}{\Gamma (\nu)} x^{\nu \sigma - 1}
 \exp(-\mu x^\sigma),\\
 
-for \\x \> 0\\, \\\mu \> 0\\, \\\sigma \geq 0\\ and \\\nu \> 0\\.
+for \\x \> 0\\, \\\mu \> 0\\, \\\sigma \> 0\\ and \\\nu \> 0\\.
 
 ## References
 
@@ -75,34 +75,34 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='GammaW',
 # using the inverse link function
 exp(coef(mod, what='mu'))
 #> (Intercept) 
-#>   0.1584151 
+#>      1.2112 
 exp(coef(mod, what='sigma'))
 #> (Intercept) 
-#>    2.783491 
+#>    1.453506 
 exp(coef(mod, what='nu'))
 #> (Intercept) 
-#>   0.8935612 
+#>    1.727829 
 
 # Example 2
 # Generating random values under some model
 n     <- 200
 x1    <- runif(n)
 x2    <- runif(n)
-mu    <- exp(-1.6 * x1)
+mu    <- exp(1.2 -1.6 * x1)
 sigma <- exp(1.1 - 1 * x2)
 nu    <- 1
-x     <- rGammaW(n=n, mu, sigma, nu)
+y     <- rGammaW(n=n, mu, sigma, nu)
 
-mod <- gamlss(x~x1, mu.fo=~x1, sigma.fo=~x2, nu.fo=~1, family=GammaW,
+mod <- gamlss(y~x1, mu.fo=~x1, sigma.fo=~x2, nu.fo=~1, family=GammaW,
               control=gamlss.control(n.cyc=50000, trace=FALSE))
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>   -1.702685   -4.408773 
+#>    1.204176   -1.387246 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>   1.9420637  -0.9542589 
-coef(mod, what='nu')
+#>   0.9565317  -0.9502721 
+exp(coef(mod, what="nu"))
 #> (Intercept) 
-#>  -0.6187417 
+#>    1.102525 
 ```
