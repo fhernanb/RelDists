@@ -64,21 +64,21 @@ y <- rBS2(n=50, mu=5, sigma=3)
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS2)
-#> GAMLSS-RS iteration 1: Global Deviance = 256.5522 
-#> GAMLSS-RS iteration 2: Global Deviance = 249.3285 
-#> GAMLSS-RS iteration 3: Global Deviance = 248.5876 
-#> GAMLSS-RS iteration 4: Global Deviance = 248.5523 
-#> GAMLSS-RS iteration 5: Global Deviance = 248.5511 
-#> GAMLSS-RS iteration 6: Global Deviance = 248.551 
+#> GAMLSS-RS iteration 1: Global Deviance = 260.7219 
+#> GAMLSS-RS iteration 2: Global Deviance = 253.8557 
+#> GAMLSS-RS iteration 3: Global Deviance = 253.1539 
+#> GAMLSS-RS iteration 4: Global Deviance = 253.1207 
+#> GAMLSS-RS iteration 5: Global Deviance = 253.1194 
+#> GAMLSS-RS iteration 6: Global Deviance = 253.1193 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    4.970791 
+#>    5.156935 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    2.986832 
+#>    2.932423 
 
 # Example 2
 # Generating random values for a regression model
@@ -122,7 +122,7 @@ summary(mod2)
 #> (Intercept)   1.5150     0.1639   9.241 5.37e-15 ***
 #> x1           -3.1673     0.2761 -11.472  < 2e-16 ***
 #> ---
-#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
 #> ------------------------------------------------------------------
 #> Sigma link function:  log
@@ -131,7 +131,7 @@ summary(mod2)
 #> (Intercept)   1.9226     0.3121   6.160 1.61e-08 ***
 #> x2           -1.3323     0.5464  -2.439   0.0165 *  
 #> ---
-#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
 #> ------------------------------------------------------------------
 #> No. of observations in the fit:  100 

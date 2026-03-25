@@ -306,7 +306,7 @@ param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
 #> GAMLSS-RS iteration 8: Global Deviance = 2004.558 
 #> GAMLSS-RS iteration 9: Global Deviance = 2004.423 
 #> GAMLSS-RS iteration 10: Global Deviance = 2004.283 
-#> GAMLSS-RS iteration 11: Global Deviance = 2004.14 
+#> GAMLSS-RS iteration 11: Global Deviance = 2004.139 
 #> GAMLSS-RS iteration 12: Global Deviance = 2003.991 
 #> GAMLSS-RS iteration 13: Global Deviance = 2003.838 
 #> GAMLSS-RS iteration 14: Global Deviance = 2003.68 
@@ -318,7 +318,7 @@ param_mm <- gamlss(mice ~ 1, sigma.fo = ~ 1, nu.fo = ~ 1,
 #> GAMLSS-RS iteration 20: Global Deviance = 2002.613 
 #> GAMLSS-RS iteration 21: Global Deviance = 2002.413 
 #> GAMLSS-RS iteration 22: Global Deviance = 2002.205 
-#> GAMLSS-RS iteration 23: Global Deviance = 2001.99 
+#> GAMLSS-RS iteration 23: Global Deviance = 2001.989 
 #> GAMLSS-RS iteration 24: Global Deviance = 2001.766 
 #> GAMLSS-RS iteration 25: Global Deviance = 2001.533 
 #> GAMLSS-RS iteration 26: Global Deviance = 2001.292 

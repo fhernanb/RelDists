@@ -55,14 +55,14 @@ iv <- initValuesOW(formula = y ~ 1)
 summary(iv)
 #> --------------------------------------------------------------------
 #> Initial Values
-#> sigma = NA
-#> nu = NA
+#> sigma = 2
+#> nu = 6
 #> --------------------------------------------------------------------
 #> Search Regions
-#> For sigma: NA
-#> For nu: NA
+#> For sigma: all(sigma > 1)
+#> For nu: all(nu > 1/sigma)
 #> --------------------------------------------------------------------
-#> Hazard shape: NA
+#> Hazard shape: Increasing
 #> Warning: Non-parametric estimate for Empirical TTT is irregular.
 #> Please, use the 'plot()' method to see the TTT shape and set the search region manually in 'gamlss()' if there is no conincidence between 'Hazard_Shape()' and 'plot()'. Visit 'OW distribution' vignette to get further information.
 
@@ -84,22 +84,24 @@ con.out <- gamlss.control(n.cyc = 300, trace = FALSE)
 con.in <- glim.control(cyc = 300)
 
 (sigma.start <- param.startOW("sigma", iv))
-#> [1] NA
+#> [1] 2
 (nu.start <- param.startOW("nu", iv))
-#> [1] NA
+#> [1] 6
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, control=con.out, i.control=con.in,
               family=myOW_region(OW(sigma.link="identity", nu.link="identity"),
                                  valid.values="auto", iv),
               sigma.start=sigma.start, nu.start=nu.start)
-#> Error in if (any(sigma * nu <= 0)) {    stop(paste("Product sigma*nu must be positive", "\n", ""))}: missing value where TRUE/FALSE needed
 
 # Estimates are close to actual values
 (mu <- exp(coef(mod, what = "mu")))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>  0.05753546 
 (sigma <- coef(mod, what = "sigma"))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>   0.9050876 
 (nu <- coef(mod, what = "nu"))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>    1.328676 
   
 ```
