@@ -1,4 +1,4 @@
-#' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (Based on GLM)
+#' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P3 Based on GLM)
 #' 
 #' @description 
 #' The function \code{BS5()} defines the Birnbaum-Saunders distribution, 

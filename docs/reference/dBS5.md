@@ -1,4 +1,4 @@
-# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (Based on GLM)
+# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P3 Based on GLM)
 
 Density, distribution function, quantile function, random generation and
 hazard function for the Birnbaum-Saunders distribution with parameters

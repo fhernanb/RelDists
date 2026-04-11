@@ -2,7 +2,7 @@
 % Please edit documentation in R/BS5.R
 \name{BS5}
 \alias{BS5}
-\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (Based on GLM)}
+\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P3 Based on GLM)}
 \usage{
 BS5(mu.link = "log", sigma.link = "log")
 }

@@ -6,7 +6,7 @@
 \alias{qBS5}
 \alias{rBS5}
 \alias{hBS5}
-\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (Based on GLM)}
+\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P3 Based on GLM)}
 \usage{
 dBS5(x, mu = 1, sigma = 0.5, log = FALSE)
 

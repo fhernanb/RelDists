@@ -21,7 +21,11 @@
   Birnbaum-Saunders family - Ahmed et al. (2008)
 
 - [`BS5()`](http://fhernanb.github.io/RelDists/reference/BS5.md) : The
-  Birnbaum-Saunders family - Santos-Neto et al. (2012) (Based on GLM)
+  Birnbaum-Saunders family - Santos-Neto et al. (2012) (P3 Based on GLM)
+
+- [`BS6()`](http://fhernanb.github.io/RelDists/reference/BS6.md) : The
+  Birnbaum-Saunders family - Santos-Neto et al. (2012) (P4 Based on the
+  mean)
 
 - [`CJ2()`](http://fhernanb.github.io/RelDists/reference/CJ2.md) : The
   two-parameter Chris-Jerry distribution family
@@ -169,8 +173,16 @@
   [`qBS5()`](http://fhernanb.github.io/RelDists/reference/dBS5.md)
   [`rBS5()`](http://fhernanb.github.io/RelDists/reference/dBS5.md)
   [`hBS5()`](http://fhernanb.github.io/RelDists/reference/dBS5.md) : The
-  Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (Based on
-  GLM)
+  Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P3 Based
+  on GLM)
+
+- [`dBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md)
+  [`pBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md)
+  [`qBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md)
+  [`rBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md)
+  [`hBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md) : The
+  Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P4 Based
+  on the mean)
 
 - [`dCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
   [`pCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
