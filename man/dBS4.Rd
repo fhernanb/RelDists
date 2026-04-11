@@ -6,7 +6,7 @@
 \alias{qBS4}
 \alias{rBS4}
 \alias{hBS4}
-\title{The Birnbaum-Saunders distribution - Second parameterization}
+\title{The Birnbaum-Saunders distribution - Ahmed et al. (2008)}
 \usage{
 dBS4(x, mu = 1, sigma = 0.5, log = FALSE)
 

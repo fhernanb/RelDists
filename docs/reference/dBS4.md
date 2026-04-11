@@ -1,4 +1,4 @@
-# The Birnbaum-Saunders distribution - Second parameterization
+# The Birnbaum-Saunders distribution - Ahmed et al. (2008)
 
 Density, distribution function, quantile function, random generation and
 hazard function for the Birnbaum-Saunders distribution with parameters

@@ -2,7 +2,7 @@
 % Please edit documentation in R/BS4.R
 \name{BS4}
 \alias{BS4}
-\title{The Birnbaum-Saunders family - Second parameterization (Ahmed et al., 2008)}
+\title{The Birnbaum-Saunders family - Ahmed et al. (2008)}
 \usage{
 BS4(mu.link = "log", sigma.link = "log")
 }

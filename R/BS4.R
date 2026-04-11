@@ -1,4 +1,4 @@
-#' The Birnbaum-Saunders family - Second parameterization (Ahmed et al., 2008)
+#' The Birnbaum-Saunders family - Ahmed et al. (2008)
 #' 
 #' @description 
 #' The function \code{BS4()} defines the Birnbaum-Saunders distribution, 
