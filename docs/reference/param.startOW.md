@@ -94,12 +94,12 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, control=con.out, i.control=con.in,
 # Estimates are close to actual values
 (mu <- exp(coef(mod, what = "mu")))
 #> (Intercept) 
-#>  0.05048541 
+#>  0.04713267 
 (sigma <- coef(mod, what = "sigma"))
 #> (Intercept) 
-#>   0.5683534 
+#>   0.5392366 
 (nu <- coef(mod, what = "nu"))
 #> (Intercept) 
-#>    2.121936 
+#>    2.072319 
   
 ```

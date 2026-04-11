@@ -62,7 +62,6 @@ gendat <- function(n) {
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-#set.seed(1234)
 dat <- gendat(n=100)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 

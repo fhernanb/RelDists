@@ -27,6 +27,10 @@
   Birnbaum-Saunders family - Santos-Neto et al. (2012) (P4 Based on the
   mean)
 
+- [`BS7()`](http://fhernanb.github.io/RelDists/reference/BS7.md) : The
+  Birnbaum-Saunders family - Santos-Neto et al. (2012) (P5 Based on the
+  variance)
+
 - [`CJ2()`](http://fhernanb.github.io/RelDists/reference/CJ2.md) : The
   two-parameter Chris-Jerry distribution family
 
@@ -183,6 +187,14 @@
   [`hBS6()`](http://fhernanb.github.io/RelDists/reference/dBS6.md) : The
   Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P4 Based
   on the mean)
+
+- [`dBS7()`](http://fhernanb.github.io/RelDists/reference/dBS7.md)
+  [`pBS7()`](http://fhernanb.github.io/RelDists/reference/dBS7.md)
+  [`qBS7()`](http://fhernanb.github.io/RelDists/reference/dBS7.md)
+  [`rBS7()`](http://fhernanb.github.io/RelDists/reference/dBS7.md)
+  [`hBS7()`](http://fhernanb.github.io/RelDists/reference/dBS7.md) : The
+  Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P5 Based
+  on the variance)
 
 - [`dCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
   [`pCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)

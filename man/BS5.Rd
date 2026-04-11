@@ -56,13 +56,12 @@ exp(coef(mod1, what="sigma"))
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
-  mu <- exp(1.45 - 3 * x1)
-  sigma <- exp(2 - 1.5 * x2)
+  mu <- exp(1.5 - 3 * x1)        # Aprox 1
+  sigma <- exp(2.4 + 1.7 * x2)   # Aprox 25
   y <- rBS5(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-#set.seed(1234)
 dat <- gendat(n=100)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
