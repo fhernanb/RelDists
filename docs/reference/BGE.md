@@ -76,8 +76,8 @@ require(gamlss)
 #> Loading required package: splines
 #> Loading required package: gamlss.data
 #> 
-#> Attaching package: 'gamlss.data'
-#> The following object is masked from 'package:datasets':
+#> Attaching package: ‘gamlss.data’
+#> The following object is masked from ‘package:datasets’:
 #> 
 #>     sleep
 #> Loading required package: gamlss.dist
@@ -94,16 +94,16 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, tau.fo=~1, family=BGE,
 # using the inverse link function
 exp(coef(mod, what='mu'))
 #> (Intercept) 
-#>    1.291091 
+#>    1.294094 
 exp(coef(mod, what='sigma'))
 #> (Intercept) 
-#>   0.7667065 
+#>   0.8778329 
 exp(coef(mod, what='nu'))
 #> (Intercept) 
-#>    2.260267 
+#>     2.00017 
 exp(coef(mod, what='tau'))
 #> (Intercept) 
-#>    1.240522 
+#>    1.250166 
 
 # Example 2
 # Generating random values under some model
@@ -121,14 +121,14 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, tau.fo=~1, family=BGE,
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>    1.543910   -1.318217 
+#>   0.4686379  -1.0410837 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>    1.441633   -2.497046 
+#>    1.563528   -2.435488 
 exp(coef(mod, what="nu"))
 #> (Intercept) 
-#>    1.086642 
+#>    0.977047 
 exp(coef(mod, what="tau"))
 #> (Intercept) 
-#>   0.4448615 
+#>    1.128388 
 ```

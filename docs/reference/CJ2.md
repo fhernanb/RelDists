@@ -67,24 +67,26 @@ require(gamlss)
 
 mod1 <- gamlss(y~1, sigma.fo=~1, family=CJ2,
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> GAMLSS-RS iteration 1: Global Deviance = 1720.318 
-#> GAMLSS-RS iteration 2: Global Deviance = 1718.828 
-#> GAMLSS-RS iteration 3: Global Deviance = 1718.398 
-#> GAMLSS-RS iteration 4: Global Deviance = 1718.263 
-#> GAMLSS-RS iteration 5: Global Deviance = 1718.219 
-#> GAMLSS-RS iteration 6: Global Deviance = 1718.205 
-#> GAMLSS-RS iteration 7: Global Deviance = 1718.199 
-#> GAMLSS-RS iteration 8: Global Deviance = 1718.198 
-#> GAMLSS-RS iteration 9: Global Deviance = 1718.197 
+#> GAMLSS-RS iteration 1: Global Deviance = 1735.656 
+#> GAMLSS-RS iteration 2: Global Deviance = 1733.964 
+#> GAMLSS-RS iteration 3: Global Deviance = 1733.327 
+#> GAMLSS-RS iteration 4: Global Deviance = 1733.068 
+#> GAMLSS-RS iteration 5: Global Deviance = 1732.957 
+#> GAMLSS-RS iteration 6: Global Deviance = 1732.908 
+#> GAMLSS-RS iteration 7: Global Deviance = 1732.886 
+#> GAMLSS-RS iteration 8: Global Deviance = 1732.876 
+#> GAMLSS-RS iteration 9: Global Deviance = 1732.872 
+#> GAMLSS-RS iteration 10: Global Deviance = 1732.87 
+#> GAMLSS-RS iteration 11: Global Deviance = 1732.869 
 
 # Extracting the fitted values for mu, sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>     1.01325 
+#>   0.9956172 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    1.501808 
+#>    1.650527 
 
 # Example 2
 # Generating random values under some model
@@ -130,7 +132,7 @@ summary(mod2)
 #> (Intercept) -0.22632    0.05892  -3.841 0.000138 ***
 #> x1           1.51252    0.02380  63.556  < 2e-16 ***
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> Sigma link function:  log
@@ -139,7 +141,7 @@ summary(mod2)
 #> (Intercept)   1.0639     0.5649   1.883 0.060217 .  
 #> x2           -0.6515     0.1850  -3.521 0.000469 ***
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> No. of observations in the fit:  500 

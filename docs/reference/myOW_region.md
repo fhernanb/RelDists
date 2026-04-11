@@ -83,13 +83,13 @@ mod1 <- gamlss(y~1, sigma.fo=~1, nu.fo=~1,
 
 exp(coef(mod1, what='mu'))
 #> (Intercept) 
-#>    0.176485 
+#>   0.1985413 
 exp(coef(mod1, what='sigma'))
 #> (Intercept) 
-#>    4.775956 
+#>    4.069383 
 exp(coef(mod1, what='nu'))
 #> (Intercept) 
-#>  0.03925689 
+#>  0.04848165 
 
 # Example 2
 # Same example using another link function and using 'myOW_region'
@@ -103,11 +103,11 @@ mod2 <- gamlss(y~1, sigma.fo=~1, nu.fo=~1,
 
 exp(coef(mod2, what='mu'))
 #> (Intercept) 
-#>   0.1764757 
+#>   0.1985762 
 coef(mod2, what='sigma')
 #> (Intercept) 
-#>    4.776293 
+#>    4.068493 
 exp(coef(mod2, what='nu'))
 #> (Intercept) 
-#>  0.03925474 
+#>  0.04849019 
 ```

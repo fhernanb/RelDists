@@ -11,13 +11,9 @@
 #' for the sigma parameter.
 #' 
 #' @references
-#' Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., & Ahmed, S. E. (2012). 
-#' On new parameterizations of the Birnbaum-Saunders distribution. 
-#' Pakistan Journal of Statistics, 28(1), 1-26.
-#' 
-#' Ahmed, S. E., et al. (2008). Inference in an applied accelerated life test model 
-#' based on the Birnbaum-Saunders distribution. Journal of Statistical Computation 
-#' and Simulation, 78(9), 809-823.
+#' Ahmed, S. E., Budsaba, K., Lisawadi, S., & Volodin, A. (2008). Parametric 
+#' estimation for the Birnbaum-Saunders lifetime distribution based on a new 
+#' parametrization. Thailand Statistician, 6(2), 213-240.
 #' 
 #' @seealso \link{dBS4}.
 #' 

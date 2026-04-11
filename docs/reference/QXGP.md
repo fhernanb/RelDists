@@ -72,16 +72,18 @@ require(gamlss)
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family='QXGP',
               control=gamlss.control(n.cyc=5000, trace=FALSE))
-#> Error in gamlss(y ~ 1, sigma.fo = ~1, nu.fo = ~1, family = "QXGP", control = gamlss.control(n.cyc = 5000,     trace = FALSE)): response variable out of range
 
 # Extracting the fitted values for mu, sigma and nu
 # using the inverse link function
 exp(coef(mod, what='mu'))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>      269437 
 exp(coef(mod, what='sigma'))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>    1.490796 
 exp(coef(mod, what='nu'))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>    2.939705 
 
 # Example 2
 # Generating random values under some model
@@ -98,11 +100,11 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=QXGP,
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>   -1.553292    3.344201 
+#>   -2.421042    3.494641 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>   0.9028154  -1.6545796 
+#>    1.095616   -2.143970 
 exp(coef(mod, what="nu"))
-#>  (Intercept) 
-#> 2.220444e-16 
+#> (Intercept) 
+#>   0.9816411 
 ```

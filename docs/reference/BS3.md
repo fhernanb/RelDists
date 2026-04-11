@@ -63,26 +63,26 @@ y <- rBS3(n=50, mu=2, sigma=0.2)
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS3)
-#> GAMLSS-RS iteration 1: Global Deviance = 166.6478 
-#> GAMLSS-RS iteration 2: Global Deviance = 163.3509 
-#> GAMLSS-RS iteration 3: Global Deviance = 160.4004 
-#> GAMLSS-RS iteration 4: Global Deviance = 158.3753 
-#> GAMLSS-RS iteration 5: Global Deviance = 157.3807 
-#> GAMLSS-RS iteration 6: Global Deviance = 157.0305 
-#> GAMLSS-RS iteration 7: Global Deviance = 156.929 
-#> GAMLSS-RS iteration 8: Global Deviance = 156.9034 
-#> GAMLSS-RS iteration 9: Global Deviance = 156.8976 
-#> GAMLSS-RS iteration 10: Global Deviance = 156.8962 
-#> GAMLSS-RS iteration 11: Global Deviance = 156.8958 
+#> GAMLSS-RS iteration 1: Global Deviance = 168.002 
+#> GAMLSS-RS iteration 2: Global Deviance = 164.5652 
+#> GAMLSS-RS iteration 3: Global Deviance = 161.2702 
+#> GAMLSS-RS iteration 4: Global Deviance = 159.0704 
+#> GAMLSS-RS iteration 5: Global Deviance = 158.017 
+#> GAMLSS-RS iteration 6: Global Deviance = 157.6542 
+#> GAMLSS-RS iteration 7: Global Deviance = 157.5525 
+#> GAMLSS-RS iteration 8: Global Deviance = 157.5278 
+#> GAMLSS-RS iteration 9: Global Deviance = 157.5224 
+#> GAMLSS-RS iteration 10: Global Deviance = 157.521 
+#> GAMLSS-RS iteration 11: Global Deviance = 157.5207 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    1.904568 
+#>    1.963156 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>   0.3035287 
+#>   0.2928277 
 
 # Example 2
 # Generating random values for a regression model
@@ -118,9 +118,6 @@ library(alr4)
 #> Loading required package: car
 #> Loading required package: carData
 #> Loading required package: effects
-#> Registered S3 method overwritten by 'lme4':
-#>   method           from
-#>   na.action.merMod car 
 #> lattice theme set by effectsTheme()
 #> See ?effectsTheme for details.
 data("landrent")
@@ -156,7 +153,7 @@ summary(mod3)
 #> (Intercept) -0.312542   0.040942  -7.634 1.56e-10 ***
 #> X2           0.010503   0.001835   5.725 3.10e-07 ***
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> Sigma link function:  logit
@@ -165,7 +162,7 @@ summary(mod3)
 #> (Intercept) -3.41398    0.31153 -10.959 3.12e-16 ***
 #> X2           0.01545    0.01218   1.269    0.209    
 #> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
 #> ------------------------------------------------------------------
 #> No. of observations in the fit:  67 

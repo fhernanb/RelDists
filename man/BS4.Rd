@@ -36,6 +36,7 @@ for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}. In this parameterization,
 # Example 1
 # Generating some random values with
 # known mu and sigma
+set.seed(123)
 y <- rBS4(n=50, mu=2, sigma=0.2)
 
 # Fitting the model
@@ -72,32 +73,61 @@ summary(mod2)
 }
 
 # Example 3
-# The response variable is the ratio between the average
-# rent per acre planted with alfalfa and the corresponding 
-# average rent for other agricultural uses. The density of
-# dairy cows (X2, number per square mile) is the explanatory variable. 
-library(alr4)
-data("landrent")
-
-landrent$ratio <- landrent$Y / landrent$X1
-
-with(landrent, plot(x=X2, y=ratio))
-
-mod3 <- gamlss(ratio~X2, sigma.fo=~X2, 
-               data=landrent, family=BS4)
-
+# Taken from Ahmed et al. (2008) on page 227
+# The response variable is the fatigue
+# life of 6061-T6 aluminum coupons.
+\dontrun{
+y <- c(
+    70, 90, 96, 97, 99, 100, 103, 104,
+    104, 105, 107, 108, 108, 108, 109, 109,
+    112, 112, 113, 114, 114, 114, 116, 119,
+    120, 120, 120, 121, 121, 123, 124, 124,
+    124, 124, 124, 128, 128, 129, 130, 130,
+    130, 130, 131, 131, 131, 131, 131, 132,
+    132, 132, 133, 134, 134, 134, 134, 134,
+    136, 136, 137, 138, 138, 138, 139, 139,
+    141, 141, 142, 142, 142, 142, 142, 142,
+    144, 144, 145, 146, 148, 148, 149, 151,
+    151, 152, 155, 156, 157, 157, 157, 157,
+    158, 159, 162, 163, 163, 164, 166, 166,
+    168, 170, 174, 196, 212
+)
+  
+mod3 <- gamlss(y~1, family=BS4, 
+               control=gamlss.control(n.cyc=3000))
+  
 summary(mod3)
-logLik(mod3)
+exp(coef(mod3, what="mu"))
+exp(coef(mod3, what="sigma"))
+
+plot(density(y))
+curve(dBS4(x, mu=0.5145121, sigma=67.81761),
+      add=TRUE, col="tomato", lwd=2)
+legend("topright", legend=c("Empirical", "Estimated"), 
+       col=c("black", "tomato"), lty=1)
+}
+
+# Example 4
+# Taken from Ahmed et al. (2008) on page 228
+# The response variable is the fatigue life in
+# hours of 10 bearings of a certain type. 
+\dontrun{
+y <- c(152.7, 172.0, 172.5, 173.5, 193.0,
+       204.7, 216.5, 234.9, 262.6, 422.6)
+
+mod4 <- gamlss(y~1, family=BS4, 
+               control=gamlss.control(n.cyc=3000))
+
+summary(mod4)
+exp(coef(mod4, what="mu"))
+exp(coef(mod4, what="sigma"))
+}
 
 }
 \references{
-Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., & Ahmed, S. E. (2012). 
-On new parameterizations of the Birnbaum-Saunders distribution. 
-Pakistan Journal of Statistics, 28(1), 1-26.
-
-Ahmed, S. E., et al. (2008). Inference in an applied accelerated life test model 
-based on the Birnbaum-Saunders distribution. Journal of Statistical Computation 
-and Simulation, 78(9), 809-823.
+Ahmed, S. E., Budsaba, K., Lisawadi, S., & Volodin, A. (2008). Parametric 
+estimation for the Birnbaum-Saunders lifetime distribution based on a new 
+parametrization. Thailand Statistician, 6(2), 213-240.
 }
 \seealso{
 \link{dBS4}.

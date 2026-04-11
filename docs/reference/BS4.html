@@ -88,12 +88,9 @@ has density given by</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., &amp; Ahmed, S. E. (2012).
-On new parameterizations of the Birnbaum-Saunders distribution.
-Pakistan Journal of Statistics, 28(1), 1-26.</p>
-<p>Ahmed, S. E., et al. (2008). Inference in an applied accelerated life test model
-based on the Birnbaum-Saunders distribution. Journal of Statistical Computation
-and Simulation, 78(9), 809-823.</p>
+    <p>Ahmed, S. E., Budsaba, K., Lisawadi, S., &amp; Volodin, A. (2008). Parametric
+estimation for the Birnbaum-Saunders lifetime distribution based on a new
+parametrization. Thailand Statistician, 6(2), 213-240.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -105,25 +102,26 @@ and Simulation, 78(9), 809-823.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example 1</span></span></span>
 <span class="r-in"><span><span class="co"># Generating some random values with</span></span></span>
 <span class="r-in"><span><span class="co"># known mu and sigma</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="dBS4.html">rBS4</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">50</span>, mu<span class="op">=</span><span class="fl">2</span>, sigma<span class="op">=</span><span class="fl">0.2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fitting the model</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://www.gamlss.com/" class="external-link">gamlss</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 395.6641 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = -55.8409 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = -59.0774 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = -59.0818 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = -59.0822 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 862.6606 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = -34.9217 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = -52.3527 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = -52.3944 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = -52.3945 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extracting the fitted values for mu and sigma</span></span></span>
 <span class="r-in"><span><span class="co"># using the inverse link function</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     1.77518 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    1.887116 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod1</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2094059 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   0.2167196 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 2</span></span></span>
 <span class="r-in"><span><span class="co"># Generating random values for a regression model</span></span></span>
@@ -150,81 +148,55 @@ and Simulation, 78(9), 809-823.</p>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 3</span></span></span>
-<span class="r-in"><span><span class="co"># The response variable is the ratio between the average</span></span></span>
-<span class="r-in"><span><span class="co"># rent per acre planted with alfalfa and the corresponding </span></span></span>
-<span class="r-in"><span><span class="co"># average rent for other agricultural uses. The density of</span></span></span>
-<span class="r-in"><span><span class="co"># dairy cows (X2, number per square mile) is the explanatory variable. </span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://z.umn.edu/alr4ed" class="external-link">alr4</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"landrent"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">landrent</span><span class="op">$</span><span class="va">ratio</span> <span class="op">&lt;-</span> <span class="va">landrent</span><span class="op">$</span><span class="va">Y</span> <span class="op">/</span> <span class="va">landrent</span><span class="op">$</span><span class="va">X1</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">landrent</span>, <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X2</span>, y<span class="op">=</span><span class="va">ratio</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="BS4-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">ratio</span><span class="op">~</span><span class="va">X2</span>, sigma.fo<span class="op">=</span><span class="op">~</span><span class="va">X2</span>, </span></span>
-<span class="r-in"><span>               data<span class="op">=</span><span class="va">landrent</span>, family<span class="op">=</span><span class="va">BS4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 1: Global Deviance = 1395.121 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 2: Global Deviance = -14.2602 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 3: Global Deviance = -18.2044 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 4: Global Deviance = -20.8799 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 5: Global Deviance = -22.7862 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 6: Global Deviance = -24.1204 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 7: Global Deviance = -25.1446 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 8: Global Deviance = -25.8749 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 9: Global Deviance = -26.4526 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 10: Global Deviance = -26.8795 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 11: Global Deviance = -27.1737 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 12: Global Deviance = -27.4248 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 13: Global Deviance = -27.614 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 14: Global Deviance = -27.7493 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 15: Global Deviance = -27.858 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 16: Global Deviance = -27.945 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 17: Global Deviance = -28.0197 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 18: Global Deviance = -28.0776 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 19: Global Deviance = -28.1229 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> GAMLSS-RS iteration 20: Global Deviance = -28.1585 </span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Algorithm RS has not yet converged</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Taken from Ahmed et al. (2008) on page 227</span></span></span>
+<span class="r-in"><span><span class="co"># The response variable is the fatigue</span></span></span>
+<span class="r-in"><span><span class="co"># life of 6061-T6 aluminum coupons.</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fl">70</span>, <span class="fl">90</span>, <span class="fl">96</span>, <span class="fl">97</span>, <span class="fl">99</span>, <span class="fl">100</span>, <span class="fl">103</span>, <span class="fl">104</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">104</span>, <span class="fl">105</span>, <span class="fl">107</span>, <span class="fl">108</span>, <span class="fl">108</span>, <span class="fl">108</span>, <span class="fl">109</span>, <span class="fl">109</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">112</span>, <span class="fl">112</span>, <span class="fl">113</span>, <span class="fl">114</span>, <span class="fl">114</span>, <span class="fl">114</span>, <span class="fl">116</span>, <span class="fl">119</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">120</span>, <span class="fl">120</span>, <span class="fl">120</span>, <span class="fl">121</span>, <span class="fl">121</span>, <span class="fl">123</span>, <span class="fl">124</span>, <span class="fl">124</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">124</span>, <span class="fl">124</span>, <span class="fl">124</span>, <span class="fl">128</span>, <span class="fl">128</span>, <span class="fl">129</span>, <span class="fl">130</span>, <span class="fl">130</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">130</span>, <span class="fl">130</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">131</span>, <span class="fl">132</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">132</span>, <span class="fl">132</span>, <span class="fl">133</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>, <span class="fl">134</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">136</span>, <span class="fl">136</span>, <span class="fl">137</span>, <span class="fl">138</span>, <span class="fl">138</span>, <span class="fl">138</span>, <span class="fl">139</span>, <span class="fl">139</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">141</span>, <span class="fl">141</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>, <span class="fl">142</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">144</span>, <span class="fl">144</span>, <span class="fl">145</span>, <span class="fl">146</span>, <span class="fl">148</span>, <span class="fl">148</span>, <span class="fl">149</span>, <span class="fl">151</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">151</span>, <span class="fl">152</span>, <span class="fl">155</span>, <span class="fl">156</span>, <span class="fl">157</span>, <span class="fl">157</span>, <span class="fl">157</span>, <span class="fl">157</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">158</span>, <span class="fl">159</span>, <span class="fl">162</span>, <span class="fl">163</span>, <span class="fl">163</span>, <span class="fl">164</span>, <span class="fl">166</span>, <span class="fl">166</span>,</span></span>
+<span class="r-in"><span>    <span class="fl">168</span>, <span class="fl">170</span>, <span class="fl">174</span>, <span class="fl">196</span>, <span class="fl">212</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span><span class="va">mod3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS4</span>, </span></span>
+<span class="r-in"><span>               control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">3000</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Family:  c("BS4", "Birnbaum-Saunders - Fourth parameterization") </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:  gamlss(formula = ratio ~ X2, sigma.formula = ~X2, family = BS4,  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     data = landrent) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fitting method: RS() </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Mu link function:  log</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Mu Coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  1.920946   0.165953  11.575   &lt;2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> X2          -0.016821   0.007065  -2.381   0.0203 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Sigma link function:  log</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Sigma Coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  1.628314   0.150971  10.786 6.03e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> X2          -0.004896   0.005928  -0.826    0.412    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No. of observations in the fit:  67 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Degrees of Freedom for the fit:  4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Residual Deg. of Freedom:  63 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       at cycle:  20 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Global Deviance:     -28.15848 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             AIC:     -20.15848 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             SBC:     -11.33971 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ******************************************************************</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/logLik.html" class="external-link">logLik</a></span><span class="op">(</span><span class="va">mod3</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 'log Lik.' 14.07924 (df=4)</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod3</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod3</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/density.html" class="external-link">density</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu"><a href="dBS4.html">dBS4</a></span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">0.5145121</span>, sigma<span class="op">=</span><span class="fl">67.81761</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>      add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Empirical"</span>, <span class="st">"Estimated"</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"tomato"</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 4</span></span></span>
+<span class="r-in"><span><span class="co"># Taken from Ahmed et al. (2008) on page 228</span></span></span>
+<span class="r-in"><span><span class="co"># The response variable is the fatigue life in</span></span></span>
+<span class="r-in"><span><span class="co"># hours of 10 bearings of a certain type. </span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">152.7</span>, <span class="fl">172.0</span>, <span class="fl">172.5</span>, <span class="fl">173.5</span>, <span class="fl">193.0</span>,</span></span>
+<span class="r-in"><span>       <span class="fl">204.7</span>, <span class="fl">216.5</span>, <span class="fl">234.9</span>, <span class="fl">262.6</span>, <span class="fl">422.6</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">mod4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.html" class="external-link">gamlss</a></span><span class="op">(</span><span class="va">y</span><span class="op">~</span><span class="fl">1</span>, family<span class="op">=</span><span class="va">BS4</span>, </span></span>
+<span class="r-in"><span>               control<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/gamlss/man/gamlss.control.html" class="external-link">gamlss.control</a></span><span class="op">(</span>n.cyc<span class="op">=</span><span class="fl">3000</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">mod4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod4</span>, what<span class="op">=</span><span class="st">"mu"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">mod4</span>, what<span class="op">=</span><span class="st">"sigma"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

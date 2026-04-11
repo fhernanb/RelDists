@@ -45,13 +45,9 @@ for \\x\>0\\, \\\mu\>0\\ and \\\sigma\>0\\. In this parameterization,
 
 ## References
 
-Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., & Ahmed, S. E. (2012).
-On new parameterizations of the Birnbaum-Saunders distribution. Pakistan
-Journal of Statistics, 28(1), 1-26.
-
-Ahmed, S. E., et al. (2008). Inference in an applied accelerated life
-test model based on the Birnbaum-Saunders distribution. Journal of
-Statistical Computation and Simulation, 78(9), 809-823.
+Ahmed, S. E., Budsaba, K., Lisawadi, S., & Volodin, A. (2008).
+Parametric estimation for the Birnbaum-Saunders lifetime distribution
+based on a new parametrization. Thailand Statistician, 6(2), 213-240.
 
 ## See also
 
@@ -63,25 +59,26 @@ Statistical Computation and Simulation, 78(9), 809-823.
 # Example 1
 # Generating some random values with
 # known mu and sigma
+set.seed(123)
 y <- rBS4(n=50, mu=2, sigma=0.2)
 
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS4)
-#> GAMLSS-RS iteration 1: Global Deviance = 395.6641 
-#> GAMLSS-RS iteration 2: Global Deviance = -55.8409 
-#> GAMLSS-RS iteration 3: Global Deviance = -59.0774 
-#> GAMLSS-RS iteration 4: Global Deviance = -59.0818 
-#> GAMLSS-RS iteration 5: Global Deviance = -59.0822 
+#> GAMLSS-RS iteration 1: Global Deviance = 862.6606 
+#> GAMLSS-RS iteration 2: Global Deviance = -34.9217 
+#> GAMLSS-RS iteration 3: Global Deviance = -52.3527 
+#> GAMLSS-RS iteration 4: Global Deviance = -52.3944 
+#> GAMLSS-RS iteration 5: Global Deviance = -52.3945 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>     1.77518 
+#>    1.887116 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>   0.2094059 
+#>   0.2167196 
 
 # Example 2
 # Generating random values for a regression model
@@ -108,79 +105,53 @@ summary(mod2)
 } # }
 
 # Example 3
-# The response variable is the ratio between the average
-# rent per acre planted with alfalfa and the corresponding 
-# average rent for other agricultural uses. The density of
-# dairy cows (X2, number per square mile) is the explanatory variable. 
-library(alr4)
-data("landrent")
-
-landrent$ratio <- landrent$Y / landrent$X1
-
-with(landrent, plot(x=X2, y=ratio))
-
-
-mod3 <- gamlss(ratio~X2, sigma.fo=~X2, 
-               data=landrent, family=BS4)
-#> GAMLSS-RS iteration 1: Global Deviance = 1395.121 
-#> GAMLSS-RS iteration 2: Global Deviance = -14.2602 
-#> GAMLSS-RS iteration 3: Global Deviance = -18.2044 
-#> GAMLSS-RS iteration 4: Global Deviance = -20.8799 
-#> GAMLSS-RS iteration 5: Global Deviance = -22.7862 
-#> GAMLSS-RS iteration 6: Global Deviance = -24.1204 
-#> GAMLSS-RS iteration 7: Global Deviance = -25.1446 
-#> GAMLSS-RS iteration 8: Global Deviance = -25.8749 
-#> GAMLSS-RS iteration 9: Global Deviance = -26.4526 
-#> GAMLSS-RS iteration 10: Global Deviance = -26.8795 
-#> GAMLSS-RS iteration 11: Global Deviance = -27.1737 
-#> GAMLSS-RS iteration 12: Global Deviance = -27.4248 
-#> GAMLSS-RS iteration 13: Global Deviance = -27.614 
-#> GAMLSS-RS iteration 14: Global Deviance = -27.7493 
-#> GAMLSS-RS iteration 15: Global Deviance = -27.858 
-#> GAMLSS-RS iteration 16: Global Deviance = -27.945 
-#> GAMLSS-RS iteration 17: Global Deviance = -28.0197 
-#> GAMLSS-RS iteration 18: Global Deviance = -28.0776 
-#> GAMLSS-RS iteration 19: Global Deviance = -28.1229 
-#> GAMLSS-RS iteration 20: Global Deviance = -28.1585 
-#> Warning: Algorithm RS has not yet converged
-
+# Taken from Ahmed et al. (2008) on page 227
+# The response variable is the fatigue
+# life of 6061-T6 aluminum coupons.
+if (FALSE) { # \dontrun{
+y <- c(
+    70, 90, 96, 97, 99, 100, 103, 104,
+    104, 105, 107, 108, 108, 108, 109, 109,
+    112, 112, 113, 114, 114, 114, 116, 119,
+    120, 120, 120, 121, 121, 123, 124, 124,
+    124, 124, 124, 128, 128, 129, 130, 130,
+    130, 130, 131, 131, 131, 131, 131, 132,
+    132, 132, 133, 134, 134, 134, 134, 134,
+    136, 136, 137, 138, 138, 138, 139, 139,
+    141, 141, 142, 142, 142, 142, 142, 142,
+    144, 144, 145, 146, 148, 148, 149, 151,
+    151, 152, 155, 156, 157, 157, 157, 157,
+    158, 159, 162, 163, 163, 164, 166, 166,
+    168, 170, 174, 196, 212
+)
+  
+mod3 <- gamlss(y~1, family=BS4, 
+               control=gamlss.control(n.cyc=3000))
+  
 summary(mod3)
-#> ******************************************************************
-#> Family:  c("BS4", "Birnbaum-Saunders - Fourth parameterization") 
-#> 
-#> Call:  gamlss(formula = ratio ~ X2, sigma.formula = ~X2, family = BS4,  
-#>     data = landrent) 
-#> 
-#> Fitting method: RS() 
-#> 
-#> ------------------------------------------------------------------
-#> Mu link function:  log
-#> Mu Coefficients:
-#>              Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)  1.920946   0.165953  11.575   <2e-16 ***
-#> X2          -0.016821   0.007065  -2.381   0.0203 *  
-#> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-#> 
-#> ------------------------------------------------------------------
-#> Sigma link function:  log
-#> Sigma Coefficients:
-#>              Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)  1.628314   0.150971  10.786 6.03e-16 ***
-#> X2          -0.004896   0.005928  -0.826    0.412    
-#> ---
-#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-#> 
-#> ------------------------------------------------------------------
-#> No. of observations in the fit:  67 
-#> Degrees of Freedom for the fit:  4
-#>       Residual Deg. of Freedom:  63 
-#>                       at cycle:  20 
-#>  
-#> Global Deviance:     -28.15848 
-#>             AIC:     -20.15848 
-#>             SBC:     -11.33971 
-#> ******************************************************************
-logLik(mod3)
-#> 'log Lik.' 14.07924 (df=4)
+exp(coef(mod3, what="mu"))
+exp(coef(mod3, what="sigma"))
+
+plot(density(y))
+curve(dBS4(x, mu=0.5145121, sigma=67.81761),
+      add=TRUE, col="tomato", lwd=2)
+legend("topright", legend=c("Empirical", "Estimated"), 
+       col=c("black", "tomato"), lty=1)
+} # }
+
+# Example 4
+# Taken from Ahmed et al. (2008) on page 228
+# The response variable is the fatigue life in
+# hours of 10 bearings of a certain type. 
+if (FALSE) { # \dontrun{
+y <- c(152.7, 172.0, 172.5, 173.5, 193.0,
+       204.7, 216.5, 234.9, 262.6, 422.6)
+
+mod4 <- gamlss(y~1, family=BS4, 
+               control=gamlss.control(n.cyc=3000))
+
+summary(mod4)
+exp(coef(mod4, what="mu"))
+exp(coef(mod4, what="sigma"))
+} # }
 ```

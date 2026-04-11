@@ -16,9 +16,9 @@
 #' P[X <= x], otherwise, P[X > x].
 #' 
 #' @references
-#' Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., & Ahmed, S. E. (2012). 
-#' On new parameterizations of the Birnbaum-Saunders distribution. 
-#' Pakistan Journal of Statistics, 28(1), 1-26.
+#' Ahmed, S. E., Budsaba, K., Lisawadi, S., & Volodin, A. (2008). Parametric 
+#' estimation for the Birnbaum-Saunders lifetime distribution based on a new 
+#' parametrization. Thailand Statistician, 6(2), 213-240.
 #' 
 #' @seealso \link{BS4}.
 #' 
@@ -38,7 +38,7 @@
 #' function, \code{qBS4} gives the quantile function, \code{rBS4}
 #' generates random deviates and \code{hBS4} gives the hazard function.
 #' 
-#' @example examples/examples_dBS3.R
+#' @example examples/examples_dBS4.R
 #' 
 #' @export
 dBS4 <- function(x, mu=1, sigma=0.5, log=FALSE){ #mu = mu   y  sigma = lambda

@@ -97,11 +97,11 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=MOEW,
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>  -0.4955676   1.3942922 
+#>  -0.4789437   1.4206995 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>    1.021122   -2.368124 
+#>    1.019160   -2.371121 
 exp(coef(mod, what="nu"))
 #> (Intercept) 
-#>   0.9078116 
+#>    0.921518 
 ```
