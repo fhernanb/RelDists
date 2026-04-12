@@ -56,34 +56,50 @@ Journal of Statistics, 28(1), 1-26.
 
 [dBS7](http://fhernanb.github.io/RelDists/reference/dBS7.md).
 
+## Author
+
+David Villegas Ceballos, <david.villegas1@udea.edu.co>
+
 ## Examples
 
 ``` r
 # Example 1
 # Generating some random values with
 # known mu and sigma
-set.seed(1234)
+set.seed(12345)
 y <- rBS7(n=100, mu=0.2, sigma=10)
 
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS7, 
                control=gamlss.control(n.cyc=1000))
-#> GAMLSS-RS iteration 1: Global Deviance = 484.3498 
-#> GAMLSS-RS iteration 2: Global Deviance = 484.3481 
-#> GAMLSS-RS iteration 3: Global Deviance = 484.3467 
-#> GAMLSS-RS iteration 4: Global Deviance = 484.3454 
-#> GAMLSS-RS iteration 5: Global Deviance = 484.3442 
-#> GAMLSS-RS iteration 6: Global Deviance = 484.3433 
+#> GAMLSS-RS iteration 1: Global Deviance = 523.2187 
+#> GAMLSS-RS iteration 2: Global Deviance = 523.2067 
+#> GAMLSS-RS iteration 3: Global Deviance = 523.1963 
+#> GAMLSS-RS iteration 4: Global Deviance = 523.1875 
+#> GAMLSS-RS iteration 5: Global Deviance = 523.1799 
+#> GAMLSS-RS iteration 6: Global Deviance = 523.1734 
+#> GAMLSS-RS iteration 7: Global Deviance = 523.1679 
+#> GAMLSS-RS iteration 8: Global Deviance = 523.1631 
+#> GAMLSS-RS iteration 9: Global Deviance = 523.159 
+#> GAMLSS-RS iteration 10: Global Deviance = 523.1555 
+#> GAMLSS-RS iteration 11: Global Deviance = 523.1525 
+#> GAMLSS-RS iteration 12: Global Deviance = 523.1499 
+#> GAMLSS-RS iteration 13: Global Deviance = 523.1477 
+#> GAMLSS-RS iteration 14: Global Deviance = 523.146 
+#> GAMLSS-RS iteration 15: Global Deviance = 523.1445 
+#> GAMLSS-RS iteration 16: Global Deviance = 523.1433 
+#> GAMLSS-RS iteration 17: Global Deviance = 523.1421 
+#> GAMLSS-RS iteration 18: Global Deviance = 523.1412 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>   0.1860926 
+#>    0.214036 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    7.908056 
+#>    11.56968 
 
 # Example 2
 # Generating random values for a regression model
@@ -99,7 +115,8 @@ gendat <- function(n) {
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-dat <- gendat(n=1000)
+set.seed(123)
+dat <- gendat(n=200)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
                family=BS7, data=dat,

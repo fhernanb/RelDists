@@ -55,6 +55,10 @@ Journal of Statistics, 28(1), 1-26.
 
 [dBS5](http://fhernanb.github.io/RelDists/reference/dBS5.md).
 
+## Author
+
+David Villegas Ceballos, <david.villegas1@udea.edu.co>
+
 ## Examples
 
 ``` r

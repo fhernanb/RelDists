@@ -1,5 +1,7 @@
 #' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P5 Based on the variance)
 #' 
+#' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
+#' 
 #' @description 
 #' The function \code{BS7()} defines the Birnbaum-Saunders distribution, 
 #' a two-parameter distribution, for a \code{gamlss.family} object 
@@ -36,7 +38,7 @@
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
-BS7 <- function(mu.link = "log", sigma.link = "log"){
+BS7 <- function(mu.link = "log", sigma.link = "log") {
   mstats <- checklink("mu.link", "BS7", substitute(mu.link),
                       c("log", "inverse", "identity", "own"))
   dstats <- checklink("sigma.link", "BS7", substitute(sigma.link),
@@ -58,56 +60,86 @@ BS7 <- function(mu.link = "log", sigma.link = "log"){
          # First derivatives
          
          dldm = function(y, mu, sigma) {
-           dm   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="mu",
-                                         delta=0.00001)
-           dldm <- as.vector(attr(dm, "gradient"))
-           dldm
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           da_ds <- 1
+           db_ds <- -b0 * ((4 + 10 * mu^2) / (mu * (4 + 5 * mu^2)))
+           term1 <- (-1 / a0) * da_ds
+           term2 <- (1 / a0^3) * ((y / b0) + (b0 / y) - 2) * da_ds
+           term3 <- (1 / (y + b0)) * db_ds
+           term4 <- (-1 / (2 * b0)) * db_ds
+           term5 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_ds
+           result <- term1 + term2 + term3 + term4 + term5
+           return(result)
          },
          
          dldd = function(y, mu, sigma) {
-           dd   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="sigma",
-                                         delta=0.00001)
-           dldd <- as.vector(attr(dd, "gradient"))
-           dldd
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           db_dm <- b0 / (2 * sigma)
+           term1 <- (1 / (y + b0)) * db_dm
+           term2 <- -1 / (2 * b0) * db_dm
+           term3 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_dm
+           result <- term1 + term2 + term3
+           return(result)
          },
          
          # Second derivatives
          
          d2ldm2 = function(y, mu, sigma) {
-           dm   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="mu",
-                                         delta=0.00001)
-           dldm <- as.vector(attr(dm, "gradient"))
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           da_ds <- 1
+           db_ds <- -b0 * ((4 + 10 * mu^2) / (mu * (4 + 5 * mu^2)))
+           term1 <- (-1 / a0) * da_ds
+           term2 <- (1 / a0^3) * ((y / b0) + (b0 / y) - 2) * da_ds
+           term3 <- (1 / (y + b0)) * db_ds
+           term4 <- (-1 / (2 * b0)) * db_ds
+           term5 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_ds
+           dldm <- term1 + term2 + term3 + term4 + term5
+
            d2ldm2 <- - dldm * dldm
            d2ldm2 <- ifelse(d2ldm2 < -1e-15, d2ldm2, -1e-15)
            d2ldm2
          },
-         
-         d2ldmdd = function(y, mu, sigma) {
-           dm   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="mu",
-                                         delta=0.00001)
-           dldm <- as.vector(attr(dm, "gradient"))
-           dd   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="sigma",
-                                         delta=0.00001)
-           dldd <- as.vector(attr(dd, "gradient"))
-           
-           d2ldmdd <- - dldm * dldd
-           d2ldmdd <- ifelse(d2ldmdd < -1e-15, d2ldmdd, -1e-15)
-           d2ldmdd
-         },
-         
+
          d2ldd2  = function(y, mu, sigma) {
-           dd   <- gamlss::numeric.deriv(dBS7(y, mu, sigma, log=TRUE),
-                                         theta="sigma",
-                                         delta=0.00001)
-           dldd <- as.vector(attr(dd, "gradient"))
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           db_dm <- b0 / (2 * sigma)
+           term1 <- (1 / (y + b0)) * db_dm
+           term2 <- -1 / (2 * b0) * db_dm
+           term3 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_dm
+           dldd <- term1 + term2 + term3
+
            d2ldd2 <- - dldd * dldd
            d2ldd2 <- ifelse(d2ldd2 < -1e-15, d2ldd2, -1e-15)
            d2ldd2
+         },
+
+         d2ldmdd = function(y, mu, sigma) {
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           da_ds <- 1
+           db_ds <- -b0 * ((4 + 10 * mu^2) / (mu * (4 + 5 * mu^2)))
+           term1 <- (-1 / a0) * da_ds
+           term2 <- (1 / a0^3) * ((y / b0) + (b0 / y) - 2) * da_ds
+           term3 <- (1 / (y + b0)) * db_ds
+           term4 <- (-1 / (2 * b0)) * db_ds
+           term5 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_ds
+           dldm <- term1 + term2 + term3 + term4 + term5
+
+           a0 <- mu
+           b0 <- (2 * sqrt(sigma)) / (mu * sqrt(4 + 5 * mu^2))
+           db_dm <- b0 / (2 * sigma)
+           term1 <- (1 / (y + b0)) * db_dm
+           term2 <- -1 / (2 * b0) * db_dm
+           term3 <- (1 / (2 * a0^2)) * ((y / b0^2) - (1 / y)) * db_dm
+           dldd <- term1 + term2 + term3
+
+           d2ldmdd <- - dldm * dldd
+           d2ldmdd <- ifelse(d2ldmdd < -1e-15, d2ldmdd, -1e-15)
+           d2ldmdd
          },
          
          G.dev.incr = function(y,mu,sigma,...) -2*dBS7(y,mu,sigma,log=TRUE),
@@ -122,3 +154,4 @@ BS7 <- function(mu.link = "log", sigma.link = "log"){
     ),
     class = c("gamlss.family","family"))
 }
+

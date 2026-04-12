@@ -1,5 +1,7 @@
 #' The Birnbaum-Saunders distribution - Ahmed et al. (2008)
 #' 
+#' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
+#' 
 #' @description
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the 

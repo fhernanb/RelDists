@@ -1,7 +1,7 @@
 # Example 1
 # Generating some random values with
 # known mu and sigma
-set.seed(1234)
+set.seed(12345)
 y <- rBS7(n=100, mu=0.2, sigma=10)
 
 # Fitting the model
@@ -28,7 +28,8 @@ gendat <- function(n) {
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-dat <- gendat(n=1000)
+set.seed(123)
+dat <- gendat(n=200)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
                family=BS7, data=dat,

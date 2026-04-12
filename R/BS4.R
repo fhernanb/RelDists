@@ -1,5 +1,7 @@
 #' The Birnbaum-Saunders family - Ahmed et al. (2008)
 #' 
+#' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
+#' 
 #' @description 
 #' The function \code{BS4()} defines the Birnbaum-Saunders distribution, 
 #' a two-parameter distribution, for a \code{gamlss.family} object 

@@ -53,6 +53,10 @@ based on a new parametrization. Thailand Statistician, 6(2), 213-240.
 
 [dBS4](http://fhernanb.github.io/RelDists/reference/dBS4.md).
 
+## Author
+
+David Villegas Ceballos, <david.villegas1@udea.edu.co>
+
 ## Examples
 
 ``` r

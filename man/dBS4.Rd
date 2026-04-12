@@ -118,3 +118,6 @@ parametrization. Thailand Statistician, 6(2), 213-240.
 \seealso{
 \link{BS4}.
 }
+\author{
+David Villegas Ceballos, \email{david.villegas1@udea.edu.co}
+}

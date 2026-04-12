@@ -118,3 +118,6 @@ Pakistan Journal of Statistics, 28(1), 1-26.
 \seealso{
 \link{BS5}.
 }
+\author{
+David Villegas Ceballos, \email{david.villegas1@udea.edu.co}
+}

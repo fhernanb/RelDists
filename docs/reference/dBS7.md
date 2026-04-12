@@ -81,6 +81,10 @@ Journal of Statistics, 28(1), 1-26.
 
 [BS7](http://fhernanb.github.io/RelDists/reference/BS7.md).
 
+## Author
+
+David Villegas Ceballos, <david.villegas1@udea.edu.co>
+
 ## Examples
 
 ``` r
