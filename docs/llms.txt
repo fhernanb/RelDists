@@ -34,6 +34,10 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
 - [`BS()`](http://fhernanb.github.io/RelDists/reference/BS.md) : The
   Birnbaum-Saunders family
 
+- [`BS10()`](http://fhernanb.github.io/RelDists/reference/BS10.md) : The
+  Birnbaum-Saunders family - Santos-Neto et al. (2012) (P8 Based on the
+  the first Tweedie)
+
 - [`BS2()`](http://fhernanb.github.io/RelDists/reference/BS2.md) : The
   Birnbaum-Saunders family - Santos-Neto et al. (2014)
 
@@ -173,6 +177,14 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`rBS()`](http://fhernanb.github.io/RelDists/reference/dBS.md)
   [`hBS()`](http://fhernanb.github.io/RelDists/reference/dBS.md) : The
   Birnbaum-Saunders distribution
+
+- [`dBS10()`](http://fhernanb.github.io/RelDists/reference/dBS10.md)
+  [`pBS10()`](http://fhernanb.github.io/RelDists/reference/dBS10.md)
+  [`qBS10()`](http://fhernanb.github.io/RelDists/reference/dBS10.md)
+  [`rBS10()`](http://fhernanb.github.io/RelDists/reference/dBS10.md)
+  [`hBS10()`](http://fhernanb.github.io/RelDists/reference/dBS10.md) :
+  The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8
+  Based on the the first Tweedie)
 
 - [`dBS2()`](http://fhernanb.github.io/RelDists/reference/dBS2.md)
   [`pBS2()`](http://fhernanb.github.io/RelDists/reference/dBS2.md)
