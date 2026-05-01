@@ -19,6 +19,10 @@
   Birnbaum-Saunders family - Santos-Neto et al. (2012) (P9 Based on the
   the second Tweedie)
 
+- [`BS12()`](http://fhernanb.github.io/RelDists/reference/BS12.md) : The
+  Birnbaum-Saunders family - Santos-Neto et al. (2012) (P10 Based on the
+  the third Tweedie)
+
 - [`BS2()`](http://fhernanb.github.io/RelDists/reference/BS2.md) : The
   Birnbaum-Saunders family - Santos-Neto et al. (2014)
 
@@ -171,9 +175,17 @@
   [`pBS11()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
   [`qBS11()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
   [`rBS11()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
-  [`hBS11()`](http://fhernanb.github.io/RelDists/reference/dBS11.md) :
+  [`hBS11()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
+  [`pBS12()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
+  [`qBS12()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
+  [`rBS12()`](http://fhernanb.github.io/RelDists/reference/dBS11.md)
+  [`hBS12()`](http://fhernanb.github.io/RelDists/reference/dBS11.md) :
   The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P9
   Based on the the second Tweedie)
+
+- [`dBS12()`](http://fhernanb.github.io/RelDists/reference/dBS12.md) :
+  The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P10
+  Based on the the third Tweedie)
 
 - [`dBS2()`](http://fhernanb.github.io/RelDists/reference/dBS2.md)
   [`pBS2()`](http://fhernanb.github.io/RelDists/reference/dBS2.md)

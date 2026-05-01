@@ -16,6 +16,14 @@ qBS11(p, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
 rBS11(n, mu = 1, sigma = 0.5)
 
 hBS11(x, mu, sigma)
+
+pBS12(q, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
+
+qBS12(p, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
+
+rBS12(n, mu = 1, sigma = 0.5)
+
+hBS12(x, mu, sigma)
 ```
 
 ## Arguments

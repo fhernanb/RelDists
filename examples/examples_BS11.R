@@ -21,7 +21,7 @@ gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
   mu <- exp(0.5 - 1 * x1)      # Aprox 1
-  sigma <- exp(1.9 + 1.2 * x2)   # Aprox 5
+  sigma <- exp(1.9 + 1.2 * x2)   # Aprox 12
   y <- rBS11(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
