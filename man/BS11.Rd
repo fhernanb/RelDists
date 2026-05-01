@@ -2,7 +2,7 @@
 % Please edit documentation in R/BS11.R
 \name{BS11}
 \alias{BS11}
-\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P9 Based on the the second Tweedie)}
+\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P9 Based on the second Tweedie)}
 \usage{
 BS11(mu.link = "log", sigma.link = "log")
 }
@@ -57,7 +57,7 @@ gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
   mu <- exp(0.5 - 1 * x1)      # Aprox 1
-  sigma <- exp(1.9 + 1.2 * x2)   # Aprox 5
+  sigma <- exp(1.9 + 1.2 * x2)   # Aprox 12
   y <- rBS11(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }

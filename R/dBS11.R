@@ -1,4 +1,4 @@
-#' The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P9 Based on the the second Tweedie)
+#' The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P9 Based on the second Tweedie)
 #' 
 #' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
 #' 

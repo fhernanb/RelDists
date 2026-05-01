@@ -2,7 +2,7 @@
 % Please edit documentation in R/BS12.R
 \name{BS12}
 \alias{BS12}
-\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P10 Based on the the third Tweedie)}
+\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P10 Based on the third Tweedie)}
 \usage{
 BS12(mu.link = "log", sigma.link = "log")
 }
@@ -57,7 +57,7 @@ gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
   mu <- exp(0.5 - 1 * x1)      # Aprox 1
-  sigma <- exp(2.2 + 2.4 * x2)   # Aprox 5
+  sigma <- exp(2.2 + 2.4 * x2)   # Aprox 30
   y <- rBS12(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }

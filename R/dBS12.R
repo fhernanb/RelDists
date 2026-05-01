@@ -1,4 +1,4 @@
-#' The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P10 Based on the the third Tweedie)
+#' The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P10 Based on the third Tweedie)
 #' 
 #' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
 #' 
@@ -55,7 +55,7 @@ dBS12 <- function(x, mu=1, sigma=0.5, log=FALSE){ #mu = β   y  sigma = Ψ
 }
 #' @export
 #' @importFrom stats pnorm
-#' @rdname dBS11
+#' @rdname dBS12
 pBS12 <- function(q, mu=1, sigma=0.5, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <= 0))    stop("parameter mu has to be positive!")
   if (any(sigma <= 0))  stop(paste("sigma must be positive", "\n", ""))
@@ -70,7 +70,7 @@ pBS12 <- function(q, mu=1, sigma=0.5, lower.tail=TRUE, log.p=FALSE){
 }
 #' @importFrom stats uniroot qnorm
 #' @export
-#' @rdname dBS11
+#' @rdname dBS12
 qBS12 <- function(p, mu=1, sigma=0.5, lower.tail = TRUE, log.p = FALSE){
   if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <= 0)) 
@@ -89,7 +89,7 @@ qBS12 <- function(p, mu=1, sigma=0.5, lower.tail = TRUE, log.p = FALSE){
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname dBS11
+#' @rdname dBS12
 rBS12 <- function(n, mu=1, sigma=0.5){
   if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
@@ -104,7 +104,7 @@ rBS12 <- function(n, mu=1, sigma=0.5){
   r
 }
 #' @export
-#' @rdname dBS11
+#' @rdname dBS12
 hBS12 <- function(x, mu, sigma){
   if (any(x < 0)) 
     stop(paste("x must be positive", "\n", ""))

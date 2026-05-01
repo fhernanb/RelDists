@@ -1,4 +1,4 @@
-# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P9 Based on the the second Tweedie)
+# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P9 Based on the second Tweedie)
 
 Density, distribution function, quantile function, random generation and
 hazard function for the Birnbaum-Saunders distribution with parameters
@@ -16,14 +16,6 @@ qBS11(p, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
 rBS11(n, mu = 1, sigma = 0.5)
 
 hBS11(x, mu, sigma)
-
-pBS12(q, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
-
-qBS12(p, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
-
-rBS12(n, mu = 1, sigma = 0.5)
-
-hBS12(x, mu, sigma)
 ```
 
 ## Arguments

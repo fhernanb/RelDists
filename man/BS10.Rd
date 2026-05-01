@@ -2,7 +2,7 @@
 % Please edit documentation in R/BS10.R
 \name{BS10}
 \alias{BS10}
-\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P8 Based on the the first Tweedie)}
+\title{The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P8 Based on the first Tweedie)}
 \usage{
 BS10(mu.link = "log", sigma.link = "log")
 }

@@ -1,4 +1,4 @@
-#' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P10 Based on the the third Tweedie)
+#' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P10 Based on the third Tweedie)
 #' 
 #' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
 #' 

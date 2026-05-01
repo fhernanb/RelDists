@@ -6,7 +6,7 @@
 \alias{qBS10}
 \alias{rBS10}
 \alias{hBS10}
-\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8 Based on the the first Tweedie)}
+\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8 Based on the first Tweedie)}
 \usage{
 dBS10(x, mu = 1, sigma = 0.5, log = FALSE)
 

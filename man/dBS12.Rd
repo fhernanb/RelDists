@@ -2,9 +2,21 @@
 % Please edit documentation in R/dBS12.R
 \name{dBS12}
 \alias{dBS12}
-\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P10 Based on the the third Tweedie)}
+\alias{pBS12}
+\alias{qBS12}
+\alias{rBS12}
+\alias{hBS12}
+\title{The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P10 Based on the third Tweedie)}
 \usage{
 dBS12(x, mu = 1, sigma = 0.5, log = FALSE)
+
+pBS12(q, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
+
+qBS12(p, mu = 1, sigma = 0.5, lower.tail = TRUE, log.p = FALSE)
+
+rBS12(n, mu = 1, sigma = 0.5)
+
+hBS12(x, mu, sigma)
 }
 \arguments{
 \item{x, q}{vector of quantiles.}
@@ -15,12 +27,12 @@ dBS12(x, mu = 1, sigma = 0.5, log = FALSE)
 
 \item{log, log.p}{logical; if TRUE, probabilities p are given as log(p).}
 
+\item{lower.tail}{logical; if TRUE (default), probabilities are 
+P[X <= x], otherwise, P[X > x].}
+
 \item{p}{vector of probabilities.}
 
 \item{n}{number of observations.}
-
-\item{lower.tail}{logical; if TRUE (default), probabilities are 
-P[X <= x], otherwise, P[X > x].}
 }
 \value{
 \code{dBS12} gives the density, \code{pBS12} gives the distribution 

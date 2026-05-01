@@ -1,4 +1,4 @@
-# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8 Based on the the first Tweedie)
+# The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8 Based on the first Tweedie)
 
 Density, distribution function, quantile function, random generation and
 hazard function for the Birnbaum-Saunders distribution with parameters
