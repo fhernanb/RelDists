@@ -55,16 +55,14 @@ iv <- initValuesOW(formula = y ~ 1)
 summary(iv)
 #> --------------------------------------------------------------------
 #> Initial Values
-#> sigma = 2
-#> nu = 6
+#> sigma = 0.6
+#> nu = 7
 #> --------------------------------------------------------------------
 #> Search Regions
-#> For sigma: all(sigma > 1)
+#> For sigma: all(sigma < 1)
 #> For nu: all(nu > 1/sigma)
 #> --------------------------------------------------------------------
-#> Hazard shape: Increasing
-#> Warning: Non-parametric estimate for Empirical TTT is irregular.
-#> Please, use the 'plot()' method to see the TTT shape and set the search region manually in 'gamlss()' if there is no conincidence between 'Hazard_Shape()' and 'plot()'. Visit 'OW distribution' vignette to get further information.
+#> Hazard shape: Unimodal
 
 # This data is from unimodal hazard
 # See TTT estimate from sample
@@ -84,22 +82,24 @@ con.out <- gamlss.control(n.cyc = 300, trace = FALSE)
 con.in <- glim.control(cyc = 300)
 
 (sigma.start <- param.startOW("sigma", iv))
-#> [1] 2
+#> [1] 0.6
 (nu.start <- param.startOW("nu", iv))
-#> [1] 6
+#> [1] 7
 
 mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, control=con.out, i.control=con.in,
               family=myOW_region(OW(sigma.link="identity", nu.link="identity"),
                                  valid.values="auto", iv),
               sigma.start=sigma.start, nu.start=nu.start)
-#> Error in while (abs(G.dev.old - G.dev) > c.crit && iter < n.cyc) {    if ("mu" %in% names(family$parameters)) {        if (family$parameter$mu == TRUE & mu.fix == FALSE) {            mu.fit <<- glim.fit(f = mu.object, X = mu.X, y = y,                 w = w, fv = mu, os = mu.offset, step = mu.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            mu <<- mu.fit$fv            mu.object$smooth <- mu.fit$smooth        }    }    if ("sigma" %in% names(family$parameters)) {        if (family$parameter$sigma == TRUE & sigma.fix == FALSE) {            sigma.fit <<- glim.fit(f = sigma.object, X = sigma.X,                 y = y, w = w, fv = sigma, os = sigma.offset,                 step = sigma.step, control = i.control, gd.tol = gd.tol,                 auto = autostep)            sigma <<- sigma.fit$fv            sigma.object$smooth <- sigma.fit$smooth        }    }    if ("nu" %in% names(family$parameters)) {        if (family$parameter$nu == TRUE & nu.fix == FALSE) {            nu.fit <<- glim.fit(f = nu.object, X = nu.X, y = y,                 w = w, fv = nu, os = nu.offset, step = nu.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            nu <<- nu.fit$fv            nu.object$smooth <- nu.fit$smooth        }    }    if ("tau" %in% names(family$parameters)) {        if (family$parameter$tau == TRUE & tau.fix == FALSE) {            tau.fit <<- glim.fit(f = tau.object, X = tau.X, y = y,                 w = w, fv = tau, os = tau.offset, step = tau.step,                 control = i.control, gd.tol = gd.tol, auto = autostep)            tau <<- tau.fit$fv            tau.object$smooth <- tau.fit$smooth        }    }    G.dev.old <- G.dev    G.dev.incr <- eval(G.dev.expr)    G.dev <- sum(w * G.dev.incr)    iter <- iter + 1    fiter <<- iter    if (trace)         cat("GAMLSS-RS iteration ", iter, ": Global Deviance = ",             format(round(G.dev, 4)), " \n", sep = "")    if (G.dev > (G.dev.old + gd.tol) && iter > 1)         stop(paste("The global deviance is increasing", "\n",             "Try different steps for the parameters or the model maybe inappropriate"))}: missing value where TRUE/FALSE needed
 
 # Estimates are close to actual values
 (mu <- exp(coef(mod, what = "mu")))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>  0.04496649 
 (sigma <- coef(mod, what = "sigma"))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>    0.565443 
 (nu <- coef(mod, what = "nu"))
-#> Error: object 'mod' not found
+#> (Intercept) 
+#>    2.151317 
   
 ```

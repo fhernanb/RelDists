@@ -1,6 +1,7 @@
 # OW distribution
 
 ``` r
+
 library(RelDists)
 #> Loading required package: survival
 #> Loading required package: EstimationTools
@@ -89,6 +90,7 @@ without covariates. Using our
 we can obtain an initial guess and the valid region.
 
 ``` r
+
 data("equipment")
 my_initial_guess <- initValuesOW(formula = equipment ~ 1)
 
@@ -110,6 +112,7 @@ function detected the Bathtub hazard shape, which corresponds to a
 convex-then-concave shape of total time on test (TTT) plot
 
 ``` r
+
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
@@ -121,6 +124,7 @@ legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 
 ``` r
 
+
 par(old_par) # restore previous graphical parameters
 ```
 
@@ -129,6 +133,7 @@ Therefore, we define the search region according to
 outputs
 
 ``` r
+
 # Custom search region
 myvalues <- list(sigma = "all(sigma > 1)",
                  nu = "all(nu < 1/sigma)")
@@ -138,6 +143,7 @@ and we perform the fit using
 [`gamlss()`](https://rdrr.io/pkg/gamlss/man/gamlss.html)
 
 ``` r
+
 # gamlss set up
 con.out <-gamlss.control(n.cyc = 300, trace=TRUE)
 myOW <- myOW_region(family = OW(sigma.link='identity'),
@@ -247,6 +253,7 @@ gamma radiation. Again, we implement a workflow for parameter estimation
 with `myOW_region` and `gamlss` functions.
 
 ``` r
+
 # Do not forget to load 'RelDists' package
 data("mice")
 init_vals <- initValuesOW(formula = mice ~ 1)
@@ -270,6 +277,7 @@ function we identified an increasing hazard shape, as well as was stated
 by Cooray (2006), because TTT plot is concave.
 
 ``` r
+
 old_par <- par(mfrow = c(1, 1)) # save previous graphical parameters
 
 par(mar = c(3.7, 3.7, 1, 10), mgp = c(2.5, 1, 0))
@@ -281,12 +289,14 @@ legend.HazardShape(x = 1.07, y = 1.04, xpd = TRUE)
 
 ``` r
 
+
 par(old_par) # restore previous graphical parameters
 ```
 
 Hence, we implement the estimation procedure
 
 ``` r
+
 # gamlss set up
 myOW <- myOW_region(initVal = init_vals)
 
@@ -448,9 +458,9 @@ Cooray, Kahadawala. 2006. “Generalization of the Weibull distribution:
 The odd Weibull family.” *Statistical Modelling* 6 (3): 265–77.
 <https://doi.org/10.1191/1471082X06st116oa>.
 
-———. 2015. “A study of moments and likelihood estimators of the odd
-Weibull distribution.” *Statistical Methodology* 26 (September): 72–83.
-<https://doi.org/10.1016/j.stamet.2015.03.003>.
+Cooray, Kahadawala. 2015. “A study of moments and likelihood estimators
+of the odd Weibull distribution.” *Statistical Methodology* 26
+(September): 72–83. <https://doi.org/10.1016/j.stamet.2015.03.003>.
 
 Kimball, A. W. 1960. “Estimation of Mortality Intensities in Animal
 Experiments.” *Biometrics* 16 (4): 505.

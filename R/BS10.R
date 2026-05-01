@@ -1,5 +1,7 @@
 #' The Birnbaum-Saunders family - Santos-Neto et al. (2012) (P8 Based on the the first Tweedie)
 #' 
+#' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
+#' 
 #' @description 
 #' The function \code{BS10()} defines the Birnbaum-Saunders distribution, 
 #' a two-parameter distribution, for a \code{gamlss.family} object 

@@ -9,6 +9,7 @@ parameters and fit regression models within GAMLSS framework.
 To install the `RelDists` package, follow the instructions below:
 
 ``` r
+
 # Installing from CRAN:
 install.packages("RelDists")
 

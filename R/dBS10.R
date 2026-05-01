@@ -1,5 +1,7 @@
 #' The Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P8 Based on the the first Tweedie)
 #' 
+#' @author David Villegas Ceballos, \email{david.villegas1@@udea.edu.co}
+#' 
 #' @description
 #' Density, distribution function, quantile function, 
 #' random generation and hazard function for the 
