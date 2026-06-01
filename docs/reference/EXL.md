@@ -72,10 +72,10 @@ mod1 <- gamlss(y~1, sigma.fo=~1, family=EXL,
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>   0.7592876 
+#>   0.7545664 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    1.318371 
+#>    1.322152 
 
 
 # Example 2

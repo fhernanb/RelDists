@@ -102,13 +102,12 @@ dat <- gendat(n=100)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
                family=BS5, data=dat)
-#> GAMLSS-RS iteration 1: Global Deviance = 261.9621 
-#> GAMLSS-RS iteration 2: Global Deviance = 134.7561 
-#> GAMLSS-RS iteration 3: Global Deviance = 42.6728 
-#> GAMLSS-RS iteration 4: Global Deviance = 27.347 
-#> GAMLSS-RS iteration 5: Global Deviance = 27.0841 
+#> GAMLSS-RS iteration 1: Global Deviance = 234.6313 
+#> GAMLSS-RS iteration 2: Global Deviance = 115.8122 
+#> GAMLSS-RS iteration 3: Global Deviance = 36.5612 
+#> GAMLSS-RS iteration 4: Global Deviance = 27.2053 
+#> GAMLSS-RS iteration 5: Global Deviance = 27.083 
 #> GAMLSS-RS iteration 6: Global Deviance = 27.082 
-#> GAMLSS-RS iteration 7: Global Deviance = 27.082 
 
 summary(mod2)
 #> Warning: summary: vcov has failed, option qr is used instead
@@ -124,8 +123,8 @@ summary(mod2)
 #> Mu link function:  log
 #> Mu Coefficients:
 #>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)  1.52281    0.05547   27.45   <2e-16 ***
-#> x1          -3.08990    0.10626  -29.08   <2e-16 ***
+#> (Intercept)  1.52286    0.05541   27.48   <2e-16 ***
+#> x1          -3.08990    0.10621  -29.09   <2e-16 ***
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
@@ -133,8 +132,8 @@ summary(mod2)
 #> Sigma link function:  log
 #> Sigma Coefficients:
 #>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)   2.3498     0.3197   7.350    6e-11 ***
-#> x2            1.5420     0.6241   2.471   0.0152 *  
+#> (Intercept)   2.3499     0.3196   7.352 5.96e-11 ***
+#> x2            1.5418     0.6240   2.471   0.0152 *  
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> 
@@ -142,7 +141,7 @@ summary(mod2)
 #> No. of observations in the fit:  100 
 #> Degrees of Freedom for the fit:  4
 #>       Residual Deg. of Freedom:  96 
-#>                       at cycle:  7 
+#>                       at cycle:  6 
 #>  
 #> Global Deviance:     27.08202 
 #>             AIC:     35.08202 

@@ -64,15 +64,16 @@ require(gamlss)
 
 mod <- gamlss(y~1, sigma.fo=~1, family=EEG,
               control=gamlss.control(n.cyc=5000, trace=FALSE))
+#> Warning: Algorithm RS has not yet converged
 
 # Extracting the fitted values for mu, sigma, nu and tau
 # using the inverse link function
 exp(coef(mod, what='mu'))
 #> (Intercept) 
-#>   0.6802456 
+#>   0.6773958 
 exp(coef(mod, what='sigma'))
 #> (Intercept) 
-#>    1.216626 
+#>    1.219772 
 
 # Example 2
 # Generating random values under some model
@@ -88,8 +89,8 @@ mod <- gamlss(x~x1, sigma.fo=~x2, family=EEG,
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>   0.5129634  -1.0662722 
+#>   0.4906483  -0.8158100 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>   0.4416235  -0.7911857 
+#>   0.4429095  -0.7333935 
 ```

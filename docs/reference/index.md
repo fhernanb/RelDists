@@ -86,6 +86,9 @@
 - [`GIW()`](http://fhernanb.github.io/RelDists/reference/GIW.md) : The
   Generalized Inverse Weibull family
 
+- [`GL2()`](http://fhernanb.github.io/RelDists/reference/GL2.md) : The
+  Generalized Lindley Type II family
+
 - [`GMW()`](http://fhernanb.github.io/RelDists/reference/GMW.md) : The
   Generalized Modified Weibull family
 
@@ -334,6 +337,13 @@
   [`hGIW()`](http://fhernanb.github.io/RelDists/reference/dGIW.md) : The
   Generalized Inverse Weibull distribution
 
+- [`dGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
+  [`pGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
+  [`qGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
+  [`rGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
+  [`hGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md) : The
+  Generalized Lindley Type II (GL2) distribution
+
 - [`dGMW()`](http://fhernanb.github.io/RelDists/reference/dGMW.md)
   [`pGMW()`](http://fhernanb.github.io/RelDists/reference/dGMW.md)
   [`qGMW()`](http://fhernanb.github.io/RelDists/reference/dGMW.md)
@@ -490,8 +500,14 @@
 - [`equipment`](http://fhernanb.github.io/RelDists/reference/equipment.md)
   : Electronic equipment data
 
+- [`estim_mu_sigma_GL2()`](http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GL2.md)
+  : estim_mu_sigma_GL2
+
 - [`initValuesOW()`](http://fhernanb.github.io/RelDists/reference/initValuesOW.md)
   : Initial values and search region for Odd Weibull distribution
+
+- [`logLik_GL2()`](http://fhernanb.github.io/RelDists/reference/logLik_GL2.md)
+  : logLik_GL2
 
 - [`mice`](http://fhernanb.github.io/RelDists/reference/mice.md) : Mice
   mortality data

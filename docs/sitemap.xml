@@ -31,6 +31,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/FWE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/GGD.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/GIW.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/GL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/GMW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/GammaW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/IW.html</loc></url>
@@ -77,6 +78,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/dFWE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/dGGD.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/dGIW.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/dGL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/dGMW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/dGWF.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/dGammaW.html</loc></url>
@@ -102,6 +104,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/den_exw.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/equipment.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_CJ2.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_NEE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/exwstpt.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/fitexw.html</loc></url>
@@ -109,6 +112,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/initValuesFWE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/initValuesOW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_CJ2.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/logLik_GL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_NEE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/mice.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/myOW_region.html</loc></url>

@@ -67,18 +67,18 @@ y <- rBS(n=100, mu=0.75, sigma=1.3)
 # Fitting the model
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS)
-#> GAMLSS-RS iteration 1: Global Deviance = 238.6615 
-#> GAMLSS-RS iteration 2: Global Deviance = 238.6572 
-#> GAMLSS-RS iteration 3: Global Deviance = 238.6572 
+#> GAMLSS-RS iteration 1: Global Deviance = 237.3994 
+#> GAMLSS-RS iteration 2: Global Deviance = 237.3972 
+#> GAMLSS-RS iteration 3: Global Deviance = 237.3972 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>   0.7808877 
+#>   0.7713414 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    1.258863 
+#>    1.243161 
 
 # Example 2
 # Generating random values for a regression model
