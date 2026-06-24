@@ -44,7 +44,7 @@
 #'
 #' \eqn{\sigma=\alpha}.
 #'
-#' The r-th raw moment is given by
+#' The \eqn{r}-th raw moment is given by
 #'
 #' \eqn{
 #' E(X^r)=
@@ -230,7 +230,6 @@ estim_mu_sigma_GL2 <- function(y) {
 #' @importFrom stats optim
 #' @export
 logLik_GL2 <- function(param=c(0,0), x) {
-  
   sum(
     dGL2(
       x,

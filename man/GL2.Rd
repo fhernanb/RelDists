@@ -52,7 +52,7 @@ and
 
 \eqn{\sigma=\alpha}.
 
-The r-th raw moment is given by
+The \eqn{r}-th raw moment is given by
 
 \eqn{
 E(X^r)=
