@@ -104,6 +104,9 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
 - [`FWE()`](http://fhernanb.github.io/RelDists/reference/FWE.md) : The
   Flexible Weibull Extension family
 
+- [`GAo()`](http://fhernanb.github.io/RelDists/reference/GAo.md) : The
+  gamma family in its original parameterization
+
 - [`GGD()`](http://fhernanb.github.io/RelDists/reference/GGD.md) : The
   Generalized Gompertz family
 
@@ -346,6 +349,13 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`rFWE()`](http://fhernanb.github.io/RelDists/reference/dFWE.md)
   [`hFWE()`](http://fhernanb.github.io/RelDists/reference/dFWE.md) : The
   Flexible Weibull Extension distribution
+
+- [`dGAo()`](http://fhernanb.github.io/RelDists/reference/dGAo.md)
+  [`pGAo()`](http://fhernanb.github.io/RelDists/reference/dGAo.md)
+  [`qGAo()`](http://fhernanb.github.io/RelDists/reference/dGAo.md)
+  [`rGAo()`](http://fhernanb.github.io/RelDists/reference/dGAo.md)
+  [`hGAo()`](http://fhernanb.github.io/RelDists/reference/dGAo.md) : The
+  gamma distribution in its original parameterization
 
 - [`dGGD()`](http://fhernanb.github.io/RelDists/reference/dGGD.md)
   [`pGGD()`](http://fhernanb.github.io/RelDists/reference/dGGD.md)
