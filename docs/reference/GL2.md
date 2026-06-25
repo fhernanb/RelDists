@@ -53,7 +53,7 @@ and
 
 \\\sigma=\alpha\\.
 
-The r-th raw moment is given by
+The \\r\\-th raw moment is given by
 
 \\ E(X^r)= \frac{1} {\mu^r(\mu+1)} \left\[ \mu\Gamma(r+1) +
 \frac{\Gamma(r+\sigma)} {\Gamma(\sigma)} \right\]. \\

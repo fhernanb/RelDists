@@ -146,8 +146,7 @@ NEE <- function(mu.link="log", sigma.link="log") {
 #' @description This function generates initial values for the parameters.
 #' @param y vector with the response variable.
 #' @return returns a vector with the MLE estimations.
-#' @keywords internal
-#' @export
+#' @noRd
 #' @importFrom stats optim
 estim_mu_sigma_NEE <- function(y) {
   mod <- optim(par=c(0, 0),
@@ -165,8 +164,7 @@ estim_mu_sigma_NEE <- function(y) {
 #' @param logparam vector with parameters in log scale.
 #' @param x vector with the response variable.
 #' @return returns the loglikelihood given the parameters and random sample.
-#' @keywords internal
-#' @export
+#' @noRd
 logLik_NEE <- function(logparam=c(0, 0), x){
   return(sum(dNEE(x,
                   mu    = exp(logparam[1]),
