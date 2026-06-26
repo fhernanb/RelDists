@@ -229,8 +229,8 @@ BS8 <- function(mu.link = "log", sigma.link = "log") {
          G.dev.incr = function(y,mu,sigma,...) -2*dBS8(y,mu,sigma,log=TRUE),
          rqres = expression(rqres(pfun="pBS8", type="Continuous",y=y,mu=mu,sigma=sigma)),
          
-         mu.initial = expression({mu <- rep(1.5, length(y)) }),
-         #mu.initial = expression({mu <- rep((5*mean(y)^2+3*var(y)+5*mean(y)*sqrt(mean(y)^2+3*var(y)))/(2*(5*mean(y)^2-var(y))), length(y)) }),
+         #mu.initial = expression({mu <- rep(1.5, length(y)) }),
+         mu.initial = expression({mu <- rep((5*mean(y)^2+3*var(y)+5*mean(y)*sqrt(mean(y)^2+3*var(y)))/(2*(5*mean(y)^2-var(y))), length(y)) }),
          sigma.initial = expression({sigma <- rep(var(y), length(y))}),
          
          mu.valid = function(mu) all(mu > 1) ,

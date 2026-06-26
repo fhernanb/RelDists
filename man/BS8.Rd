@@ -66,6 +66,7 @@ set.seed(12345)
 y <- rBS8(n=100, mu=2, sigma=10)
 
 # 1. Extract the built-in "logshiftto1" link structure
+library(gamlss.dist)
 logshift_link <- make.link.gamlss("logshiftto1")
 
 # 2. Assign its components to the 'own' functions gamlss searches for
