@@ -17,7 +17,7 @@ legend("topright", legend=c("mu=1.05, sigma=10",
 # Example 2
 # Checking if the cumulative curves converge to 1
 curve(pBS8(x, mu=1.5, sigma=10), 
-      from=0.00001, to=50,
+      from=0.00001, to=30,
       ylim=c(0, 1), 
       col="royalblue1", lwd=2, 
       main="Cumulative Distribution Function",

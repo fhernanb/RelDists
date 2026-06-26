@@ -65,8 +65,21 @@ for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}. In this parameterization,
 set.seed(12345)
 y <- rBS8(n=100, mu=2, sigma=10)
 
+# Fitting the model using default link function
+require(gamlss)
+mod1 <- gamlss(y~1, sigma.fo=~1, family=BS8,
+               control=gamlss.control(n.cyc=1000))
+
+# Extracting the fitted values for mu and sigma
+# using the inverse link function
+exp(coef(mod1, what="mu"))
+exp(coef(mod1, what="sigma"))
+
+# Fitting the model using a own link function
+
 # 1. Extract the built-in "logshiftto1" link structure
-library(gamlss.dist)
+\dontrun{
+require(gamlss.dist)
 logshift_link <- make.link.gamlss("logshiftto1")
 
 # 2. Assign its components to the 'own' functions gamlss searches for
@@ -75,45 +88,37 @@ own.linkinv  <- logshift_link$linkinv
 own.mu.eta   <- logshift_link$mu.eta
 own.valideta <- logshift_link$valideta
 
-# Fitting the model
-require(gamlss)
-mod1 <- gamlss(y~1, sigma.fo=~1, family=BS8(mu.link = "own"),
-               control=gamlss.control(n.cyc=100))
-
-mod99 <- gamlss(y~1, sigma.fo=~1, family=BS8,
-               control=gamlss.control(n.cyc=100))
+mod99 <- gamlss(y~1, sigma.fo=~1, family=BS8(mu.link = "own"),
+                control=gamlss.control(n.cyc=1000))
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
-own.linkinv(coef(mod1, what="mu"))
-exp(coef(mod1, what="sigma"))
-
-exp(coef(mod99, what="mu"))
-exp(coef(mod99, what="sigma"))
+own.linkinv(coef(mod99, what="mu"))
+exp(coef(mod00, what="sigma"))
+}
 
 # Example 2
 # Generating random values for a regression model
 
 # A function to simulate a data set with Y ~ BS8
-\dontrun{
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
-  mu <- exp(1.6 - 1.4 * x1)      # Aprox 2.45
-  sigma <- exp(1.6 + 1.5 * x2)   # Aprox 10
+  mu <- exp(1.6 - 1.4 * x1)     # Aprox 2.45 with link log(mu)
+  sigma <- exp(1.6 + 1.5 * x2)  # Aprox 10
   y <- rBS8(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
 
-set.seed(123)
-dat <- gendat(n=200)
+set.seed(1234)
+dat <- gendat(n=400)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
-               family=BS8(mu.link = "own"), data=dat,
+               family=BS8, data=dat,
                control=gamlss.control(n.cyc=100))
 
 summary(mod2)
-}
+
 }
 \references{
 Santos-Neto, M., Cysneiros, F. J. A., Leiva, V., & Ahmed, S. E. (2012). 

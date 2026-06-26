@@ -74,7 +74,7 @@ dBS8 <- function(x, mu=0.5, sigma=10, log=FALSE) {
   sigma[invalid_param_values] <- 1 # Temporal change
   
   # Changing from BS to BS8 (original)
-  new_mu     <- sqrt(5*sigma)/(2*sqrt(mu*mu*(mu-1))) #Beta
+  new_mu     <- sqrt(5*sigma)/(2*sqrt(mu*(mu-1))) #Beta
   new_sigma  <- 2*sqrt(mu-1)/sqrt(5) #Alfa
   
   res <- dBS(x=x, mu=new_mu, sigma=new_sigma, log=log)
@@ -131,6 +131,7 @@ qBS8 <- function(p, mu=1, sigma=0.5, lower.tail = TRUE, log.p = FALSE) {
 #' @export
 #' @rdname dBS8
 rBS8 <- function(n, mu=1, sigma=0.5) {
+  
   if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   
   # Changing from BS to BS8 (original)

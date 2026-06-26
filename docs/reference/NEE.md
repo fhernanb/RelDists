@@ -66,14 +66,16 @@ require(gamlss)
 
 mod1 <- gamlss(y~1, sigma.fo=~1, family=NEE,
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> Error in estim_mu_sigma_NEE(y): could not find function "estim_mu_sigma_NEE"
+#> GAMLSS-RS iteration 1: Global Deviance = 652.62 
 
 # Extracting the fitted values for mu, sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
-#> Error: object 'mod1' not found
+#> (Intercept) 
+#>    2.309809 
 exp(coef(mod1, what="sigma"))
-#> Error: object 'mod1' not found
+#> (Intercept) 
+#>    3.052061 
 
 # Example 2
 # Generating random values under some model
@@ -91,10 +93,56 @@ datos <- gendat(n=500)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, family=NEE, data=datos,
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> Error in estim_mu_sigma_NEE(y): could not find function "estim_mu_sigma_NEE"
+#> GAMLSS-RS iteration 1: Global Deviance = 836.8611 
+#> GAMLSS-RS iteration 2: Global Deviance = 828.078 
+#> GAMLSS-RS iteration 3: Global Deviance = 825.3264 
+#> GAMLSS-RS iteration 4: Global Deviance = 824.4661 
+#> GAMLSS-RS iteration 5: Global Deviance = 824.1988 
+#> GAMLSS-RS iteration 6: Global Deviance = 824.1156 
+#> GAMLSS-RS iteration 7: Global Deviance = 824.0895 
+#> GAMLSS-RS iteration 8: Global Deviance = 824.0813 
+#> GAMLSS-RS iteration 9: Global Deviance = 824.0787 
+#> GAMLSS-RS iteration 10: Global Deviance = 824.078 
 
 summary(mod2)
-#> Error: object 'mod2' not found
+#> Warning: summary: vcov has failed, option qr is used instead
+#> ******************************************************************
+#> Family:  c("NEE", "New Exponentiated Exponential") 
+#> 
+#> Call:  
+#> gamlss(formula = y ~ x1, sigma.formula = ~x2, family = NEE, data = datos,  
+#>     control = gamlss.control(n.cyc = 5000, trace = TRUE)) 
+#> 
+#> Fitting method: RS() 
+#> 
+#> ------------------------------------------------------------------
+#> Mu link function:  log
+#> Mu Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) -0.17039    0.05690  -2.995  0.00288 ** 
+#> x1           1.50548    0.09929  15.163  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> 
+#> ------------------------------------------------------------------
+#> Sigma link function:  log
+#> Sigma Coefficients:
+#>             Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept)  1.06151    0.09229  11.502  < 2e-16 ***
+#> x2          -0.77427    0.16406  -4.719 3.08e-06 ***
+#> ---
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> 
+#> ------------------------------------------------------------------
+#> No. of observations in the fit:  500 
+#> Degrees of Freedom for the fit:  4
+#>       Residual Deg. of Freedom:  496 
+#>                       at cycle:  10 
+#>  
+#> Global Deviance:     824.078 
+#>             AIC:     832.078 
+#>             SBC:     848.9364 
+#> ******************************************************************
 
 # Example 3  --------------------------------------------------
 # Obtained from Hassan (2024) page 226
@@ -109,14 +157,16 @@ y <- c(1.901, 2.132, 2.203, 2.228, 2.257, 2.350, 2.361, 2.396, 2.397,
        3.852, 3.871, 3.886, 3.971, 4.024, 4.027, 4.225, 4.395, 5.020)
 
 mod3 <- gamlss(y~1, family=NEE)
-#> Error in estim_mu_sigma_NEE(y): could not find function "estim_mu_sigma_NEE"
+#> GAMLSS-RS iteration 1: Global Deviance = 112.7573 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod3, what="mu"))
-#> Error: object 'mod3' not found
+#> (Intercept) 
+#>    2.076862 
 exp(coef(mod3, what="sigma"))
-#> Error: object 'mod3' not found
+#> (Intercept) 
+#>    255.2289 
 
 # Hist and estimated pdf
 hist(y, freq=FALSE, ylim=c(0, 0.7))
@@ -149,14 +199,16 @@ y <- c(0.564, 0.729, 0.802, 0.95, 1.053, 1.111, 1.115, 1.194, 1.208,
        2.378, 2.483, 2.269)
 
 mod4 <- gamlss(y~1, family=NEE)
-#> Error in estim_mu_sigma_NEE(y): could not find function "estim_mu_sigma_NEE"
+#> GAMLSS-RS iteration 1: Global Deviance = 87.2635 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod4, what="mu"))
-#> Error: object 'mod4' not found
+#> (Intercept) 
+#>    2.400515 
 exp(coef(mod4, what="sigma"))
-#> Error: object 'mod4' not found
+#> (Intercept) 
+#>    25.15236 
 
 hist(y, freq=FALSE)
 curve(dNEE(x, mu=2.400515, sigma=25.15236), 
@@ -183,14 +235,16 @@ y <- c(1.312,1.314,1.479,1.552,1.700,1.803,1.861,1.865,1.944,1.958,1.966,1.997,
        3.067,3.084,3.090,3.096, 3.128,3.233,3.433,3.585,3.585)
 
 mod5 <- gamlss(y~1, sigma.fo=~1, family = NEE)
-#> Error in estim_mu_sigma_NEE(y): could not find function "estim_mu_sigma_NEE"
+#> GAMLSS-RS iteration 1: Global Deviance = 107.4186 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod5, what="mu"))
-#> Error: object 'mod5' not found
+#> (Intercept) 
+#>    2.197771 
 exp(coef(mod5, what="sigma"))
-#> Error: object 'mod5' not found
+#> (Intercept) 
+#>    100.8888 
 
 hist(y, freq=FALSE)
 curve(dNEE(x, mu=2.197771, sigma=100.8888), add=TRUE, 
