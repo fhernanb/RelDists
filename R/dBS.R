@@ -51,9 +51,7 @@
 #' 
 #' 
 #' @export
-dBS <- function(x, mu=1, sigma=1, log=FALSE){
-  if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
+dBS <- function(x, mu=1, sigma=1, log=FALSE) {
   
   # Ensure same length vector
   ly    <- max(length(x), length(mu), length(sigma))
@@ -65,8 +63,20 @@ dBS <- function(x, mu=1, sigma=1, log=FALSE){
   xx[x <= 0] <- 0.5
   xx[is.infinite(x)] <- 0.5
   
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
   # pdf in log-scale
   p <- -1.5*log(xx)+log(xx+mu)-log(2*sigma)-0.5*log(2*pi*mu)-0.5*(xx/mu+mu/xx-2)/sigma^2
+  
+  # Assing NaN for invalid mu or sigma
+  p[invalid_param_values] <- NaN
+  
+  if (any(is.nan(p))) {
+    warning("NaNs produced")
+  }
   
   # Assign values for invalid x's
   p[x <= 0] <- -Inf
@@ -82,9 +92,6 @@ dBS <- function(x, mu=1, sigma=1, log=FALSE){
 #' @rdname dBS
 pBS <- function(q, mu=1, sigma=1, lower.tail=TRUE, log.p=FALSE){
   
-  if (any(mu <= 0))    stop("parameter mu has to be positive!")
-  if (any(sigma <= 0)) stop("parameter sigma has to be positive!")
-  
   # Ensure same length vector
   ly    <- max(length(q), length(mu), length(sigma))
   qq    <- rep(q, length=ly)
@@ -95,8 +102,20 @@ pBS <- function(q, mu=1, sigma=1, lower.tail=TRUE, log.p=FALSE){
   qq[q <= 0] <- 0.5
   qq[q == Inf] <- 0.5
   
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
   # The cumulative
   cdf <- pnorm(((qq/mu)^0.5-(mu/qq)^0.5)/sigma)
+  
+  # Assing NaN for invalid mu or sigma
+  cdf[invalid_param_values] <- NaN
+  
+  if (any(is.nan(cdf))) {
+    warning("NaNs produced")
+  }
   
   # Assign values for invalid x's
   cdf[q <= 0] <- 0
@@ -112,9 +131,7 @@ pBS <- function(q, mu=1, sigma=1, lower.tail=TRUE, log.p=FALSE){
 #' @importFrom stats uniroot qnorm
 #' @export
 #' @rdname dBS
-qBS <- function(p, mu=1, sigma=1, lower.tail = TRUE, log.p = FALSE){
-  if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
+qBS <- function(p, mu=1, sigma=1, lower.tail = TRUE, log.p = FALSE) {
 
   # To adjust the probability
   if (log.p == TRUE)
@@ -134,9 +151,21 @@ qBS <- function(p, mu=1, sigma=1, lower.tail = TRUE, log.p = FALSE){
   pp[p == 1] <-  0.5
   pp[p == 0] <-  0.5
   
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
   # The quantile
   w <- sigma * qnorm(pp)/2
   q <- mu * (w + sqrt(w^2+1))^2
+  
+  # Assing NaN for invalid mu or sigma
+  q[invalid_param_values] <- NaN
+  
+  if (any(is.nan(q))) {
+    warning("NaNs produced")
+  }
   
   # To deal with invalid p's
   q[p <  0] <- NaN
@@ -149,10 +178,8 @@ qBS <- function(p, mu=1, sigma=1, lower.tail = TRUE, log.p = FALSE){
 #' @importFrom stats runif
 #' @export
 #' @rdname dBS
-rBS <- function(n, mu=1, sigma=1){
-  if (any(mu <= 0))     stop("parameter mu has to be positive!")
-  if (any(sigma <= 0))  stop("parameter sigma has to be positive!")
-  if (any(n <= 0))      stop(paste("n must be a positive integer", "\n", ""))
+rBS <- function(n, mu=1, sigma=1) {
+  if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   
   n <- ceiling(n)
   u <- runif(n=n)
@@ -161,14 +188,7 @@ rBS <- function(n, mu=1, sigma=1){
 }
 #' @export
 #' @rdname dBS
-hBS <- function(x, mu, sigma){
-  if (any(x < 0)) 
-    stop(paste("x must be positive", "\n", ""))
-  if (any(mu <= 0 )) 
-    stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0)) 
-    stop(paste("sigma must be positive", "\n", ""))
-  
+hBS <- function(x, mu, sigma) {
   h <- dBS(x, mu, sigma) / pBS(x, mu, sigma, lower.tail=FALSE)
   h
 }
