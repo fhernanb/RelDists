@@ -24,5 +24,5 @@ logLik_GL2(param = c(0, 0), x)
 ``` r
 y <- rGL2(n = 100, mu = 3, sigma = 1.2)
 logLik_GL2(param = c(0, 0), x = y)
-#> [1] -36.40098
+#> [1] -37.95071
 ```

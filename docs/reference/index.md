@@ -102,6 +102,9 @@
 - [`GammaW()`](http://fhernanb.github.io/RelDists/reference/GammaW.md) :
   The Gamma Weibull family
 
+- [`IPXLIN()`](http://fhernanb.github.io/RelDists/reference/IPXLIN.md) :
+  IPXLIN
+
 - [`IW()`](http://fhernanb.github.io/RelDists/reference/IW.md) : The
   Inverse Weibull family
 
@@ -386,6 +389,13 @@
   [`rGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
   [`hGammaW()`](http://fhernanb.github.io/RelDists/reference/dGammaW.md)
   : The Gamma Weibull distribution
+
+- [`dIPXLIN()`](http://fhernanb.github.io/RelDists/reference/dIPXLIN.md)
+  [`pIPXLIN()`](http://fhernanb.github.io/RelDists/reference/dIPXLIN.md)
+  [`qIPXLIN()`](http://fhernanb.github.io/RelDists/reference/dIPXLIN.md)
+  [`rIPXLIN()`](http://fhernanb.github.io/RelDists/reference/dIPXLIN.md)
+  [`hIPXLIN()`](http://fhernanb.github.io/RelDists/reference/dIPXLIN.md)
+  : The Inverse Power XLindley distribution - Hassan et al. (2025)
 
 - [`dIW()`](http://fhernanb.github.io/RelDists/reference/dIW.md)
   [`pIW()`](http://fhernanb.github.io/RelDists/reference/dIW.md)

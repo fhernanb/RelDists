@@ -68,39 +68,29 @@ David Villegas Ceballos, <david.villegas1@udea.edu.co>
 # known mu and sigma
 
 set.seed(12345)
-y <- rBS8(n=100, mu=1.03, sigma=10)
+y <- rBS8(n=100, mu=2, sigma=10)
 
 # Fitting the model using default link function
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS8,
                control=gamlss.control(n.cyc=1000))
-#> GAMLSS-RS iteration 1: Global Deviance = 525.4593 
-#> GAMLSS-RS iteration 2: Global Deviance = 525.4552 
-#> GAMLSS-RS iteration 3: Global Deviance = 525.4515 
-#> GAMLSS-RS iteration 4: Global Deviance = 525.448 
-#> GAMLSS-RS iteration 5: Global Deviance = 525.4449 
-#> GAMLSS-RS iteration 6: Global Deviance = 525.4421 
-#> GAMLSS-RS iteration 7: Global Deviance = 525.4395 
-#> GAMLSS-RS iteration 8: Global Deviance = 525.4371 
-#> GAMLSS-RS iteration 9: Global Deviance = 525.435 
-#> GAMLSS-RS iteration 10: Global Deviance = 525.4331 
-#> GAMLSS-RS iteration 11: Global Deviance = 525.4315 
-#> GAMLSS-RS iteration 12: Global Deviance = 525.43 
-#> GAMLSS-RS iteration 13: Global Deviance = 525.4286 
-#> GAMLSS-RS iteration 14: Global Deviance = 525.4273 
-#> GAMLSS-RS iteration 15: Global Deviance = 525.4262 
-#> GAMLSS-RS iteration 16: Global Deviance = 525.4251 
-#> GAMLSS-RS iteration 17: Global Deviance = 525.4241 
-#> GAMLSS-RS iteration 18: Global Deviance = 525.4231 
+#> GAMLSS-RS iteration 1: Global Deviance = 444.115 
+#> GAMLSS-RS iteration 2: Global Deviance = 443.9331 
+#> GAMLSS-RS iteration 3: Global Deviance = 443.8642 
+#> GAMLSS-RS iteration 4: Global Deviance = 443.8386 
+#> GAMLSS-RS iteration 5: Global Deviance = 443.8286 
+#> GAMLSS-RS iteration 6: Global Deviance = 443.8247 
+#> GAMLSS-RS iteration 7: Global Deviance = 443.8234 
+#> GAMLSS-RS iteration 8: Global Deviance = 443.8227 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    1.034213 
+#>    2.154669 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    11.48221 
+#>    12.18536 
 
 # Fitting the model using a own link function
 
