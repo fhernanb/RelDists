@@ -1,6 +1,6 @@
 # The Birnbaum-Saunders family
 
-The function `BS()` defines The Birnbaum-Saunders, a two parameter
+The function `BS()` defines the Birnbaum-Saunders, a two parameter
 distribution, for a `gamlss.family` object to be used in GAMLSS fitting
 using the function
 [`gamlss()`](https://rdrr.io/pkg/gamlss/man/gamlss.html).

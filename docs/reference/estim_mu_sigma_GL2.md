@@ -20,5 +20,5 @@ estim_mu_sigma_GL2(y)
 y <- rGL2(n = 100, mu = 3, sigma = 1.2)
 estim_mu_sigma_GL2(y = y)
 #>    mu_hat sigma_hat 
-#>  3.220447  1.352109 
+#> 2.1930086 0.5952888 
 ```

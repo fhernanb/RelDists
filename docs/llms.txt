@@ -449,6 +449,13 @@ website](https://fhernanb.github.io/RelDists/) to explore the vignettes
   [`hLW()`](http://fhernanb.github.io/RelDists/reference/dLW.md) : The
   Log-Weibull distribution
 
+- [`dMCWEI()`](http://fhernanb.github.io/RelDists/reference/dMCWEI.md)
+  [`pMCWEI()`](http://fhernanb.github.io/RelDists/reference/dMCWEI.md)
+  [`qMCWEI()`](http://fhernanb.github.io/RelDists/reference/dMCWEI.md)
+  [`rMCWEI()`](http://fhernanb.github.io/RelDists/reference/dMCWEI.md)
+  [`hMCWEI()`](http://fhernanb.github.io/RelDists/reference/dMCWEI.md) :
+  The Modified Cosine-Weibull distribution (MCWEI)
+
 - [`dMOEIW()`](http://fhernanb.github.io/RelDists/reference/dMOEIW.md)
   [`pMOEIW()`](http://fhernanb.github.io/RelDists/reference/dMOEIW.md)
   [`qMOEIW()`](http://fhernanb.github.io/RelDists/reference/dMOEIW.md)

@@ -18,7 +18,7 @@ Returns a gamlss.family object which can be used to fit a
 BS3 distribution in the \code{gamlss()} function.
 }
 \description{
-The function \code{BS3()} defines The Birnbaum-Saunders, 
+The function \code{BS3()} defines the Birnbaum-Saunders, 
 a two parameter distribution, for a \code{gamlss.family} object 
 to be used in GAMLSS fitting 
 using the function \code{gamlss()}.
