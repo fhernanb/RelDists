@@ -16,7 +16,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 <!-- [![Travis build status](https://travis-ci.org/fhernanb/RelDists.svg?branch=master)](https://travis-ci.org/fhernanb/RelDists) -->
 <!-- badges: end -->
 
-# RelDists <img src="man/figures/RelDists4.3_gris.png"  height="200" style="float:right; height:200px;"/>
+# RelDists <img src="man/figures/RelDists4.3_gris.png"  align="right" alt="" width="120" />
 
 In this package are available multiple useful distributions for
 reliability analysis. With this package it is possible to estimate
