@@ -1,6 +1,6 @@
 #' The Modified Cosine-Weibull distribution (MCWEI) 
 #' 
-#' @author Juan Andrés Henao Arias, \email{juhenaoar@@unal.edu.co}
+#' @author Juan Andres Henao Arias, \email{juhenaoar@@unal.edu.co}
 #' 
 #' @description
 #' Density function, cumulative distribution function, quantile function, 
@@ -19,10 +19,10 @@
 #' P[X <= x], otherwise, P[X > x].
 #' 
 #' @references
-#' Rui Su, Najla M. Aloraini, Alia A. Alkhathami, Huda M. Alshanbari. 
-#' On A new statistical distribution: Its empirical exploration using the reliability
-#' and lifespan data in fashion industry. 
-#' Alexandria Engineering Journal.
+#' Su, R., Aloraini, N. M., Alkhathami, A. A., Alshanbari, H. M., & Khalifa, 
+#' H. A. E. W. (2025). A new statistical distribution: Its empirical 
+#' exploration using the reliability and lifespan data in fashion 
+#' industry. Alexandria Engineering Journal, 116, 660-671.
 #' 
 #' @seealso \link{BS}.
 #' 
@@ -42,127 +42,150 @@
 #' @example examples/examples_dMCWEI.R
 #' 
 #' @export
-dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=TRUE){
+dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=TRUE) {
   
-  if(any(c(mu,sigma)<=0) || nu==0 ){
-    print("Error! Parameters are out of range.")
-    stop("Parameters are out of range.")
+  # Ensure same length vector
+  ly    <- max(length(x), length(mu), length(sigma), length(nu))
+  xx    <- rep(x, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  nu    <- rep(nu, length=ly)
+  
+  # Temporal change for invalid x's
+  xx[x <= 0] <- 0.5
+  xx[is.infinite(x)] <- 0.5
+  
+  # Temporal change for invalid, sigma or nu values
+  invalid_param_values <- mu <= 0 | sigma <= 0 | nu == 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  nu[invalid_param_values]    <- 1 # Temporal change
+  
+  # pdf in log-scale
+  k <- exp(-1*sigma*(xx^mu))
+  p1 <- log(pi)+log(mu)+log(sigma)+log(nu)+(mu-1)*log(xx)-sigma*xx^mu
+  p2 <- log(cos(pi*k*0.5)) + log(sin(pi*k*0.5))
+  p3 <- nu*(1- (cos(pi*k*0.5))^2) - log(exp(nu) - 1)
+  p <- p1 + p2 + p3
+  
+  # Assign NaN for invalid mu, sigma or nu
+  p[invalid_param_values] <- NaN
+  
+  if (any(is.nan(p))) {
+    warning("NaNs produced")
   }
   
-  # Checking the length of all vectors
-  par_length <- max(length(x), length(mu), length(sigma), length(nu))
-  x_rep <- rep(x, length=par_length)
-  mu <- rep(mu, length=par_length)
-  sigma <- rep(sigma, length=par_length)
-  nu <- rep(nu, length=par_length)
+  # Assign values for invalid x's
+  p[x <= 0] <- -Inf
+  p[is.infinite(x)] <- -Inf
   
-  # Changing incorrect values of parameters
-  x_rep[x<0] <- 0
-  x_rep[is.infinite(x)] <- 1
-  x_rep[is.na(x)] <- 0
+  if (log == FALSE)
+    p <- exp(p)
   
-  k <- exp(-1*sigma*(x_rep^mu))
-  N1 <- pi*nu*mu*sigma*(x_rep^(mu-1))*k*cos(pi*k*0.5)*sin(pi*k*0.5)
-  N2 <- exp(nu*(1- (cos(pi*k*0.5))^2))
-  D <- exp(nu) - 1
-  
-  dens <- N1*N2/D
-  dens[x_rep < 0] <- 0
-  dens[x_rep==-Inf] <- 0
-  if(log==TRUE){
-    return(log(dens))
-  }else{
-    return(dens)
-  }
-  
+  return(p)
 }
 #' @export
 #' @importFrom stats pnorm
 #' @rdname dMCWEI
 pMCWEI <- function(q, mu=2.2, sigma=1.2, nu=0.5, 
-                   lower.tail = TRUE, log.p = FALSE){
+                   lower.tail = TRUE, log.p = FALSE) {
   
+  # Ensure same length vector
+  ly    <- max(length(q), length(mu), length(sigma), length(nu))
+  qq    <- rep(q, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  nu    <- rep(nu, length=ly)
   
-  if(any(c(mu,sigma)<=0) || any(nu==0 )){
-    print("Error! Parametros fuera de rango.")
-    stop("Parametros fuera de rango.")
-  }
+  # Temporal change for invalid x's
+  qq[q <= 0] <- 0.5
+  qq[q == Inf] <- 0.5
   
-  # Checking all vectors have the same length
-  par_length <- max(length(q), length(mu), length(sigma), length(nu))
-  q_rep <- rep(q, length=par_length)
-  mu <- rep(mu, length=par_length)
-  sigma <- rep(sigma, length=par_length)
-  nu <- rep(nu, length=par_length)
+  # Temporal change for invalid, sigma or nu values
+  invalid_param_values <- mu <= 0 | sigma <= 0 | nu == 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  nu[invalid_param_values]    <- 1 # Temporal change
   
-  #modifying incorrect values in parameters
-  q_rep[q<0 | q == Inf] <- 0
-  
-  ang <- (pi)*(exp(-1*sigma*(q_rep^mu)))/2
+  # The cumulative
+  ang <- (pi)*(exp(-1*sigma*(qq^mu)))/2
   N <- exp(nu) - exp(nu*(1-(cos(ang))^2))
   D <- exp(nu) - 1
-  
   cdf <- N/D
-  if(lower.tail == FALSE){
-    cdf <- 1-cdf
+  
+  # Assign NaN for invalid mu or sigma
+  cdf[invalid_param_values] <- NaN
+  
+  if (any(is.nan(cdf))) {
+    warning("NaNs produced")
   }
   
-  if(log.p == TRUE){
+  # Assign values for invalid x's
+  cdf[q <= 0] <- 0
+  cdf[q == Inf] <- 1
+  
+  if (lower.tail == FALSE)
+    cdf <- 1 - cdf
+  if (log.p == TRUE)
     cdf <- log(cdf)
-  }
+  
   return(cdf)
 }
 #' @importFrom stats uniroot qnorm
 #' @export
 #' @rdname dMCWEI
 qMCWEI <- function(p, mu=2.2, sigma=1.2, nu=0.5, 
-                   lower.tail = TRUE, log.p = FALSE){
-  #Checking correct values in parameters
-  if(any(c(mu,sigma)<=0) || nu==0 ){
-    print("Error! Parameters are out of range.")
-    stop("Parameters are out of range.")
-  }
+                   lower.tail = TRUE, log.p = FALSE) {
   
-  if(log.p == TRUE){
+  # To adjust the probability
+  if (log.p == TRUE)
     p <- exp(p)
-  }
-  if(lower.tail==FALSE){
+  if (lower.tail == FALSE)
     p <- 1 - p
+  
+  # Ensure same length vector
+  ly <- max(length(p), length(mu), length(sigma), length(nu))
+  pp <- rep(p, length=ly)
+  mu <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
+  nu <- rep(nu, length=ly)
+  
+  # Temporal change for invalid p's
+  pp[p < 0]  <-  0.5
+  pp[p > 1]  <-  0.5
+  pp[p == 1] <-  0.5
+  pp[p == 0] <-  0.5
+  
+  # Temporal change for invalid, sigma or nu values
+  invalid_param_values <- mu <= 0 | sigma <= 0 | nu == 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  nu[invalid_param_values]    <- 1 # Temporal change
+  
+  # This is an expression given by the authors
+  delta_p <- sqrt(1-log(exp(nu) - pp*(exp(nu)-1))/nu)
+  q <- (-(log(2*acos(delta_p)/pi))/sigma )^(1/mu)
+  
+  # Assign NaN for invalid mu or sigma
+  q[invalid_param_values] <- NaN
+  
+  if (any(is.nan(q))) {
+    warning("NaNs produced")
   }
   
-  #Fixing the length of the vectors
-  par_length <- max(length(p), length(mu), length(sigma), length(nu))
-  p_rep <- rep(p, length=par_length)
-  mu <- rep(mu, length=par_length)
-  sigma <- rep(sigma, length=par_length)
-  nu <- rep(nu, length=par_length)
+  # To deal with invalid p's
+  q[p <  0] <- NaN
+  q[p >  1] <- NaN
+  q[p == 1] <- Inf
+  q[p == 0] <- 0
   
-  #This is an expression given by the authors
-  delta_p <- sqrt(1-log(exp(nu) - p_rep*(exp(nu)-1))/nu)
-  
-  q_p <- (-(log(2*acos(delta_p)/pi))/sigma )^(1/mu)
-  
-  # Fixing singularities          
-  q_p[p<0] <- NaN
-  q_p[p>1] <- NaN
-  q_p[p==1] <- Inf
-  q_p[p==0] <- 0
-  
-  return(q_p)
-  
+  return(q)
 }
 #' @importFrom stats runif
 #' @export
 #' @rdname dMCWEI
-rMCWEI <- function(n, mu=2.2, sigma=1.2, nu = 0.5){
-  
-  if(any(c(mu, sigma)<=0) || nu==0){
-    print("Error! Parameters are out of range.")
-    stop("Parameters are out of range.")
-  }
-  if(any(n<0)){
-    stop("n must be a positive integer.")
-  }
+rMCWEI <- function(n, mu=2.2, sigma=1.2, nu = 0.5) {
+  if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   
   n <- ceiling(n)
   u <- runif(n=n)
@@ -171,12 +194,7 @@ rMCWEI <- function(n, mu=2.2, sigma=1.2, nu = 0.5){
 }
 #' @export
 #' @rdname dMCWEI
-hMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5){
-  
-  if(any(x<0) || any(c(mu,sigma)<=0) || nu==0 ){
-    print("Error! Parameters are out of range.")
-    stop("Parameters out of range.")
-  }
+hMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5) {
   a <- dMCWEI(x, mu=mu, sigma=sigma, nu=nu, log = FALSE)
   b <- 1 - pMCWEI(x,mu=mu ,sigma = sigma , nu = nu, log.p = FALSE)
   a/b

@@ -56,7 +56,6 @@ has density given by
 for \eqn{x\ge 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{\nu \neq 0}.
 }
 \examples{
-# Example for MCWEI distribution. You can look for some of these figures in the original paper.
 
 # Example 1: Plotting the density function (dMCWEI) for different values.
 mu_ <- c(2.8, 4.4)
@@ -65,12 +64,13 @@ nu_ <- c( 0.1, 0.01)
 X_ <- seq(0.0001, 5, length=350)
 
 curve(dMCWEI(x, log = FALSE), type = "l", col= "royalblue", lwd=2.5,
-     from = 0.001, to = 5, ylim=c(0,3), xlim = c(0,4), xlab = "x", ylab = "f(x)")
+     from = 0.001, to = 5, ylim=c(0,3), xlim = c(0,4), 
+     xlab = "x", ylab = "f(x)")
 title("Density Function")
 
 colors <- c("red", "green")
 
-for(k in seq(1,2)) {
+for(k in seq(1, 2)) {
   curve(
     dMCWEI(x, mu=mu_[k], sigma=sigma_[k], nu = nu_[k], log = FALSE ),
     type = "l", col = colors[k], lwd=2, lty = 3, 
@@ -88,7 +88,8 @@ legend("topright",
        lty = c(1,3,3),
        bty="n")
 
-# Example 2: Plotting the Cumulative Distribution function (pMCWEI) for differente values.
+# Example 2: Plotting the Cumulative Distribution function 
+# (pMCWEI) for differente values.
 
 parameters <- data.frame(
   mu=c(0.5, 1.5, 2.5),
@@ -123,22 +124,13 @@ legend(
   lwd = 2, lty = c(1,3,3), bty="n")
 
 
-# Example 3: Plotting the Quantile function for different values
-
-pars <- c(0.9, 0.1, -0.9)
-
-P <- seq(0.0001, 0.9999, length=300)
-
-curve(qMCWEI(x, mu = pars[1], sigma=pars[2], nu=pars[3]),
-      col = "royalblue", lwd=3, 
-      from = 0.0001, to=0.9999, xlab = "p", ylab = "Q(p)")
-title("Quantile function")
-legend("topleft",
-  legend = c(
-    expression(mu==0.5 ~" "  ~sigma==1 ~ " " ~ nu==0.8)),
-  col = "royalblue",
-  lty=1,
-  lwd = 2)
+# Example 3
+# The quantile function
+p <- seq(from=0, to=0.999, length.out=100)
+plot(x=qMCWEI(p, mu=2.3, sigma=1.7, nu=1.3), y=p, xlab="Quantile",
+     las=1, ylab="Probability", main="Quantile function ")
+curve(pMCWEI(x, mu=2.3, sigma=1.7, nu=1.3), 
+      from=0, add=TRUE, col="tomato", lwd=2.5)
 
 # Example 4: Generating a Random Sample for the distribution.
 
@@ -155,14 +147,14 @@ legend("topright",
 
 }
 \references{
-Rui Su, Najla M. Aloraini, Alia A. Alkhathami, Huda M. Alshanbari. 
-On A new statistical distribution: Its empirical exploration using the reliability
-and lifespan data in fashion industry. 
-Alexandria Engineering Journal.
+Su, R., Aloraini, N. M., Alkhathami, A. A., Alshanbari, H. M., & Khalifa, 
+H. A. E. W. (2025). A new statistical distribution: Its empirical 
+exploration using the reliability and lifespan data in fashion 
+industry. Alexandria Engineering Journal, 116, 660-671.
 }
 \seealso{
 \link{BS}.
 }
 \author{
-Juan Andrés Henao Arias, \email{juhenaoar@unal.edu.co}
+Juan Andres Henao Arias, \email{juhenaoar@unal.edu.co}
 }

@@ -121,10 +121,10 @@ has density given by</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Rui Su, Najla M. Aloraini, Alia A. Alkhathami, Huda M. Alshanbari.
-On A new statistical distribution: Its empirical exploration using the reliability
-and lifespan data in fashion industry.
-Alexandria Engineering Journal.</p>
+    <p>Su, R., Aloraini, N. M., Alkhathami, A. A., Alshanbari, H. M., &amp; Khalifa,
+H. A. E. W. (2025). A new statistical distribution: Its empirical
+exploration using the reliability and lifespan data in fashion
+industry. Alexandria Engineering Journal, 116, 660-671.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -132,13 +132,12 @@ Alexandria Engineering Journal.</p>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
-    <p>Juan Andrés Henao Arias, <a href="mailto:juhenaoar@unal.edu.co">juhenaoar@unal.edu.co</a></p>
+    <p>Juan Andres Henao Arias, <a href="mailto:juhenaoar@unal.edu.co">juhenaoar@unal.edu.co</a></p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example for MCWEI distribution. You can look for some of these figures in the original paper.</span></span></span>
-<span class="r-in"><span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 1: Plotting the density function (dMCWEI) for different values.</span></span></span>
 <span class="r-in"><span><span class="va">mu_</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.8</span>, <span class="fl">4.4</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">sigma_</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="fl">0.1</span>, <span class="fl">0.01</span><span class="op">)</span></span></span>
@@ -146,12 +145,13 @@ Alexandria Engineering Journal.</p>
 <span class="r-in"><span><span class="va">X_</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.0001</span>, <span class="fl">5</span>, length<span class="op">=</span><span class="fl">350</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">dMCWEI</span><span class="op">(</span><span class="va">x</span>, log <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"l"</span>, col<span class="op">=</span> <span class="st">"royalblue"</span>, lwd<span class="op">=</span><span class="fl">2.5</span>,</span></span>
-<span class="r-in"><span>     from <span class="op">=</span> <span class="fl">0.001</span>, to <span class="op">=</span> <span class="fl">5</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span><span class="op">)</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"f(x)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     from <span class="op">=</span> <span class="fl">0.001</span>, to <span class="op">=</span> <span class="fl">5</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">3</span><span class="op">)</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>     xlab <span class="op">=</span> <span class="st">"x"</span>, ylab <span class="op">=</span> <span class="st">"f(x)"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Density Function"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"green"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw">for</span><span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw">for</span><span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="fu">dMCWEI</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="va">mu_</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, sigma<span class="op">=</span><span class="va">sigma_</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, nu <span class="op">=</span> <span class="va">nu_</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, log <span class="op">=</span> <span class="cn">FALSE</span> <span class="op">)</span>,</span></span>
 <span class="r-in"><span>    type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="va">colors</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, lwd<span class="op">=</span><span class="fl">2</span>, lty <span class="op">=</span> <span class="fl">3</span>, </span></span>
@@ -170,7 +170,8 @@ Alexandria Engineering Journal.</p>
 <span class="r-in"><span>       bty<span class="op">=</span><span class="st">"n"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dMCWEI-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example 2: Plotting the Cumulative Distribution function (pMCWEI) for differente values.</span></span></span>
+<span class="r-in"><span><span class="co"># Example 2: Plotting the Cumulative Distribution function </span></span></span>
+<span class="r-in"><span><span class="co"># (pMCWEI) for differente values.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">parameters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  mu<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">2.5</span><span class="op">)</span>,</span></span>
@@ -206,22 +207,13 @@ Alexandria Engineering Journal.</p>
 <span class="r-plt img"><img src="dMCWEI-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Example 3: Plotting the Quantile function for different values</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.9</span>, <span class="fl">0.1</span>, <span class="op">-</span><span class="fl">0.9</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">P</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.0001</span>, <span class="fl">0.9999</span>, length<span class="op">=</span><span class="fl">300</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">qMCWEI</span><span class="op">(</span><span class="va">x</span>, mu <span class="op">=</span> <span class="va">pars</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, sigma<span class="op">=</span><span class="va">pars</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, nu<span class="op">=</span><span class="va">pars</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>      col <span class="op">=</span> <span class="st">"royalblue"</span>, lwd<span class="op">=</span><span class="fl">3</span>, </span></span>
-<span class="r-in"><span>      from <span class="op">=</span> <span class="fl">0.0001</span>, to<span class="op">=</span><span class="fl">0.9999</span>, xlab <span class="op">=</span> <span class="st">"p"</span>, ylab <span class="op">=</span> <span class="st">"Q(p)"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Quantile function"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>,</span></span>
-<span class="r-in"><span>  legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></span><span class="op">(</span><span class="va">mu</span><span class="op">==</span><span class="fl">0.5</span> <span class="op">~</span><span class="st">" "</span>  <span class="op">~</span><span class="va">sigma</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="st">" "</span> <span class="op">~</span> <span class="va">nu</span><span class="op">==</span><span class="fl">0.8</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  col <span class="op">=</span> <span class="st">"royalblue"</span>,</span></span>
-<span class="r-in"><span>  lty<span class="op">=</span><span class="fl">1</span>,</span></span>
-<span class="r-in"><span>  lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Example 3</span></span></span>
+<span class="r-in"><span><span class="co"># The quantile function</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">0.999</span>, length.out<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu">qMCWEI</span><span class="op">(</span><span class="va">p</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span>, nu<span class="op">=</span><span class="fl">1.3</span><span class="op">)</span>, y<span class="op">=</span><span class="va">p</span>, xlab<span class="op">=</span><span class="st">"Quantile"</span>,</span></span>
+<span class="r-in"><span>     las<span class="op">=</span><span class="fl">1</span>, ylab<span class="op">=</span><span class="st">"Probability"</span>, main<span class="op">=</span><span class="st">"Quantile function "</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html" class="external-link">curve</a></span><span class="op">(</span><span class="fu">pMCWEI</span><span class="op">(</span><span class="va">x</span>, mu<span class="op">=</span><span class="fl">2.3</span>, sigma<span class="op">=</span><span class="fl">1.7</span>, nu<span class="op">=</span><span class="fl">1.3</span><span class="op">)</span>, </span></span>
+<span class="r-in"><span>      from<span class="op">=</span><span class="fl">0</span>, add<span class="op">=</span><span class="cn">TRUE</span>, col<span class="op">=</span><span class="st">"tomato"</span>, lwd<span class="op">=</span><span class="fl">2.5</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="dMCWEI-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Example 4: Generating a Random Sample for the distribution.</span></span></span>
