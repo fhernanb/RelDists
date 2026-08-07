@@ -59,8 +59,6 @@
 #'
 #' @export
 dGL2 <- function(x, mu, sigma , log = FALSE) {
-  if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0)) stop(paste("sigma must be positive", "\n", ""))
   
   # Ensure same length vector
   ly    <- max(length(x), length(mu), length(sigma))
@@ -72,16 +70,24 @@ dGL2 <- function(x, mu, sigma , log = FALSE) {
   xx[x <= 0] <- 0.5
   xx[is.infinite(x)] <- 0.5
   
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
   # pdf in log-scale
-  
   part1 <- 2 * log(mu) - log(mu + 1)
-  
   term2 <- (mu^(sigma- 2) * xx^(sigma - 1)) / gamma(sigma)
   part2 <- log1p(term2)
-  
   part3 <- -mu * xx
-  
   p <- part1 + part2 + part3
+  
+  # Assing NaN for invalid mu or sigma
+  p[invalid_param_values] <- NaN
+  
+  if (any(is.nan(p))) {
+    warning("NaNs produced")
+  }
   
   # Assign values for invalid x's
   p[x <= 0] <- -Inf
@@ -97,9 +103,6 @@ dGL2 <- function(x, mu, sigma , log = FALSE) {
 #' @rdname dGL2
 pGL2 <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   
-  if (any(mu <=0))    stop("parameter mu has to be positive!")
-  if (any(sigma <=0)) stop("parameter sigma has to be posiyive!")
-  
   # Ensure same length vector
   ly     <- max(length(q), length(mu), length(sigma))
   qq     <- rep(q, length=ly)
@@ -110,6 +113,11 @@ pGL2 <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   qq[q <=0]     <- 0.5
   qq[q == Inf]  <- 0.5
   
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
   # The cumulative
   part1 <- (mu+1)*gamma(sigma)
   part2 <- (mu*gamma(sigma))*(1-exp(-mu*qq))
@@ -117,6 +125,13 @@ pGL2 <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   part3 <- gamma(sigma) - gamma_inc_sup
   part  <- part2 + part3
   cdf   <- part/part1
+  
+  # Assing NaN for invalid mu or sigma
+  cdf[invalid_param_values] <- NaN
+  
+  if (any(is.nan(cdf))) {
+    warning("NaNs produced")
+  }
     
   # Assign values for invalid x's
   cdf[q <= 0]    <- 0
@@ -154,16 +169,16 @@ qGL2 <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   pp[p ==1] <- 0.5
   pp[p ==0] <- 0.5
   
-  #The quantile
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
   
-  qq <- rep(NA, ly)
+  # The quantile
+  q <- rep(NA, ly)
   
   for (i in seq_len(ly)) {
-    if (pp[i] <= 0 | pp[i] >= 1) {
-      qq[i] <- NaN
-      next
-    }
-    qq[i] <- uniroot(
+    q[i] <- uniroot(
       f     = function(x) pGL2(x, mu = mu[i], sigma = sigma[i]) - pp[i],
       lower = 1e-10,
       upper = 1e6,
@@ -171,18 +186,25 @@ qGL2 <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
     )$root
   }
   
-  # To deal with invalid p's
-  qq[p < 0]  <- NaN
-  qq[p > 1]  <- NaN
-  qq[p == 1] <- Inf
-  qq[p == 0] <- 0
+  # Assing NaN for invalid mu or sigma
+  q[invalid_param_values] <- NaN
   
-  return(qq) 
+  if (any(is.nan(q))) {
+    warning("NaNs produced")
+  }
+  
+  # To deal with invalid p's
+  q[p < 0]  <- NaN
+  q[p > 1]  <- NaN
+  q[p == 1] <- Inf
+  q[p == 0] <- 0
+  
+  return(q) 
 }
 #' @importFrom stats runif
 #' @export
 #' @rdname dGL2
-rGL2 <- function(n, mu, sigma){
+rGL2 <- function(n, mu, sigma) {
   if (any(mu <= 0))     stop("parameter mu has to be positive!")
   if (any(sigma <= 0))  stop("parameter sigma has to be positive!")
   if (any(n <= 0))      stop(paste("n must be a positive integer", "\n", ""))
@@ -195,14 +217,12 @@ rGL2 <- function(n, mu, sigma){
 #' @importFrom stats runif
 #' @export
 #' @rdname dGL2
-hGL2 <- function(x, mu = 0.5, sigma = 0.5)
-{
+hGL2 <- function(x, mu = 0.5, sigma = 0.5) {
   if(any(mu <= 0))
     stop("parameter mu has to be positive!")
   
   if(any(sigma <= 0))
     stop("parameter sigma has to be positive!")
   
-  dGL2(x, mu, sigma) /
-    (1 - pGL2(x, mu, sigma))
+  dGL2(x, mu, sigma) / pGL2(x, mu, sigma, lower.tail=FALSE)
 }
