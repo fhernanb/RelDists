@@ -2,11 +2,11 @@
 # Generating some random values with
 # known mu and sigma
 set.seed(1234)
-y <- rGL2(n=500, mu=0.75, sigma=1.3)
+y <- rGLIN(n=500, mu=0.75, sigma=1.3)
 
 # Fitting the model
 require(gamlss)
-mod1 <- gamlss(y~1, sigma.fo=~1, family=GL2)
+mod1 <- gamlss(y~1, sigma.fo=~1, family=GLIN)
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
@@ -16,20 +16,20 @@ exp(coef(mod1, what="sigma"))
 # Example 2
 # Generating random values for a regression model
 
-# A function to simulate a data set with Y as GL2
+# A function to simulate a data set with Y as GLIN
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
   mu <- exp(1.45 - 3 * x1)   # Approx 0.95
   sigma <- exp(2 - 1.5 * x2) # Approx 3.50
-  y <- rGL2(n=n, mu=mu, sigma=sigma)
+  y <- rGLIN(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
 set.seed(1234)
 dat <- gendat(n=1000)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
-               family=GL2, data=dat,
+               family=GLIN, data=dat,
                control=gamlss.control(n.cyc=50, trace=FALSE))
 
 summary(mod2)
@@ -57,7 +57,7 @@ y <- c(0.08, 2.09, 3.48, 4.87, 6.94, 8.66, 13.11, 23.63,
        12.07, 21.73, 2.07, 3.36, 6.93, 8.65, 12.63, 22.69)
 
 require(gamlss)
-mod3 <- gamlss(y ~ 1, sigma.fo = ~1, family = GL2)
+mod3 <- gamlss(y ~ 1, sigma.fo = ~1, family = GLIN)
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
@@ -67,7 +67,7 @@ exp(coef(mod3, what="sigma"))
 # Comparing the empirical histogram with the estimated density
 hist(y, breaks=15, freq=FALSE,
      xlab="y", col="lightblue", border="white")
-curve(dGL2(x, mu=0.1247079, sigma=1.189219),
+curve(dGLIN(x, mu=0.1247079, sigma=1.189219),
       add=TRUE, col="red", lwd=2)
 
 

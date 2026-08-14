@@ -93,7 +93,7 @@
 - [`GIW()`](http://fhernanb.github.io/RelDists/reference/GIW.md) : The
   Generalized Inverse Weibull family
 
-- [`GL2()`](http://fhernanb.github.io/RelDists/reference/GL2.md) : The
+- [`GLIN()`](http://fhernanb.github.io/RelDists/reference/GLIN.md) : The
   Generalized Lindley Type II family
 
 - [`GMW()`](http://fhernanb.github.io/RelDists/reference/GMW.md) : The
@@ -362,12 +362,12 @@
   [`hGIW()`](http://fhernanb.github.io/RelDists/reference/dGIW.md) : The
   Generalized Inverse Weibull distribution
 
-- [`dGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
-  [`pGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
-  [`qGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
-  [`rGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md)
-  [`hGL2()`](http://fhernanb.github.io/RelDists/reference/dGL2.md) : The
-  Generalized Lindley Type II (GL2) distribution
+- [`dGLIN()`](http://fhernanb.github.io/RelDists/reference/dGLIN.md)
+  [`pGLIN()`](http://fhernanb.github.io/RelDists/reference/dGLIN.md)
+  [`qGLIN()`](http://fhernanb.github.io/RelDists/reference/dGLIN.md)
+  [`rGLIN()`](http://fhernanb.github.io/RelDists/reference/dGLIN.md)
+  [`hGLIN()`](http://fhernanb.github.io/RelDists/reference/dGLIN.md) :
+  The Generalized Lindley Type II (GLIN) distribution
 
 - [`dGMW()`](http://fhernanb.github.io/RelDists/reference/dGMW.md)
   [`pGMW()`](http://fhernanb.github.io/RelDists/reference/dGMW.md)
@@ -539,14 +539,14 @@
 - [`equipment`](http://fhernanb.github.io/RelDists/reference/equipment.md)
   : Electronic equipment data
 
-- [`estim_mu_sigma_GL2()`](http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GL2.md)
-  : estim_mu_sigma_GL2
+- [`estim_mu_sigma_GLIN()`](http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GLIN.md)
+  : estim_mu_sigma_GLIN
 
 - [`initValuesOW()`](http://fhernanb.github.io/RelDists/reference/initValuesOW.md)
   : Initial values and search region for Odd Weibull distribution
 
-- [`logLik_GL2()`](http://fhernanb.github.io/RelDists/reference/logLik_GL2.md)
-  : logLik_GL2
+- [`logLik_GLIN()`](http://fhernanb.github.io/RelDists/reference/logLik_GLIN.md)
+  : logLik_GLIN
 
 - [`mice`](http://fhernanb.github.io/RelDists/reference/mice.md) : Mice
   mortality data

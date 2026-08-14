@@ -29,7 +29,7 @@ export(FWE)
 export(GAo)
 export(GGD)
 export(GIW)
-export(GL2)
+export(GLIN)
 export(GMW)
 export(GammaW)
 export(IPXLIN)
@@ -79,7 +79,7 @@ export(dFWE)
 export(dGAo)
 export(dGGD)
 export(dGIW)
-export(dGL2)
+export(dGLIN)
 export(dGMW)
 export(dGWF)
 export(dGammaW)
@@ -105,7 +105,7 @@ export(dWG)
 export(dWGEE)
 export(dWP)
 export(den_exw)
-export(estim_mu_sigma_GL2)
+export(estim_mu_sigma_GLIN)
 export(estim_mu_sigma_NEE)
 export(exwstpt)
 export(fitexw)
@@ -136,7 +136,7 @@ export(hFWE)
 export(hGAo)
 export(hGGD)
 export(hGIW)
-export(hGL2)
+export(hGLIN)
 export(hGMW)
 export(hGWF)
 export(hGammaW)
@@ -162,7 +162,7 @@ export(hWGEE)
 export(hWP)
 export(initValuesFWE)
 export(initValuesOW)
-export(logLik_GL2)
+export(logLik_GLIN)
 export(logLik_NEE)
 export(myOW_region)
 export(negllexw)
@@ -194,7 +194,7 @@ export(pFWE)
 export(pGAo)
 export(pGGD)
 export(pGIW)
-export(pGL2)
+export(pGLIN)
 export(pGMW)
 export(pGWF)
 export(pGammaW)
@@ -249,7 +249,7 @@ export(qFWE)
 export(qGAo)
 export(qGGD)
 export(qGIW)
-export(qGL2)
+export(qGLIN)
 export(qGMW)
 export(qGWF)
 export(qGammaW)
@@ -302,7 +302,7 @@ export(rFWE)
 export(rGAo)
 export(rGGD)
 export(rGIW)
-export(rGL2)
+export(rGLIN)
 export(rGMW)
 export(rGWF)
 export(rGammaW)
@@ -331,42 +331,50 @@ export(rew)
 export(uandv)
 export(wald_start)
 importFrom(BBmisc,is.error)
-importFrom(EstimationTools,TTTE_Analytical)
-importFrom(EstimationTools,TTT_hazard_shape)
-importFrom(EstimationTools,fo_and_data)
-importFrom(EstimationTools,formula2Surv)
-importFrom(EstimationTools,interp.options)
-importFrom(EstimationTools,loess.options)
+importFrom(EstimationTools,
+  TTTE_Analytical,
+  TTT_hazard_shape,
+  fo_and_data,
+  formula2Surv,
+  interp.options,
+  loess.options
+)
 importFrom(Rdpack,reprompt)
 importFrom(VGAM,pgamma.deriv)
-importFrom(gamlss,gamlss)
-importFrom(gamlss,rqres.plot)
+importFrom(gamlss,
+  gamlss,
+  rqres.plot
+)
 importFrom(gamlss.dist,checklink)
-importFrom(graphics,hist)
-importFrom(graphics,lines)
+importFrom(graphics,
+  hist,
+  lines
+)
 importFrom(lamW,lambertWm1)
-importFrom(stats,coef)
-importFrom(stats,dgamma)
-importFrom(stats,dnorm)
-importFrom(stats,ecdf)
-importFrom(stats,formula)
-importFrom(stats,integrate)
-importFrom(stats,lm)
-importFrom(stats,na.omit)
-importFrom(stats,nlminb)
-importFrom(stats,optim)
-importFrom(stats,pgamma)
-importFrom(stats,pnorm)
-importFrom(stats,predict)
-importFrom(stats,qgamma)
-importFrom(stats,qnorm)
-importFrom(stats,rbinom)
-importFrom(stats,rchisq)
-importFrom(stats,rexp)
-importFrom(stats,rgamma)
-importFrom(stats,runif)
-importFrom(stats,sd)
-importFrom(stats,terms)
-importFrom(stats,uniroot)
-importFrom(stats,var)
+importFrom(stats,
+  coef,
+  dgamma,
+  dnorm,
+  ecdf,
+  formula,
+  integrate,
+  lm,
+  na.omit,
+  nlminb,
+  optim,
+  pgamma,
+  pnorm,
+  predict,
+  qgamma,
+  qnorm,
+  rbinom,
+  rchisq,
+  rexp,
+  rgamma,
+  runif,
+  sd,
+  terms,
+  uniroot,
+  var
+)
 importFrom(survival,is.Surv)

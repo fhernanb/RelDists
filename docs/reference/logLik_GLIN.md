@@ -1,0 +1,28 @@
+# logLik_GLIN
+
+Auxiliary function to compute the log-likelihood of the GLIN
+distribution.
+
+## Usage
+
+``` r
+logLik_GLIN(param = c(0, 0), x)
+```
+
+## Arguments
+
+- param:
+
+  Numeric vector containing the values of the parameters
+
+- x:
+
+  Numeric vector containing the observations.
+
+## Examples
+
+``` r
+y <- rGLIN(n = 100, mu = 3, sigma = 1.2)
+logLik_GLIN(param = c(0, 0), x = y)
+#> [1] -34.12475
+```

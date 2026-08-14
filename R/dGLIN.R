@@ -1,11 +1,11 @@
-#' The Generalized Lindley Type II (GL2) distribution
+#' The Generalized Lindley Type II (GLIN) distribution
 #'
 #' @author Sofia Cadavid Rueda, \email{socadavidr@unal.edu.co}
 #'
 #' @description
 #' These functions define the density, distribution function, quantile
 #' function and random generation for the Generalized Lindley Type II,
-#' GL2(), distribution with parameters \eqn{\mu} and \eqn{\sigma}.
+#' GLIN(), distribution with parameters \eqn{\mu} and \eqn{\sigma}.
 #'
 #' @param x,q vector of positive quantiles.
 #' @param p vector of probabilities.
@@ -21,44 +21,76 @@
 #' A New Generalized Two Parameter Lindley Distribution.
 #' Journal of the Nigerian Statistical Association, 30, 547--566.
 #'
-#' @seealso \link{GL2}.
+#' @seealso \link{GLIN}.
 #'
 #' @details
 #' The Generalized Lindley Type II distribution with parameters
-#' \eqn{\mu > 0} and \eqn{\sigma > 0} has support \eqn{x > 0}
-#' and probability density function given by
+#' \code{mu} and \code{sigma} has probability density function
 #'
 #' \eqn{
 #' f(x|\mu,\sigma)=
 #' \frac{\mu^2}{\mu+1}
 #' \left(
-#' 1+
-#' \frac{\mu^{\sigma-2}x^{\sigma-1}}
+#' 1+\frac{\mu^{\sigma-2}x^{\sigma-1}}
 #' {\Gamma(\sigma)}
 #' \right)
 #' e^{-\mu x},
 #' }
 #'
-#' for \eqn{x > 0}, \eqn{\mu > 0} and \eqn{\sigma > 0}.
+#' for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}.
 #'
-#' Note: in this implementation we changed the original parameters
-#' \eqn{\theta} for \eqn{\mu} and \eqn{\alpha} for \eqn{\sigma}.
-#' This reparameterization was performed to implement the distribution
-#' within the GAMLSS framework.
+#' The distribution is a two-parameter extension of the classical
+#' Lindley distribution and belongs to the class of finite mixtures
+#' involving exponential and gamma components. It provides additional
+#' flexibility for modeling positively skewed lifetime data.
 #'
-#' The GL2 distribution is a flexible two-parameter extension of the
+#' The original parameters of the distribution are denoted by
+#' \eqn{\theta} and \eqn{\alpha}. In the GAMLSS implementation,
+#' they are re-parameterized as \eqn{\mu=\theta} and \eqn{\sigma=\alpha}.
+#'
+#' The \eqn{r}-th raw moment is given by
+#'
+#' \eqn{
+#' E(X^r)=
+#' \frac{1}
+#' {\mu^r(\mu+1)}
+#' \left[
+#' \mu\Gamma(r+1)
+#' +
+#' \frac{\Gamma(r+\sigma)}
+#' {\Gamma(\sigma)}
+#' \right].
+#' }
+#'
+#' In particular, the mean is
+#'
+#' \eqn{
+#' E(X)=
+#' \frac{\mu+\sigma}
+#' {\mu(\mu+1)}.
+#' }
+#' 
+#' and the variance is
+#' 
+#' \eqn{
+#' Var(X)=
+#' \frac{\mu^2 + \mu(\sigma^2 - \sigma + 2) + \sigma}
+#' {\mu^2(\mu + 1)^2}.
+#' }
+#'
+#' The GLIN distribution is a flexible two-parameter extension of the
 #' classical Lindley distribution and is suitable for modeling
 #' positive lifetime and survival data.
 #'
 #' @return
-#' \code{dGL2} gives the density, \code{pGL2} gives the distribution
-#' function, \code{qGL2} gives the quantile function, and
-#' \code{rGL2} generates random deviates.
+#' \code{dGLIN} gives the density, \code{pGLIN} gives the distribution
+#' function, \code{qGLIN} gives the quantile function, and
+#' \code{rGLIN} generates random deviates.
 #'
-#' @example examples/examples_dGL2.R
+#' @example examples/examples_dGLIN.R
 #'
 #' @export
-dGL2 <- function(x, mu, sigma , log = FALSE) {
+dGLIN <- function(x, mu, sigma , log = FALSE) {
   
   # Ensure same length vector
   ly    <- max(length(x), length(mu), length(sigma))
@@ -100,8 +132,8 @@ dGL2 <- function(x, mu, sigma , log = FALSE) {
 }
 #' @export
 #' @importFrom stats pnorm
-#' @rdname dGL2
-pGL2 <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
+#' @rdname dGLIN
+pGLIN <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   
   # Ensure same length vector
   ly     <- max(length(q), length(mu), length(sigma))
@@ -146,8 +178,8 @@ pGL2 <- function(q, mu, sigma, lower.tail=TRUE, log.p=FALSE){
 }
 #' @importFrom stats uniroot qnorm
 #' @export
-#' @rdname dGL2
-qGL2 <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
+#' @rdname dGLIN
+qGLIN <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   if (any(mu <=0))    stop(paste("mu must be positive", "\n", ""))
   if (any(sigma <=0)) stop(paste("sigma must be positive", "\n", ""))
   
@@ -179,7 +211,7 @@ qGL2 <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
   
   for (i in seq_len(ly)) {
     q[i] <- uniroot(
-      f     = function(x) pGL2(x, mu = mu[i], sigma = sigma[i]) - pp[i],
+      f     = function(x) pGLIN(x, mu = mu[i], sigma = sigma[i]) - pp[i],
       lower = 1e-10,
       upper = 1e6,
       tol   = 1e-8
@@ -203,26 +235,26 @@ qGL2 <- function(p, mu, sigma, lower.tail=TRUE, log.p=FALSE){
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname dGL2
-rGL2 <- function(n, mu, sigma) {
+#' @rdname dGLIN
+rGLIN <- function(n, mu, sigma) {
   if (any(mu <= 0))     stop("parameter mu has to be positive!")
   if (any(sigma <= 0))  stop("parameter sigma has to be positive!")
   if (any(n <= 0))      stop(paste("n must be a positive integer", "\n", ""))
   
   n <- ceiling(n)
   u <- runif(n=n)
-  x <- qGL2(p=u, mu=mu, sigma=sigma)
+  x <- qGLIN(p=u, mu=mu, sigma=sigma)
   return(x)
 }
 #' @importFrom stats runif
 #' @export
-#' @rdname dGL2
-hGL2 <- function(x, mu = 0.5, sigma = 0.5) {
+#' @rdname dGLIN
+hGLIN <- function(x, mu = 0.5, sigma = 0.5) {
   if(any(mu <= 0))
     stop("parameter mu has to be positive!")
   
   if(any(sigma <= 0))
     stop("parameter sigma has to be positive!")
   
-  dGL2(x, mu, sigma) / pGL2(x, mu, sigma, lower.tail=FALSE)
+  dGLIN(x, mu, sigma) / pGLIN(x, mu, sigma, lower.tail=FALSE)
 }

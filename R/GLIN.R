@@ -3,7 +3,7 @@
 #' @author Sofia Cadavid Rueda, \email{socadavidr@@unal.edu.co}
 #'
 #' @description
-#' The Generalized Lindley Type II (GL2) family for fitting
+#' The Generalized Lindley Type II (GLIN) family for fitting
 #' positive continuous lifetime data within the GAMLSS framework.
 #'
 #' @param mu.link defines the mu.link, with "log" link as the default
@@ -11,7 +11,7 @@
 #' @param sigma.link defines the sigma.link, with "log" link as the default
 #' for the sigma parameter (sigma > 0).
 #'
-#' @seealso \link{dGL2}
+#' @seealso \link{dGLIN}
 #'
 #' @details
 #' The Generalized Lindley Type II distribution with parameters
@@ -36,13 +36,7 @@
 #'
 #' The original parameters of the distribution are denoted by
 #' \eqn{\theta} and \eqn{\alpha}. In the GAMLSS implementation,
-#' they are re-parameterized as
-#'
-#' \eqn{\mu=\theta}
-#'
-#' and
-#'
-#' \eqn{\sigma=\alpha}.
+#' they are re-parameterized as \eqn{\mu=\theta} and \eqn{\sigma=\alpha}.
 #'
 #' The \eqn{r}-th raw moment is given by
 #'
@@ -65,16 +59,24 @@
 #' \frac{\mu+\sigma}
 #' {\mu(\mu+1)}.
 #' }
+#' 
+#' and the variance is
+#' 
+#' \eqn{
+#' Var(X)=
+#' \frac{\mu^2 + \mu(\sigma^2 - \sigma + 2) + \sigma}
+#' {\mu^2(\mu + 1)^2}.
+#' }
 #'
-#' The GL2 distribution has been proposed for modeling lifetime
+#' The GLIN distribution has been proposed for modeling lifetime
 #' and survival data and has shown greater flexibility than the
 #' classical Lindley and Exponential distributions in several
 #' applications.
 #'
 #' @returns Returns a gamlss.family object which can be used to fit a
-#' GL2 distribution in the \code{gamlss()} function.
+#' GLIN distribution in the \code{gamlss()} function.
 #'
-#' @example examples/examples_GL2.R
+#' @example examples/examples_GLIN.R
 #'
 #' @references
 #' Ekhosuehi, N., Opone, F., & Odobaire, F. (2018).
@@ -84,19 +86,19 @@
 #' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
-GL2 <- function(mu.link="log", sigma.link="log") {
+GLIN <- function(mu.link="log", sigma.link="log") {
   
-  mstats <- checklink("mu.link", "GL2",
+  mstats <- checklink("mu.link", "GLIN",
                       substitute(mu.link),
                       c("log", "inverse", "own"))
   
-  dstats <- checklink("sigma.link", "GL2",
+  dstats <- checklink("sigma.link", "GLIN",
                       substitute(sigma.link),
                       c("log", "inverse", "own"))
   
   structure(list(
     
-    family     = c("GL2", "New Generalized Two Parameter Lindley"),
+    family     = c("GLIN", "New Generalized Two Parameter Lindley"),
     parameters = list(mu=TRUE, sigma=TRUE),
     nopar      = 2,
     type       = "Continuous",
@@ -117,16 +119,16 @@ GL2 <- function(mu.link="log", sigma.link="log") {
     dldm = function(y, mu, sigma) {
       h <- 1e-6
       
-      (dGL2(y, mu+h, sigma, log=TRUE) -
-          dGL2(y, mu, sigma, log=TRUE))/h
+      (dGLIN(y, mu+h, sigma, log=TRUE) -
+          dGLIN(y, mu, sigma, log=TRUE))/h
     },
     
     # Primera derivada respecto a sigma
     dldd = function(y, mu, sigma) {
       h <- 1e-6
       
-      (dGL2(y, mu, sigma+h, log=TRUE) -
-          dGL2(y, mu, sigma, log=TRUE))/h
+      (dGLIN(y, mu, sigma+h, log=TRUE) -
+          dGLIN(y, mu, sigma, log=TRUE))/h
     },
     
     # Segunda derivada respecto a mu
@@ -134,8 +136,8 @@ GL2 <- function(mu.link="log", sigma.link="log") {
       
       h <- 1e-6
       
-      dldm <- (dGL2(y, mu+h, sigma, log=TRUE) -
-                 dGL2(y, mu, sigma, log=TRUE))/h
+      dldm <- (dGLIN(y, mu+h, sigma, log=TRUE) -
+                 dGLIN(y, mu, sigma, log=TRUE))/h
       
       -dldm^2
     },
@@ -145,11 +147,11 @@ GL2 <- function(mu.link="log", sigma.link="log") {
       
       h <- 1e-6
       
-      dldm <- (dGL2(y, mu+h, sigma, log=TRUE) -
-                 dGL2(y, mu, sigma, log=TRUE))/h
+      dldm <- (dGLIN(y, mu+h, sigma, log=TRUE) -
+                 dGLIN(y, mu, sigma, log=TRUE))/h
       
-      dldd <- (dGL2(y, mu, sigma+h, log=TRUE) -
-                 dGL2(y, mu, sigma, log=TRUE))/h
+      dldd <- (dGLIN(y, mu, sigma+h, log=TRUE) -
+                 dGLIN(y, mu, sigma, log=TRUE))/h
       
       -dldm*dldd
     },
@@ -159,17 +161,17 @@ GL2 <- function(mu.link="log", sigma.link="log") {
       
       h <- 1e-6
       
-      dldd <- (dGL2(y, mu, sigma+h, log=TRUE) -
-                 dGL2(y, mu, sigma, log=TRUE))/h
+      dldd <- (dGLIN(y, mu, sigma+h, log=TRUE) -
+                 dGLIN(y, mu, sigma, log=TRUE))/h
       
       -dldd^2
     },
     
     G.dev.incr = function(y, mu, sigma, ...)
-      -2*dGL2(y, mu, sigma, log=TRUE),
+      -2*dGLIN(y, mu, sigma, log=TRUE),
     
     rqres = expression(
-      rqres(pfun="pGL2",
+      rqres(pfun="pGLIN",
             type="Continuous",
             y=y,
             mu=mu,
@@ -177,11 +179,11 @@ GL2 <- function(mu.link="log", sigma.link="log") {
     ),
     
     mu.initial = expression(
-      mu <- rep(estim_mu_sigma_GL2(y)[1], length(y))
+      mu <- rep(estim_mu_sigma_GLIN(y)[1], length(y))
     ),
     
     sigma.initial = expression(
-      sigma <- rep(estim_mu_sigma_GL2(y)[2], length(y))
+      sigma <- rep(estim_mu_sigma_GLIN(y)[2], length(y))
     ),
     
     mu.valid    = function(mu) all(mu > 0),
@@ -191,21 +193,21 @@ GL2 <- function(mu.link="log", sigma.link="log") {
     
   ), class=c("gamlss.family","family"))
 }
-#' estim_mu_sigma_GL2
+#' estim_mu_sigma_GLIN
 #'
-#' This function generates initial values for the GL2 distribution
+#' This function generates initial values for the GLIN distribution
 #'
 #' @param y vector with the random sample
 #' @examples
-#' y <- rGL2(n = 100, mu = 3, sigma = 1.2)
-#' estim_mu_sigma_GL2(y = y)
+#' y <- rGLIN(n = 100, mu = 3, sigma = 1.2)
+#' estim_mu_sigma_GLIN(y = y)
 #' @importFrom stats optim
 #' @export
-estim_mu_sigma_GL2 <- function(y) {
+estim_mu_sigma_GLIN <- function(y) {
   
   mod <- optim(
     par     = c(0,0),
-    fn      = logLik_GL2,
+    fn      = logLik_GLIN,
     method  = "Nelder-Mead",
     control = list(fnscale=-1, maxit=100000),
     x       = y
@@ -216,22 +218,22 @@ estim_mu_sigma_GL2 <- function(y) {
     sigma_hat = exp(mod$par[2])
   )
 }
-#' logLik_GL2
+#' logLik_GLIN
 #'
-#' Auxiliary function to compute the log-likelihood of the GL2 distribution.
+#' Auxiliary function to compute the log-likelihood of the GLIN distribution.
 #'
 #' @param param Numeric vector containing the values of the parameters
 #' @param x Numeric vector containing the observations.
 #'
 #' @examples
-#' y <- rGL2(n = 100, mu = 3, sigma = 1.2)
-#' logLik_GL2(param = c(0, 0), x = y)
+#' y <- rGLIN(n = 100, mu = 3, sigma = 1.2)
+#' logLik_GLIN(param = c(0, 0), x = y)
 #'
 #' @importFrom stats optim
 #' @export
-logLik_GL2 <- function(param=c(0,0), x) {
+logLik_GLIN <- function(param=c(0,0), x) {
   sum(
-    dGL2(
+    dGLIN(
       x,
       mu    = exp(param[1]),
       sigma = exp(param[2]),
