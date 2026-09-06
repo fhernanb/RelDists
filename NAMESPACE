@@ -51,6 +51,7 @@ export(WALD)
 export(WG)
 export(WGEE)
 export(WP)
+export(checklink)
 export(dAddW)
 export(dBGE)
 export(dBS)
@@ -164,6 +165,7 @@ export(initValuesFWE)
 export(initValuesOW)
 export(logLik_GLIN)
 export(logLik_NEE)
+export(make.link.gamlss)
 export(myOW_region)
 export(negllexw)
 export(pAddW)
@@ -345,7 +347,6 @@ importFrom(gamlss,
   gamlss,
   rqres.plot
 )
-importFrom(gamlss.dist,checklink)
 importFrom(graphics,
   hist,
   lines
@@ -353,7 +354,9 @@ importFrom(graphics,
 importFrom(lamW,lambertWm1)
 importFrom(stats,
   coef,
+  dcauchy,
   dgamma,
+  dlogis,
   dnorm,
   ecdf,
   formula,
@@ -362,10 +365,15 @@ importFrom(stats,
   na.omit,
   nlminb,
   optim,
+  pcauchy,
   pgamma,
+  plogis,
   pnorm,
+  power,
   predict,
+  qcauchy,
   qgamma,
+  qlogis,
   qnorm,
   rbinom,
   rchisq,

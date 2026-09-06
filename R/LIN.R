@@ -25,7 +25,6 @@
 #' Journal of the Royal Statistical Society. 
 #' Series B (Methodological), 102-107.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 LIN <- function (mu.link = "log") {

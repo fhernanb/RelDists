@@ -32,7 +32,6 @@
 #' A modified Weibull distribution. 
 #' IEEE Transactions on reliability, 52(1), 33-37.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 MW <- function (mu.link="log", sigma.link="log", nu.link="log") 

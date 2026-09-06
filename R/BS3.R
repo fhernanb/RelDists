@@ -34,7 +34,6 @@
 #' 
 #' @example examples/examples_BS3.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 BS3 <- function(mu.link = "log", sigma.link = "logit"){

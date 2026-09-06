@@ -34,7 +34,6 @@
 #' application. Istatistik Journal of The Turkish Statistical 
 #' Association, 11(3), 65-76.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 QXGP <- function (mu.link="log", sigma.link="log", nu.link="log") {

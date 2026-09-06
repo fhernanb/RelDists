@@ -28,7 +28,6 @@
 #' The generalized Gompertz distribution. Applied mathematical 
 #' modelling, 37(1-2), 13-24.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GGD <- function (mu.link="log", sigma.link="log", nu.link="log"){

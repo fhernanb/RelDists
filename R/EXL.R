@@ -37,7 +37,6 @@
 #' 
 #' @example examples/examples_EXL.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EXL <- function(mu.link="log", sigma.link="log") {

@@ -29,7 +29,6 @@
 #' Cooray, K. (2006). Generalization of the Weibull distribution: 
 #' the odd Weibull family. Statistical Modelling, 6(3), 265-277.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 OW <- function (mu.link="log", sigma.link="log", nu.link="log") {

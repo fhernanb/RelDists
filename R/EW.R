@@ -21,7 +21,6 @@
 #' 
 #' @example examples/examples_EW.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EW <- function (mu.link="log", sigma.link="log", nu.link="log") {

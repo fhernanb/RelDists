@@ -159,6 +159,9 @@
 - [`WP()`](http://fhernanb.github.io/RelDists/reference/WP.md) : The
   Weibull Poisson family
 
+- [`checklink()`](http://fhernanb.github.io/RelDists/reference/checklink.md)
+  : Set the Right Link Function for Specified Parameter and Distribution
+
 - [`dAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
   [`pAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
   [`qAddW()`](http://fhernanb.github.io/RelDists/reference/dAddW.md)
@@ -547,6 +550,9 @@
 
 - [`logLik_GLIN()`](http://fhernanb.github.io/RelDists/reference/logLik_GLIN.md)
   : logLik_GLIN
+
+- [`make.link.gamlss()`](http://fhernanb.github.io/RelDists/reference/make.link.gamlss.md)
+  : Create a Link for GAMLSS families
 
 - [`mice`](http://fhernanb.github.io/RelDists/reference/mice.md) : Mice
   mortality data

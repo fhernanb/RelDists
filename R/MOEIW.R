@@ -28,7 +28,6 @@
 #' Extended inverse Weibull distribution with reliability application. 
 #' Journal of the Egyptian Mathematical Society, 25(3), 343-349.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 MOEIW <- function (mu.link="log", sigma.link="log", nu.link="log") {

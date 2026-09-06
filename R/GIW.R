@@ -32,7 +32,6 @@
 #' The generalized inverse Weibull distribution. Statistical 
 #' Papers, 52, 591-619.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GIW <- function (mu.link="log", sigma.link="log", nu.link="log") {

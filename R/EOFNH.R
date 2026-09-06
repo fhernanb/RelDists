@@ -28,7 +28,6 @@
 #'  
 #' @example examples/examples_EOFNH.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EOFNH <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log"){

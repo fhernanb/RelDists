@@ -26,7 +26,6 @@
 #'
 #' @example examples/examples_WALD.R
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 WALD <- function (mu.link="log", sigma.link="log"){

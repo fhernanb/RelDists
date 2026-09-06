@@ -35,7 +35,6 @@
 #' 
 #' @example examples/examples_BS11.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 BS11 <- function(mu.link = "log", sigma.link = "log"){

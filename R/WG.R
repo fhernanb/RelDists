@@ -29,7 +29,6 @@
 #' The Weibull-geometric distribution. Journal of Statistical 
 #' Computation and Simulation, 81(5), 645-657.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 WG <- function (mu.link = "log", sigma.link = "log", nu.link = "logit") {

@@ -35,7 +35,6 @@
 #' with Formulas, Graphs, and Mathematical Tables. Dover Publications, 
 #' New York. ISBN 0486612724. Chapter 6: Gamma and Related Functions.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GAo <- function(mu.link = "log", sigma.link = "log"){

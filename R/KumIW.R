@@ -32,7 +32,6 @@
 #' The Kumaraswamy Inverse Weibull Distribution. 
 #' Pakistan journal of statistics and operation research, 479-489.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 KumIW <- function (mu.link="log", sigma.link="log", nu.link="log"){

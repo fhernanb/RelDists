@@ -35,7 +35,6 @@ Encoding: UTF-8
 RdMacros: Rdpack
 Imports:
     gamlss,
-    gamlss.dist,
     Rdpack,
     zipfR,
     BBmisc,

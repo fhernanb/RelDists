@@ -32,7 +32,6 @@
 #' and associated inference. Computational Statistics & Data 
 #' Analysis, 64, 20-33.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 PL <- function (mu.link="log", sigma.link="log") {

@@ -35,7 +35,6 @@
 #' to single acceptance sampling plan and scenarios of increasing hazard 
 #' rates" Symmetry 15.10 (2023): 188.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 CJ2 <- function (mu.link="log", sigma.link="log") {

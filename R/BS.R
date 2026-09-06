@@ -42,7 +42,6 @@
 #' gamlss package. Semina: Ciencias Exatas e Tecnologicas, 
 #' 42(2), 163-168.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 BS <- function(mu.link = "log", sigma.link = "log"){

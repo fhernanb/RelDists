@@ -32,7 +32,6 @@
 #' Distributions With An Application to Engineering Data." 
 #' Pakistan Journal of Statistics and Operation Research 20.2 (2024): 217-231.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @importFrom stats dnorm pnorm
 #' @export

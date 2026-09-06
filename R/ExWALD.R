@@ -43,7 +43,6 @@
 #'
 #' @example examples/examples_ExWALD.R
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 ExWALD <- function(mu.link="log", 

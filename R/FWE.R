@@ -20,7 +20,6 @@
 #' 
 #' @example examples/examples_FWE.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 FWE <- function (mu.link="log", sigma.link="log") {

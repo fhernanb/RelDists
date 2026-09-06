@@ -30,7 +30,6 @@
 #' Cohen, A. C. (1973). The reflected Weibull distribution. 
 #' Technometrics, 15(4), 867-873.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 RW <- function (mu.link="log", sigma.link="log") {

@@ -35,7 +35,6 @@
 #' Weibull extension distribution. 
 #' Reliability Engineering & System Safety, 112, 137-144.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EMWEx <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log"){

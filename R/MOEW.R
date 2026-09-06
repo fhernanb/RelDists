@@ -32,7 +32,6 @@
 #' Marshall–Olkin extended Weibull distribution and its application 
 #' to censored data. Journal of Applied Statistics, 32(10), 1025-1034.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 MOEW <- function (mu.link="log", sigma.link="log", nu.link="log") {

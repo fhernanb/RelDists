@@ -83,7 +83,6 @@
 #' A New Generalized Two Parameter Lindley Distribution.
 #' Journal of the Nigerian Statistical Association, 30, 547-566.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GLIN <- function(mu.link="log", sigma.link="log") {
@@ -204,7 +203,6 @@ GLIN <- function(mu.link="log", sigma.link="log") {
 #' @importFrom stats optim
 #' @export
 estim_mu_sigma_GLIN <- function(y) {
-  
   mod <- optim(
     par     = c(0,0),
     fn      = logLik_GLIN,
@@ -231,7 +229,7 @@ estim_mu_sigma_GLIN <- function(y) {
 #'
 #' @importFrom stats optim
 #' @export
-logLik_GLIN <- function(param=c(0,0), x) {
+logLik_GLIN <- function(param=c(0, 0), x) {
   sum(
     dGLIN(
       x,

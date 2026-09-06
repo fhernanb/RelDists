@@ -18,6 +18,11 @@ library(gamlss)
 #> 
 #>     sleep
 #> Loading required package: gamlss.dist
+#> 
+#> Attaching package: 'gamlss.dist'
+#> The following objects are masked from 'package:RelDists':
+#> 
+#>     checklink, make.link.gamlss
 #> Loading required package: nlme
 #> Loading required package: parallel
 #>  **********   GAMLSS Version 5.5-0  **********

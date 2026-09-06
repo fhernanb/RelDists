@@ -31,7 +31,6 @@
 #' On an extension of the exponential-geometric distribution. 
 #' Statistics & probability letters, 73(3), 259-269.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 EEG <- function (mu.link="log", sigma.link="log"){

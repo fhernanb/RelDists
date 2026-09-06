@@ -31,7 +31,6 @@
 #' Stacy, E. W. (1962). A generalization of the gamma 
 #' distribution. The Annals of mathematical statistics, 1187-1192.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 GammaW <- function (mu.link="log", sigma.link="log", nu.link="log") 

@@ -34,7 +34,6 @@
 #' application to lifetime data. Journal of statistical 
 #' computation and simulation, 81(7), 827-842.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @importFrom stats pgamma
 #' @importFrom VGAM pgamma.deriv

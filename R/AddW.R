@@ -34,7 +34,6 @@
 #' Reliability Engineering & System Safety, 52(1), 87-93.
 #'
 #' @importFrom Rdpack reprompt
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 AddW <- function (mu.link="log", sigma.link="log", nu.link="log", tau.link="log") {

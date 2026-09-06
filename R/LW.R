@@ -30,7 +30,6 @@
 #' Gumbel, E. J. (1958). Statistics of extremes. 
 #' Columbia university press.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 LW <- function (mu.link="identity", sigma.link="log") {

@@ -32,7 +32,6 @@
 #' extended Weibull distribution. Communications in 
 #' Statistics—Simulation and Computation, 36(3), 579-592.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 ExW <- function (mu.link="log", sigma.link="log", nu.link="log") {

@@ -31,7 +31,6 @@
 #' unknown or just forgotten?. Quality and reliability engineering 
 #' international, 9(4), 383-385.
 #'
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 IW <- function (mu.link="log", sigma.link="log"){

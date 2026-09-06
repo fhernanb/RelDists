@@ -31,7 +31,6 @@
 #' Sarhan, A. M., & Zaindin, M. (2009). 
 #' Modified Weibull distribution. APPS. Applied Sciences, 11, 123-136.
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 SZMW <- function (mu.link="log", sigma.link="log", nu.link="log") {

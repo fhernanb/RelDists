@@ -59,7 +59,6 @@
 #' 
 #' @example examples/examples_BS8.R
 #' 
-#' @importFrom gamlss.dist checklink
 #' @importFrom gamlss rqres.plot
 #' @export
 BS8 <- function(mu.link = "log", sigma.link = "log") {
