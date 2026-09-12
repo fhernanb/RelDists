@@ -68,51 +68,76 @@ David Villegas Ceballos, <david.villegas1@udea.edu.co>
 # known mu and sigma
 
 set.seed(12345)
-y <- rBS8(n=100, mu=2, sigma=10)
+y <- rBS8(n=10, mu=1.1, sigma=10)
 
 # Fitting the model using default link function
 require(gamlss)
 mod1 <- gamlss(y~1, sigma.fo=~1, family=BS8,
                control=gamlss.control(n.cyc=1000))
-#> GAMLSS-RS iteration 1: Global Deviance = 444.115 
-#> GAMLSS-RS iteration 2: Global Deviance = 443.9331 
-#> GAMLSS-RS iteration 3: Global Deviance = 443.8642 
-#> GAMLSS-RS iteration 4: Global Deviance = 443.8386 
-#> GAMLSS-RS iteration 5: Global Deviance = 443.8286 
-#> GAMLSS-RS iteration 6: Global Deviance = 443.8247 
-#> GAMLSS-RS iteration 7: Global Deviance = 443.8234 
-#> GAMLSS-RS iteration 8: Global Deviance = 443.8227 
+#> GAMLSS-RS iteration 1: Global Deviance = 50.8552 
+#> GAMLSS-RS iteration 2: Global Deviance = 50.8413 
+#> GAMLSS-RS iteration 3: Global Deviance = 50.8295 
+#> GAMLSS-RS iteration 4: Global Deviance = 50.8196 
+#> GAMLSS-RS iteration 5: Global Deviance = 50.8113 
+#> GAMLSS-RS iteration 6: Global Deviance = 50.8044 
+#> GAMLSS-RS iteration 7: Global Deviance = 50.7986 
+#> GAMLSS-RS iteration 8: Global Deviance = 50.7938 
+#> GAMLSS-RS iteration 9: Global Deviance = 50.7899 
+#> GAMLSS-RS iteration 10: Global Deviance = 50.7866 
+#> GAMLSS-RS iteration 11: Global Deviance = 50.7839 
+#> GAMLSS-RS iteration 12: Global Deviance = 50.7817 
+#> GAMLSS-RS iteration 13: Global Deviance = 50.7794 
+#> GAMLSS-RS iteration 14: Global Deviance = 50.7776 
+#> GAMLSS-RS iteration 15: Global Deviance = 50.7762 
+#> GAMLSS-RS iteration 16: Global Deviance = 50.7751 
+#> GAMLSS-RS iteration 17: Global Deviance = 50.7742 
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    2.154669 
+#>    1.080822 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    12.18536 
+#>    10.56283 
 
-# Fitting the model using a own link function
+# Fitting again the model using our own link function.
+# As mu > 1, we can use
+#     link function:    g(mu) = log(mu - 1)
+# inv link function: g-1(eta) = exp(eta) + 1
 
-# 1. Extract the built-in "logshiftto1" link structure
+# The following function "log_1_to_inf" is defined with the informatio
+# of the link and inv link functions:
+
 if (FALSE) { # \dontrun{
-require(gamlss.dist)
-logshift_link <- make.link.gamlss("logshiftto1")
 
-# 2. Assign its components to the 'own' functions gamlss searches for
-own.linkfun  <- logshift_link$linkfun
-own.linkinv  <- logshift_link$linkinv
-own.mu.eta   <- logshift_link$mu.eta
-own.valideta <- logshift_link$valideta
+log_1_to_inf <- function() {
+  linkfun <- function(mu) { log(mu - 1) }
+  linkinv <- function(eta) { 
+    thresh <- log(.Machine$double.xmax)
+    eta <- pmin(thresh, pmax(eta, -700))
+    1 + exp(eta) 
+  }
+  mu.eta <- function(eta) { 
+    thresh <- log(.Machine$double.xmax)
+    eta <- pmin(thresh, pmax(eta, -700))
+    pmax(exp(eta), .Machine$double.eps)
+  }
+  valideta <- function(eta) { TRUE }
+  link <- "log_1_to_inf"
+  structure(list(linkfun = linkfun, linkinv = linkinv, mu.eta = mu.eta,
+                 valideta = valideta, name = link), class = "link-gamlss")
+}
 
-mod99 <- gamlss(y~1, sigma.fo=~1, family=BS8(mu.link = "own"),
+mod99 <- gamlss(y~1, sigma.fo=~1, 
+                family=BS8(mu.link = log_1_to_inf()),
                 control=gamlss.control(n.cyc=1000))
 
 # Extracting the fitted values for mu and sigma
 # using the inverse link function
-own.linkinv(coef(mod99, what="mu"))
-exp(coef(mod00, what="sigma"))
-} # }
+exp(coef(mod99, what="mu")) + 1
+exp(coef(mod99, what="sigma"))
+
 
 # Example 2
 # Generating random values for a regression model
@@ -121,8 +146,8 @@ exp(coef(mod00, what="sigma"))
 gendat <- function(n) {
   x1 <- runif(n)
   x2 <- runif(n)
-  mu <- exp(1.6 - 1.4 * x1)     # Aprox 2.45 with link log(mu)
-  sigma <- exp(1.6 + 1.5 * x2)  # Aprox 10
+  mu <- exp(1.6 - 2.4 * x1) + 1  # Aprox 2.45 with link function log(mu - 1)
+  sigma <- exp(1.6 + 1.5 * x2)   # Aprox 10 with link function log(sigma)
   y <- rBS8(n=n, mu=mu, sigma=sigma)
   data.frame(y=y, x1=x1, x2=x2)
 }
@@ -131,57 +156,11 @@ set.seed(1234)
 dat <- gendat(n=400)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, 
-               family=BS8, data=dat,
+               family=BS8(mu.link = log_1_to_inf()), 
+               data=dat,
                control=gamlss.control(n.cyc=100))
-#> GAMLSS-RS iteration 1: Global Deviance = 1605.362 
-#> GAMLSS-RS iteration 2: Global Deviance = 1604.067 
-#> GAMLSS-RS iteration 3: Global Deviance = 1603.501 
-#> GAMLSS-RS iteration 4: Global Deviance = 1603.259 
-#> GAMLSS-RS iteration 5: Global Deviance = 1603.156 
-#> GAMLSS-RS iteration 6: Global Deviance = 1603.112 
-#> GAMLSS-RS iteration 7: Global Deviance = 1603.093 
-#> GAMLSS-RS iteration 8: Global Deviance = 1603.084 
-#> GAMLSS-RS iteration 9: Global Deviance = 1603.08 
-#> GAMLSS-RS iteration 10: Global Deviance = 1603.079 
-#> GAMLSS-RS iteration 11: Global Deviance = 1603.078 
 
 summary(mod2)
-#> Warning: summary: vcov has failed, option qr is used instead
-#> ******************************************************************
-#> Family:  c("BS8", "Birnbaum-Saunders - Seventh parameterization") 
-#> 
-#> Call:  
-#> gamlss(formula = y ~ x1, sigma.formula = ~x2, family = BS8, data = dat,  
-#>     control = gamlss.control(n.cyc = 100)) 
-#> 
-#> Fitting method: RS() 
-#> 
-#> ------------------------------------------------------------------
-#> Mu link function:  log
-#> Mu Coefficients:
-#>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)  1.63427    0.06026   27.12   <2e-16 ***
-#> x1          -1.40909    0.07351  -19.17   <2e-16 ***
-#> ---
-#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-#> 
-#> ------------------------------------------------------------------
-#> Sigma link function:  log
-#> Sigma Coefficients:
-#>             Estimate Std. Error t value Pr(>|t|)    
-#> (Intercept)   1.7446     0.1540  11.326  < 2e-16 ***
-#> x2            1.2384     0.2816   4.398  1.4e-05 ***
-#> ---
-#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-#> 
-#> ------------------------------------------------------------------
-#> No. of observations in the fit:  400 
-#> Degrees of Freedom for the fit:  4
-#>       Residual Deg. of Freedom:  396 
-#>                       at cycle:  11 
-#>  
-#> Global Deviance:     1603.078 
-#>             AIC:     1611.078 
-#>             SBC:     1627.044 
-#> ******************************************************************
+
+} # }
 ```
