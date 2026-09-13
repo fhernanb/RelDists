@@ -50,7 +50,7 @@
 #' \right)
 #' }
 #' 
-#' for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}. In this parameterization, 
+#' for \eqn{x>0}, \eqn{\mu>1} and \eqn{\sigma>0}. In this parameterization, 
 #' \eqn{E(X) = \frac{[2\mu+3]\sqrt{\sigma}}{\sqrt{20\mu(\mu-1)}}} and 
 #' \eqn{Var(X) = \sigma}.
 #' 

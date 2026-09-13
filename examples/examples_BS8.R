@@ -52,7 +52,6 @@ mod99 <- gamlss(y~1, sigma.fo=~1,
 exp(coef(mod99, what="mu")) + 1
 exp(coef(mod99, what="sigma"))
 
-
 # Example 2
 # Generating random values for a regression model
 

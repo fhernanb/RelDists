@@ -67,7 +67,7 @@ by
 \frac{2x\sqrt{\mu(\mu-1)}}{\sqrt{5\sigma}} + \frac{\sqrt{5\sigma}}
 {2+\sqrt{\mu(\mu-1)}} -2 \right\] \right) \\
 
-for \\x\>0\\, \\\mu\>0\\ and \\\sigma\>0\\. In this parameterization,
+for \\x\>0\\, \\\mu\>1\\ and \\\sigma\>0\\. In this parameterization,
 \\E(X) = \frac{\[2\mu+3\]\sqrt{\sigma}}{\sqrt{20\mu(\mu-1)}}\\ and
 \\Var(X) = \sigma\\.
 

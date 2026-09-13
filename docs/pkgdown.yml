@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   FWE_distribution: FWE_distribution.html
   OW_distribution: OW_distribution.html
-last_built: 2026-09-12T23:45Z
+last_built: 2026-09-13T16:32Z
 urls:
   reference: http://fhernanb.github.io/RelDists/reference
   article: http://fhernanb.github.io/RelDists/articles
