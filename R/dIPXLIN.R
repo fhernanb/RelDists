@@ -43,21 +43,43 @@
 #' 
 #' @export
 dIPXLIN <- function(x, mu=1, sigma=1, log=FALSE){ #mu = eta (escala)  y  sigma = forma
-  if (any(mu <= 0)) stop(paste("mu must be positive", "\n", ""))
-  if (any(sigma <= 0))  stop(paste("sigma must be positive", "\n", ""))
+
+  # Ensure same length vector
+  ly    <- max(length(x), length(mu), length(sigma))
+  xx    <- rep(x, length=ly)
+  mu    <- rep(mu, length=ly)
+  sigma <- rep(sigma, length=ly)
   
-  log_dens <- ifelse(
-    x <= 0,
-    -Inf,
-    log(sigma) + 2*log(mu) - 2*log(1+mu) +
-      (-2*sigma - 1)*log(x) +
-      log(1 + (2+mu)*x^sigma) -
-      mu*x^(-sigma)
-  )
+  # Temporal change for invalid x's
+  xx[x <= 0] <- 0.5
+  xx[is.infinite(x)] <- 0.5
   
-  if (log) return(log_dens)
-  res <- exp(log_dens)
-  return(res)
+  # Temporal change for invalid mu or sigma values
+  invalid_param_values <- mu <= 0 | sigma <= 0
+  mu[invalid_param_values]    <- 1 # Temporal change
+  sigma[invalid_param_values] <- 1 # Temporal change
+  
+  # pdf in log-scale
+  p <- log(sigma) + 2*log(mu) - 2*log(1+mu) +
+    (-2*sigma - 1)*log(xx) +
+    log(1 + (2+mu)*xx^sigma) -
+    mu*xx^(-sigma)
+  
+  # Assing NaN for invalid mu or sigma
+  p[invalid_param_values] <- NaN
+  
+  if (any(is.nan(p))) {
+    warning("NaNs produced")
+  }
+  
+  # Assign values for invalid x's
+  p[x <= 0] <- -Inf
+  p[is.infinite(x)] <- -Inf
+  
+  if (log == FALSE)
+    p <- exp(p)
+  
+  return(p)
 }
 #' @export
 #' @importFrom stats integrate

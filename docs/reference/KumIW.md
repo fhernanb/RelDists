@@ -76,13 +76,13 @@ mod <- gamlss(y~1, sigma.fo=~1, nu.fo=~1, family="KumIW",
 # using the inverse link function
 exp(coef(mod, what="mu"))
 #> (Intercept) 
-#>    1.475102 
+#>   0.9561174 
 exp(coef(mod, what="sigma"))
 #> (Intercept) 
-#>   0.9123939 
+#>    1.613571 
 exp(coef(mod, what="nu"))
 #> (Intercept) 
-#>    2.423832 
+#>     5.38061 
 
 # Example 2
 # Generating random values under some model
@@ -99,11 +99,11 @@ mod <- gamlss(x~x1, sigma.fo=~x2, nu.fo=~1, family=KumIW,
 
 coef(mod, what="mu")
 #> (Intercept)          x1 
-#>  -0.2991252   1.1169063 
+#>   0.8042924  -1.1966857 
 coef(mod, what="sigma")
 #> (Intercept)          x2 
-#>   0.9183936  -1.3673258 
+#>   0.4547445  -0.6141875 
 exp(coef(mod, what="nu"))
 #> (Intercept) 
-#>    3.441314 
+#>    2.840245 
 ```

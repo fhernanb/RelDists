@@ -107,7 +107,7 @@
   The Gamma Weibull family
 
 - [`IPXLIN()`](http://fhernanb.github.io/RelDists/reference/IPXLIN.md) :
-  IPXLIN
+  The Inverse Power XLindley family - Hassan et al. (2025)
 
 - [`IW()`](http://fhernanb.github.io/RelDists/reference/IW.md) : The
   Inverse Weibull family

@@ -2,21 +2,73 @@
 % Please edit documentation in R/IPXLIN.R
 \name{IPXLIN}
 \alias{IPXLIN}
-\title{IPXLIN}
+\title{The Inverse Power XLindley family - Hassan et al. (2025)}
 \usage{
-IPXLIN(x, y)
+IPXLIN(mu.link = "log", sigma.link = "log")
 }
 \arguments{
-\item{x}{A number.}
+\item{mu.link}{defines the mu.link, with "logit" link as the default for the mu parameter.}
 
-\item{y}{A number.}
+\item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma parameter.}
 }
 \value{
-The sum of \code{x} and \code{y}.
+Returns a gamlss.family object which can be used to fit a
+IPXLIN distribution in the \code{gamlss()} function.
 }
 \description{
-Esta funcion sirve para obtener la suma de dos numeros reales.
+The Inverse Power XLindley family
+}
+\details{
+The Inverse Power XLindley distribution with parameters \code{mu},
+and \code{sigma} has density given by
+
+\eqn{f(x|\mu,\sigma) = \frac{\sigma \mu^2}{(1+\mu)^2} x^{-2\sigma-1} \left(1 + (2+\mu) x^\sigma\right) e^{-\mu x^{-\sigma}}}
+
+for \eqn{x>0}, \eqn{\mu>0} and \eqn{\sigma>0}. In this parameterization, 
+\eqn{\mu} is the scale parameter and \eqn{\sigma} is the shape parameter.
 }
 \examples{
-mean(c(4, 6, 8, 9, 2))
+# Example 1
+# Generating some random values with
+# known mu and sigma
+y <- rIPXLIN(n=500, mu=0.5, sigma=3.5)
+
+# Fitting the model
+require(gamlss)
+mod1 <- gamlss(y~1, sigma.fo=~1, family=IPXLIN)
+
+# Extracting the fitted values for mu and sigma
+# using the inverse link function
+exp(coef(mod1, what="mu"))
+exp(coef(mod1, what="sigma"))
+
+# Example 2
+# Generating random values for a regression model
+
+# A function to simulate a data set with Y as BS
+gendat <- function(n) {
+  x1 <- runif(n)
+  x2 <- runif(n)
+  mu <- exp(1.45 - 3 * x1)
+  sigma <- exp(2 - 1.5 * x2)
+  y <- rIPXLIN(n=n, mu=mu, sigma=sigma)
+  data.frame(y=y, x1=x1, x2=x2)
+}
+
+set.seed(123)
+dat <- gendat(n=300)
+
+mod2 <- gamlss(y~x1, sigma.fo=~x2, 
+               family=IPXLIN, data=dat)
+
+summary(mod2)
+}
+\references{
+Hassan, A. S., Alsadat, N., Chesneau, C., Elgarhy, M., Kayid, M., 
+Nasiru, S., & Gemeay, A. M. (2025). Inverse power XLindley 
+distribution with statistical inference and applications to 
+engineering data. Scientific Reports, 15, 4385.
+}
+\seealso{
+\link{dIPXLIN}
 }
