@@ -280,6 +280,12 @@
   Birnbaum-Saunders distribution - Santos-Neto et al. (2012) (P7 based
   on the mean and a bounded variance)
 
+- [`dBTL()`](http://fhernanb.github.io/RelDists/reference/dBTL.md)
+  [`pBTL()`](http://fhernanb.github.io/RelDists/reference/dBTL.md)
+  [`qBTL()`](http://fhernanb.github.io/RelDists/reference/dBTL.md)
+  [`rBTL()`](http://fhernanb.github.io/RelDists/reference/dBTL.md) : The
+  Beta Transformed Lomax distribution
+
 - [`dCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
   [`pCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
   [`qCJ2()`](http://fhernanb.github.io/RelDists/reference/dCJ2.md)
