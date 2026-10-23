@@ -21,7 +21,7 @@
 #' Kottakkunnan, F. A New Generalization of Lomax Distribution: Estimation and Modelling for Medical Data.
 #' J Stat Theory Appl 25, 19 (2026). https://doi.org/10.1007/s44199-026-00171-0
 #'
-#' @seealso \link{BS}.
+#' @seealso \link{BTL}.
 #'
 #' @details
 #' The Beta Transformed Lomax distribution with parameters \code{mu},
