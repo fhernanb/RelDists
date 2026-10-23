@@ -80,7 +80,7 @@ https://doi.org/10.1007/s44199-026-00171-0
 
 ## See also
 
-[BS](http://fhernanb.github.io/RelDists/reference/BS.md).
+[BTL](http://fhernanb.github.io/RelDists/reference/BTL.md).
 
 ## Author
 

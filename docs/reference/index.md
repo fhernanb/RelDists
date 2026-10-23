@@ -55,6 +55,9 @@
   Birnbaum-Saunders family - Santos-Neto et al. (2012) (P7 based on the
   mean and a bounded variance)
 
+- [`BTL()`](http://fhernanb.github.io/RelDists/reference/BTL.md) : The
+  Beta Transformed Lomax distribution
+
 - [`CJ2()`](http://fhernanb.github.io/RelDists/reference/CJ2.md) : The
   two-parameter Chris-Jerry distribution family
 
