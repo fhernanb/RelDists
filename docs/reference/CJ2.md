@@ -67,23 +67,26 @@ require(gamlss)
 
 mod1 <- gamlss(y~1, sigma.fo=~1, family=CJ2,
                control=gamlss.control(n.cyc=5000, trace=TRUE))
-#> GAMLSS-RS iteration 1: Global Deviance = 1668.507 
-#> GAMLSS-RS iteration 2: Global Deviance = 1667.674 
-#> GAMLSS-RS iteration 3: Global Deviance = 1667.429 
-#> GAMLSS-RS iteration 4: Global Deviance = 1667.353 
-#> GAMLSS-RS iteration 5: Global Deviance = 1667.328 
-#> GAMLSS-RS iteration 6: Global Deviance = 1667.32 
-#> GAMLSS-RS iteration 7: Global Deviance = 1667.317 
-#> GAMLSS-RS iteration 8: Global Deviance = 1667.316 
+#> GAMLSS-RS iteration 1: Global Deviance = 1749.625 
+#> GAMLSS-RS iteration 2: Global Deviance = 1746.698 
+#> GAMLSS-RS iteration 3: Global Deviance = 1745.752 
+#> GAMLSS-RS iteration 4: Global Deviance = 1745.408 
+#> GAMLSS-RS iteration 5: Global Deviance = 1745.274 
+#> GAMLSS-RS iteration 6: Global Deviance = 1745.22 
+#> GAMLSS-RS iteration 7: Global Deviance = 1745.198 
+#> GAMLSS-RS iteration 8: Global Deviance = 1745.188 
+#> GAMLSS-RS iteration 9: Global Deviance = 1745.184 
+#> GAMLSS-RS iteration 10: Global Deviance = 1745.182 
+#> GAMLSS-RS iteration 11: Global Deviance = 1745.182 
 
 # Extracting the fitted values for mu, sigma
 # using the inverse link function
 exp(coef(mod1, what="mu"))
 #> (Intercept) 
-#>    1.075049 
+#>   0.9630118 
 exp(coef(mod1, what="sigma"))
 #> (Intercept) 
-#>    1.353222 
+#>    1.843878 
 
 # Example 2
 # Generating random values under some model
