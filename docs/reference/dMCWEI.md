@@ -7,7 +7,7 @@ distribution with parameters `mu`, `sigma` and `nu`.
 ## Usage
 
 ``` r
-dMCWEI(x, mu = 2.2, sigma = 1.2, nu = 0.5, log = TRUE)
+dMCWEI(x, mu = 2.2, sigma = 1.2, nu = 0.5, log = FALSE)
 
 pMCWEI(q, mu = 2.2, sigma = 1.2, nu = 0.5, lower.tail = TRUE, log.p = FALSE)
 
@@ -65,12 +65,12 @@ random deviates and `hMCWEI` gives the hazard function.
 The Modified Cosine-Weibull with parameters `mu`, `sigma` and `nu` has
 density given by
 
-\\ f(x \| \mu, \sigma ,\nu) = \frac{\pi \mu \sigma \nu x^{\mu -1}
+\\ f(x \| \mu, \sigma ,\nu)=\frac{\pi \mu \sigma \nu x^{\mu -1}
 e^{-\sigma x^{\mu}} \cos(\frac{\pi}{2} e^{-\sigma
 x^{\mu}})\sin(\frac{\pi}{2} e^{-\sigma x^{\mu}})}{e^{\nu} -1} \cdot
 e^{\nu \left( 1- \cos^2(\frac{\pi}{2} e^{-\sigma x^{\mu}}) \right) } \\
 
-for \\x\ge 0\\, \\\mu\>0\\, \\\sigma\>0\\ and \\\nu \neq 0\\.
+for \\x \> 0\\, \\\mu\>0\\, \\\sigma\>0\\ and \\\nu \neq 0\\.
 
 ## References
 
@@ -81,7 +81,7 @@ industry. Alexandria Engineering Journal, 116, 660-671.
 
 ## See also
 
-[BS](http://fhernanb.github.io/RelDists/reference/BS.md).
+[MCWEI](http://fhernanb.github.io/RelDists/reference/MCWEI.md).
 
 ## Author
 
@@ -92,22 +92,21 @@ Juan Andres Henao Arias, <juhenaoar@unal.edu.co>
 ``` r
 
 # Example 1: Plotting the density function (dMCWEI) for different values.
-mu_ <- c(2.8, 4.4)
-sigma_ <- c( 0.1, 0.01)
-nu_ <- c( 0.1, 0.01)
-X_ <- seq(0.0001, 5, length=350)
-
-curve(dMCWEI(x, log = FALSE), type = "l", col= "royalblue", lwd=2.5,
-     from = 0.001, to = 5, ylim=c(0,3), xlim = c(0,4), 
+curve(dMCWEI(x, mu=2.2, sigma=1.2, nu=0.5), 
+      col= "red", lwd=2.5,
+     from = 0.001, to = 5, ylim=c(0, 3), xlim = c(0, 4), 
      xlab = "x", ylab = "f(x)")
 title("Density Function")
 
-colors <- c("red", "green")
+mu_ <- c(2.8, 4.4)
+sigma_ <- c(0.1, 0.01)
+nu_ <- c(0.1, 0.01)
+colors <- c("black", "blue")
 
 for(k in seq(1, 2)) {
   curve(
-    dMCWEI(x, mu=mu_[k], sigma=sigma_[k], nu = nu_[k], log = FALSE ),
-    type = "l", col = colors[k], lwd=2, lty = 3, 
+    dMCWEI(x, mu=mu_[k], sigma=sigma_[k], nu = nu_[k]),
+    col = colors[k], lwd=2,  
     from = 0.001, to=5, add = TRUE)
 }
 
@@ -118,8 +117,7 @@ legend("topright",
          expression(mu==4.4 ~ sigma==0.01 ~ nu==0.01)
        ),
        lwd=2,
-       col=c("royalblue",colors),
-       lty = c(1,3,3),
+       col=c("red", colors),
        bty="n")
 
 
@@ -127,11 +125,12 @@ legend("topright",
 # (pMCWEI) for differente values.
 
 parameters <- data.frame(
-  mu=c(0.5, 1.5, 2.5),
-  sigma=c(1,0.5,1.2),
-  nu=c(0.8,1,1.5))
+  mu=c(2.2, 2.8, 4.4),
+  sigma=c(1.2, 0.1, 0.01),
+  nu=c(0.5, 0.1, 0.01))
 
-colors <- c("royalblue", "red", "green")
+colors <- c("red", "black", "blue")
+
 curve(pMCWEI(x, mu=parameters$mu[1], 
              sigma = parameters$sigma[1], 
              nu = parameters$nu[1]),
@@ -145,7 +144,7 @@ curve(pMCWEI(x,
              mu=parameters$mu[k], 
              sigma = parameters$sigma[k], 
              nu = parameters$nu[k]),
-      lwd=2, col=colors[k], add = TRUE, lty=3)
+      lwd=2, col=colors[k], add = TRUE)
   
 }
 
@@ -155,8 +154,8 @@ legend(
     expression(mu==0.5 ~" "  ~sigma==1 ~ " " ~ nu==0.8),
     expression(mu==1.5 ~" " ~  sigma==0.5 ~  " " ~ nu==1.0),
     expression(mu==2.5 ~" "~ sigma==1.2 ~ " "~nu==1.5)
-  ),
-  lwd = 2, lty = c(1,3,3), bty="n")
+  ), 
+  lwd = 2, bty="n", col = colors)
 
 
 

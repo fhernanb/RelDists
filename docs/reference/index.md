@@ -124,6 +124,9 @@
 - [`LW()`](http://fhernanb.github.io/RelDists/reference/LW.md) : The
   Log-Weibull family
 
+- [`MCWEI()`](http://fhernanb.github.io/RelDists/reference/MCWEI.md) :
+  The Modified Cosine-Weibull family.
+
 - [`MOEIW()`](http://fhernanb.github.io/RelDists/reference/MOEIW.md) :
   The Marshall-Olkin Extended Inverse Weibull family
 
@@ -566,11 +569,17 @@
 - [`estim_mu_sigma_GLIN()`](http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GLIN.md)
   : estim_mu_sigma_GLIN
 
+- [`estim_mu_sigma_nu_MCWEI()`](http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_nu_MCWEI.md)
+  : estim_mu_sigma_nu_MCWEI
+
 - [`initValuesOW()`](http://fhernanb.github.io/RelDists/reference/initValuesOW.md)
   : Initial values and search region for Odd Weibull distribution
 
 - [`logLik_GLIN()`](http://fhernanb.github.io/RelDists/reference/logLik_GLIN.md)
   : logLik_GLIN
+
+- [`logLik_MCWEI()`](http://fhernanb.github.io/RelDists/reference/logLik_MCWEI.md)
+  : logLik_MCWEI
 
 - [`make.link.gamlss()`](http://fhernanb.github.io/RelDists/reference/make.link.gamlss.md)
   : Create a Link for GAMLSS families

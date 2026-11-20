@@ -24,15 +24,15 @@
 #' exploration using the reliability and lifespan data in fashion 
 #' industry. Alexandria Engineering Journal, 116, 660-671.
 #' 
-#' @seealso \link{BS}.
+#' @seealso \link{MCWEI}.
 #' 
 #' @details 
 #' The Modified Cosine-Weibull with parameters \code{mu}, \code{sigma} and \code{nu}
 #' has density given by
 #' 
-#' \eqn{  f(x | \mu, \sigma ,\nu) = \frac{\pi \mu \sigma \nu x^{\mu -1} e^{-\sigma x^{\mu}} \cos(\frac{\pi}{2} e^{-\sigma x^{\mu}})\sin(\frac{\pi}{2} e^{-\sigma x^{\mu}})}{e^{\nu} -1} \cdot e^{\nu \left( 1- \cos^2(\frac{\pi}{2} e^{-\sigma x^{\mu}}) \right) }    }
+#' \eqn{  f(x | \mu, \sigma ,\nu)=\frac{\pi \mu \sigma \nu x^{\mu -1} e^{-\sigma x^{\mu}} \cos(\frac{\pi}{2} e^{-\sigma x^{\mu}})\sin(\frac{\pi}{2} e^{-\sigma x^{\mu}})}{e^{\nu} -1} \cdot e^{\nu \left( 1- \cos^2(\frac{\pi}{2} e^{-\sigma x^{\mu}}) \right) }    }
 #' 
-#' for \eqn{x\ge 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{\nu \neq 0}.
+#' for \eqn{x > 0}, \eqn{\mu>0}, \eqn{\sigma>0} and \eqn{\nu \neq 0}.
 #' 
 #' @return 
 #' \code{dMCWEI} gives the density, \code{pMCWEI} gives the cumulative distribution 
@@ -42,7 +42,7 @@
 #' @example examples/examples_dMCWEI.R
 #' 
 #' @export
-dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=TRUE) {
+dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=FALSE) {
   
   # Ensure same length vector
   ly    <- max(length(x), length(mu), length(sigma), length(nu))
@@ -62,11 +62,19 @@ dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=TRUE) {
   nu[invalid_param_values]    <- 1 # Temporal change
   
   # pdf in log-scale
-  k <- exp(-1*sigma*(xx^mu))
-  p1 <- log(pi)+log(mu)+log(sigma)+log(nu)+(mu-1)*log(xx)-sigma*xx^mu
-  p2 <- log(cos(pi*k*0.5)) + log(sin(pi*k*0.5))
-  p3 <- nu*(1- (cos(pi*k*0.5))^2) - log(exp(nu) - 1)
-  p <- p1 + p2 + p3
+  # k <- exp(-1*sigma*(xx^mu))
+  # p1 <- log(pi)+log(mu)+log(sigma)+log(nu)+(mu-1)*log(xx)-sigma*xx^mu
+  # p2 <- log(cos(pi*k*0.5)) + log(sin(pi*k*0.5))
+  # p3 <- nu*(1- (cos(pi*k*0.5))^2) - log(exp(nu) - 1)
+  # p <- p1 + p2 + p3
+  
+  u <- exp(-sigma * (xx^mu))
+  ang <- (pi / 2) * u
+  num <- pi * mu * sigma * nu * (xx^(mu - 1)) * u * cos(ang) * sin(ang)
+  den <- exp(nu) - 1
+  factor_exp <- exp(nu * (1 - (cos(ang)^2)))
+  p <- (num / den) * factor_exp
+  p <- log(p)
   
   # Assign NaN for invalid mu, sigma or nu
   p[invalid_param_values] <- NaN
@@ -88,7 +96,7 @@ dMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5, log=TRUE) {
 #' @importFrom stats pnorm
 #' @rdname dMCWEI
 pMCWEI <- function(q, mu=2.2, sigma=1.2, nu=0.5, 
-                   lower.tail = TRUE, log.p = FALSE) {
+                   lower.tail=TRUE, log.p=FALSE) {
   
   # Ensure same length vector
   ly    <- max(length(q), length(mu), length(sigma), length(nu))
@@ -135,7 +143,7 @@ pMCWEI <- function(q, mu=2.2, sigma=1.2, nu=0.5,
 #' @export
 #' @rdname dMCWEI
 qMCWEI <- function(p, mu=2.2, sigma=1.2, nu=0.5, 
-                   lower.tail = TRUE, log.p = FALSE) {
+                   lower.tail=TRUE, log.p=FALSE) {
   
   # To adjust the probability
   if (log.p == TRUE)
@@ -184,18 +192,18 @@ qMCWEI <- function(p, mu=2.2, sigma=1.2, nu=0.5,
 #' @importFrom stats runif
 #' @export
 #' @rdname dMCWEI
-rMCWEI <- function(n, mu=2.2, sigma=1.2, nu = 0.5) {
+rMCWEI <- function(n, mu=2.2, sigma=1.2, nu=0.5) {
   if (any(n <= 0)) stop(paste("n must be a positive integer", "\n", ""))
   
   n <- ceiling(n)
   u <- runif(n=n)
-  x <- qMCWEI(p = u, mu = mu, sigma = sigma, nu = nu)
+  x <- qMCWEI(p=u, mu=mu, sigma=sigma, nu=nu)
   return(x)
 }
 #' @export
 #' @rdname dMCWEI
 hMCWEI <- function(x, mu=2.2, sigma=1.2, nu=0.5) {
-  a <- dMCWEI(x, mu=mu, sigma=sigma, nu=nu, log = FALSE)
-  b <- 1 - pMCWEI(x,mu=mu ,sigma = sigma , nu = nu, log.p = FALSE)
+  a <- dMCWEI(x, mu=mu, sigma=sigma, nu=nu, log=FALSE)
+  b <- 1 - pMCWEI(x, mu=mu, sigma=sigma, nu=nu, log.p=FALSE)
   a/b
 }

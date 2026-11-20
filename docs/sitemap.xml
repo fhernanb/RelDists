@@ -44,6 +44,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/KumIW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/LIN.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/LW.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/MCWEI.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/MOEIW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/MOEW.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/MOK.html</loc></url>
@@ -121,6 +122,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_GLIN.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_NEE.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/estim_mu_sigma_nu_MCWEI.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/exwstpt.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/fitexw.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/hGL2.html</loc></url>
@@ -130,6 +132,7 @@
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_CJ2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_GL2.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_GLIN.html</loc></url>
+<url><loc>http://fhernanb.github.io/RelDists/reference/logLik_MCWEI.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/logLik_NEE.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/make.link.gamlss.html</loc></url>
 <url><loc>http://fhernanb.github.io/RelDists/reference/mice.html</loc></url>

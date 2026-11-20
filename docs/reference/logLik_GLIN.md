@@ -24,5 +24,5 @@ logLik_GLIN(param = c(0, 0), x)
 ``` r
 y <- rGLIN(n = 100, mu = 3, sigma = 1.2)
 logLik_GLIN(param = c(0, 0), x = y)
-#> [1] -34.12475
+#> [1] -32.09316
 ```
