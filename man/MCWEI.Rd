@@ -11,7 +11,7 @@ MCWEI(mu.link = "log", sigma.link = "log", nu.link = "inverse")
 
 \item{sigma.link}{defines the sigma.link, with "log" link as the default for the sigma.}
 
-\item{nu.link}{defines the nu.link, with "sinhip" link as the default for the nu.}
+\item{nu.link}{defines the nu.link, with "inverse" link as the default for the nu.}
 }
 \value{
 Returns a gamlss.family object which can be used to fit a MCWEI distribution in the \code{gamlss()} function.
@@ -70,10 +70,10 @@ dat <- gendat(n=100)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1,
                family=MCWEI, data=dat,
-               control=gamlss.control(n.cyc=1000))
+               control=gamlss.control(n.cyc=1000, trace=FALSE))
 
 summary(mod2)
-1 / coef(mod2, what="nu")
+1 / coef(mod2, what="nu") # To check the estimation for nu
 
 # Example 3
 # The data represent fracture toughness (a measure of resistance to fracture, 

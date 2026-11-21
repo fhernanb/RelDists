@@ -38,10 +38,10 @@ dat <- gendat(n=100)
 
 mod2 <- gamlss(y~x1, sigma.fo=~x2, nu.fo=~1,
                family=MCWEI, data=dat,
-               control=gamlss.control(n.cyc=1000))
+               control=gamlss.control(n.cyc=1000, trace=FALSE))
 
 summary(mod2)
-1 / coef(mod2, what="nu")
+1 / coef(mod2, what="nu") # To check the estimation for nu
 
 # Example 3
 # The data represent fracture toughness (a measure of resistance to fracture, 
