@@ -7,7 +7,7 @@
 #'
 #' @param mu.link defines the mu.link, with "log" link as the default for the mu parameter.
 #' @param sigma.link defines the sigma.link, with "log" link as the default for the sigma.
-#' @param nu.link defines the nu.link, with "sinhip" link as the default for the nu.
+#' @param nu.link defines the nu.link, with "inverse" link as the default for the nu.
 #'
 #' @seealso \link{dMCWEI}
 #'
@@ -223,7 +223,7 @@ estim_mu_sigma_nu_MCWEI <- function(y) {
 #'
 #' This is an auxiliar function to obtain the logLik for MCWEI
 #'
-#' @param logparam vector with the values for mu, sigma and nu
+#' @param param vector with the values for mu, sigma and nu
 #' @param x vector with the data
 #' @examples
 #' y <- rMCWEI(n=100, mu=1, sigma=1, nu=1)

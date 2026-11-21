@@ -10,13 +10,13 @@ logLik_MCWEI(param = c(0, 0, 1), x)
 
 ## Arguments
 
+- param:
+
+  vector with the values for mu, sigma and nu
+
 - x:
 
   vector with the data
-
-- logparam:
-
-  vector with the values for mu, sigma and nu
 
 ## Examples
 

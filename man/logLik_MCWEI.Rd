@@ -7,9 +7,9 @@
 logLik_MCWEI(param = c(0, 0, 1), x)
 }
 \arguments{
-\item{x}{vector with the data}
+\item{param}{vector with the values for mu, sigma and nu}
 
-\item{logparam}{vector with the values for mu, sigma and nu}
+\item{x}{vector with the data}
 }
 \description{
 This is an auxiliar function to obtain the logLik for MCWEI
